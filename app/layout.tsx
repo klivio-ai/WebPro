@@ -6,23 +6,67 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "CleanPaws - Service Professionnel de Nettoyage Canin | Réservation en Ligne",
+  title: "Pattes Propres - Spa & Toilettage Canin Professionnel | Paris",
   description:
-    "Service professionnel de nettoyage pour chiens. Réservez votre créneau en ligne, tarifs transparents, produits naturels. Votre chien mérite le meilleur soin.",
-  keywords: "nettoyage chien, toilettage canin, bain chien, réservation en ligne, soins chien, Paris",
-  authors: [{ name: "CleanPaws" }],
+    "Spa et toilettage canin professionnel à Paris. Bain moussant, massage relaxant, soins naturels. Réservez en ligne votre créneau. Votre chien mérite le meilleur soin avec nos produits bio.",
+  keywords: "spa chien, toilettage canin, bain chien, massage chien, soins naturels chien, Paris, réservation en ligne, produits bio chien, coupe griffes chien",
+  authors: [{ name: "Pattes Propres" }],
+  creator: "Pattes Propres",
+  publisher: "Pattes Propres",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://pattespropres.fr'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: "CleanPaws - Service Professionnel de Nettoyage Canin",
+    title: "Pattes Propres - Spa & Toilettage Canin Professionnel | Paris",
     description:
-      "Réservez en ligne votre créneau de nettoyage pour chien. Service professionnel avec produits naturels.",
-    type: "website",
+      "Spa et toilettage canin professionnel à Paris. Bain moussant, massage relaxant, soins naturels. Réservez en ligne votre créneau.",
+    url: 'https://pattespropres.fr',
+    siteName: 'Pattes Propres',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Pattes Propres - Spa pour toutous',
+      },
+    ],
     locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pattes Propres - Spa & Toilettage Canin Professionnel',
+    description: 'Spa et toilettage canin professionnel à Paris. Bain moussant, massage relaxant, soins naturels.',
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
-    generator: 'v0.dev'
+  verification: {
+    google: 'your-google-verification-code',
+  },
+  category: 'Pet Services',
+  classification: 'Business',
+  other: {
+    'geo.region': 'FR-75',
+    'geo.placename': 'Paris',
+    'geo.position': '48.8566;2.3522',
+    'ICBM': '48.8566, 2.3522',
+  },
 }
 
 export default function RootLayout({

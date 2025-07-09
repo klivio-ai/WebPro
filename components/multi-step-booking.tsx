@@ -29,6 +29,17 @@ interface BookingData {
   firstVisit: boolean
 }
 
+interface BookingErrors {
+  name?: string
+  email?: string
+  phone?: string
+  dogName?: string
+  dogSize?: string
+  service?: string
+  preferredDate?: string
+  preferredTime?: string
+}
+
 export default function MultiStepBooking() {
   const [currentStep, setCurrentStep] = useState<BookingStep>(1)
   const [bookingData, setBookingData] = useState<BookingData>({
@@ -45,9 +56,9 @@ export default function MultiStepBooking() {
     firstVisit: false,
   })
 
-  const [errors, setErrors] = useState<Partial<BookingData>>({})
+  const [errors, setErrors] = useState<BookingErrors>({})
 
-  const availableSlots = {
+  const availableSlots: Record<string, string[]> = {
     "2024-12-13": ["09:00", "10:30", "14:00", "15:30"],
     "2024-12-14": ["09:00", "11:00", "13:30", "16:00"],
     "2024-12-15": ["10:00", "14:30", "16:30"],
@@ -85,13 +96,13 @@ export default function MultiStepBooking() {
   const updateBookingData = (field: keyof BookingData, value: string | boolean) => {
     setBookingData((prev) => ({ ...prev, [field]: value }))
     // Clear error when field is updated
-    if (errors[field]) {
-      setErrors((prev) => ({ ...prev, [field]: undefined }))
+    if (errors[field as keyof BookingErrors]) {
+      setErrors((prev) => ({ ...prev, [field as keyof BookingErrors]: undefined }))
     }
   }
 
   const validateStep = (step: BookingStep): boolean => {
-    const newErrors: Partial<BookingData> = {}
+    const newErrors: BookingErrors = {}
 
     switch (step) {
       case 1:

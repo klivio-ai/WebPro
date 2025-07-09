@@ -11,7 +11,7 @@ export default function BookingCalendar() {
   const [selectedTime, setSelectedTime] = useState<string>("")
 
   // Simulation des créneaux disponibles
-  const availableSlots = {
+  const availableSlots: Record<string, string[]> = {
     "2024-12-13": ["09:00", "10:30", "14:00", "15:30"],
     "2024-12-14": ["09:00", "11:00", "13:30", "16:00"],
     "2024-12-15": ["10:00", "14:30", "16:30"],
@@ -72,7 +72,7 @@ export default function BookingCalendar() {
                     variant="secondary"
                     className={`${selectedDate === date ? "bg-white/20 text-white" : "bg-orange-100 text-orange-700"}`}
                   >
-                    {availableSlots[date].length} créneaux libres
+                    {availableSlots[date]?.length || 0} créneaux libres
                   </Badge>
                 </Button>
               ))}
@@ -96,7 +96,7 @@ export default function BookingCalendar() {
           <CardContent className="pt-6">
             {selectedDate ? (
               <div className="grid grid-cols-2 gap-3">
-                {availableSlots[selectedDate].map((time) => (
+                {availableSlots[selectedDate]?.map((time) => (
                   <Button
                     key={time}
                     variant={selectedTime === time ? "default" : "outline"}

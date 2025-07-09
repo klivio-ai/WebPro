@@ -13,10 +13,12 @@ const MapSection = lazy(() => import("@/components/map-section"))
 const FAQSection = lazy(() => import("@/components/faq-section"))
 const TestimonialsSection = lazy(() => import("@/components/testimonials-section"))
 const SocialMediaSection = lazy(() => import("@/components/social-media-section"))
+const SocialProofSection = lazy(() => import("@/components/social-proof-section"))
+const LiveChat = lazy(() => import("@/components/live-chat"))
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-amber-50 to-orange-100">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-amber-50 to-orange-100" role="main">
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b border-orange-200 bg-white/95 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 md:h-20 items-center justify-between px-4">
@@ -61,19 +63,20 @@ export default function HomePage() {
               Contact
             </Link>
           </nav>
-          <CTAButton variant="primary" size="md" asChild>
+          <CTAButton variant="primary" size="md">
             <Link href="#reservation">Chouchouter mon chien 🐕</Link>
           </CTAButton>
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section - Amélioré */}
       <section className="relative py-20 md:py-32 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-orange-100/50 to-amber-100/50"></div>
         <div className="container mx-auto text-center relative">
+          {/* Badge de confiance */}
           <div className="mb-8">
             <span className="inline-flex items-center rounded-full border border-orange-300 bg-gradient-to-r from-orange-200 to-amber-200 text-orange-800 px-6 py-3 text-sm font-semibold shadow-sm">
-              🐾 Votre chien mérite le meilleur
+              ⭐ 4.9/5 - Plus de 500 chiens chouchoutés
             </span>
           </div>
 
@@ -84,10 +87,30 @@ export default function HomePage() {
             pour votre compagnon
           </TypographyH1>
 
-          <TypographyLead className="mb-12">
-            Offrez à votre fidèle ami un spa relaxant ! Bain moussant, massage doux et câlins inclus. Votre toutou
-            ressortira tout propre et tout heureux ! 🛁✨
+          <TypographyLead className="mb-8 max-w-3xl mx-auto">
+            Offrez à votre fidèle ami un spa relaxant ! Bain moussant, massage doux et câlins inclus. 
+            <strong>Réservation en ligne en 2 minutes</strong> - Votre toutou ressortira tout propre et tout heureux ! 🛁✨
           </TypographyLead>
+
+          {/* Preuves sociales */}
+          <div className="mb-8 flex flex-wrap justify-center items-center gap-4 text-sm text-orange-700">
+            <div className="flex items-center space-x-2">
+              <div className="flex -space-x-2">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-r from-orange-400 to-amber-400 border-2 border-white"></div>
+                ))}
+              </div>
+              <span>+500 clients satisfaits</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="text-2xl">🏆</span>
+              <span>Certifié Bio & Naturel</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="text-2xl">⚡</span>
+              <span>Réservation en 2 min</span>
+            </div>
+          </div>
 
           {/* Hero Mascot */}
           <div className="mb-12 flex justify-center">
@@ -101,9 +124,10 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <CTAButton variant="primary" size="xl" asChild>
-              <Link href="#reservation" className="flex items-center">
+          {/* CTA Section améliorée */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
+            <CTAButton variant="primary" size="xl">
+              <Link href="#reservation" className="flex items-center group">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -114,19 +138,46 @@ export default function HomePage() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="mr-3"
+                  className="mr-3 group-hover:scale-110 transition-transform"
                 >
                   <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
                 </svg>
-                Réserver un moment magique
+                Réserver maintenant - 25€
               </Link>
             </CTAButton>
-            <CTAButton variant="outline" size="lg" asChild>
+            <CTAButton variant="outline" size="lg">
               <Link href="#tarifs">Découvrir nos forfaits</Link>
             </CTAButton>
           </div>
+
+          {/* Garantie et sécurité */}
+          <div className="flex flex-wrap justify-center items-center gap-6 text-xs text-orange-600">
+            <div className="flex items-center space-x-2">
+              <span className="text-lg">🔒</span>
+              <span>Paiement sécurisé</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="text-lg">💰</span>
+              <span>Garantie satisfait ou remboursé</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="text-lg">⏰</span>
+              <span>Annulation gratuite 24h avant</span>
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* Social Proof Section - Lazy loaded */}
+      <Suspense
+        fallback={
+          <div className="py-16 bg-white flex justify-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+          </div>
+        }
+      >
+        <SocialProofSection />
+      </Suspense>
 
       {/* Services Section */}
       <section id="services" className="py-16 md:py-24 px-4 bg-white">
@@ -232,6 +283,11 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <TypographyH2>Nos forfaits bonheur</TypographyH2>
             <TypographyLead>Des prix tout doux pour des moments tout doux 🥰</TypographyLead>
+            {/* Bannière d'urgence */}
+            <div className="mt-8 inline-flex items-center bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-full shadow-lg animate-pulse">
+              <span className="mr-2">🔥</span>
+              <span className="font-semibold">Offre limitée : -20% sur votre première visite !</span>
+            </div>
           </div>
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
             {[
@@ -346,7 +402,7 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <CTAButton variant={plan.popular ? "primary" : "secondary"} size="lg" className="w-full" asChild>
+                <CTAButton variant={plan.popular ? "primary" : "secondary"} size="lg" className="w-full">
                   <Link href="#reservation" className="flex items-center justify-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -601,6 +657,10 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-orange-800 to-amber-800 text-white py-16 px-4">
+        {/* Chat en direct */}
+        <Suspense fallback={null}>
+          <LiveChat />
+        </Suspense>
         <div className="container mx-auto">
           <div className="grid md:grid-cols-4 gap-8 lg:gap-12">
             <div>
