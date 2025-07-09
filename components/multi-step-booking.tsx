@@ -58,7 +58,7 @@ export default function MultiStepBooking() {
 
   const [errors, setErrors] = useState<BookingErrors>({})
 
-  const availableSlots = {
+  const availableSlots: Record<string, string[]> = {
     "2024-12-13": ["09:00", "10:30", "14:00", "15:30"],
     "2024-12-14": ["09:00", "11:00", "13:30", "16:00"],
     "2024-12-15": ["10:00", "14:30", "16:30"],
