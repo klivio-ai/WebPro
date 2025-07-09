@@ -7,11 +7,11 @@ const contactSchema = z.object({
   email: z.string().email("Veuillez entrer une adresse email valide"),
   phone: z.string().min(10, "Le numéro de téléphone doit contenir au moins 10 chiffres"),
   dogName: z.string().min(1, "Le nom du chien est requis"),
-  dogSize: z.enum(["small", "medium", "large"], {
-    errorMap: () => ({ message: "Veuillez sélectionner la taille de votre chien" }),
+  dogSize: z.enum(["small", "medium", "large"]).refine((val: string | undefined) => val !== undefined, {
+    message: "Veuillez sélectionner la taille de votre chien",
   }),
-  service: z.enum(["bath", "full-service", "consultation"], {
-    errorMap: () => ({ message: "Veuillez sélectionner un service" }),
+  service: z.enum(["bath", "full-service", "consultation"]).refine((val: string | undefined) => val !== undefined, {
+    message: "Veuillez sélectionner un service",
   }),
   message: z.string().min(10, "Le message doit contenir au moins 10 caractères"),
   preferredDate: z.string().optional(),

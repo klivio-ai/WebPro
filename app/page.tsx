@@ -63,7 +63,7 @@ export default function HomePage() {
               Contact
             </Link>
           </nav>
-          <CTAButton variant="primary" size="md" asChild>
+          <CTAButton variant="primary" size="md">
             <Link href="#reservation">Chouchouter mon chien 🐕</Link>
           </CTAButton>
         </div>
@@ -126,7 +126,7 @@ export default function HomePage() {
 
           {/* CTA Section améliorée */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
-            <CTAButton variant="primary" size="xl" asChild>
+            <CTAButton variant="primary" size="xl">
               <Link href="#reservation" className="flex items-center group">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +145,7 @@ export default function HomePage() {
                 Réserver maintenant - 25€
               </Link>
             </CTAButton>
-            <CTAButton variant="outline" size="lg" asChild>
+            <CTAButton variant="outline" size="lg">
               <Link href="#tarifs">Découvrir nos forfaits</Link>
             </CTAButton>
           </div>
@@ -402,7 +402,7 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <CTAButton variant={plan.popular ? "primary" : "secondary"} size="lg" className="w-full" asChild>
+                <CTAButton variant={plan.popular ? "primary" : "secondary"} size="lg" className="w-full">
                   <Link href="#reservation" className="flex items-center justify-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
