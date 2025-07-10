@@ -9,7 +9,7 @@ export default function ContactSection() {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-orange-900 mb-4">Une question ? Parlons-en ! 💬</h2>
           <p className="text-orange-700 max-w-2xl mx-auto">
-            Nous adorons parler de nos amis à quatre pattes ! N'hésitez pas à nous contacter 🐾
+            Nous adorons parler de nos amis à quatre pattes ! N&apos;hésitez pas à nous contacter 🐾
           </p>
         </div>
 
@@ -86,10 +86,10 @@ export default function ContactSection() {
             <CardContent className="pt-6">
               <Heart className="h-8 w-8 text-orange-600 mx-auto mb-4" />
               <p className="text-orange-800 italic">
-                "Chez Pattes Propres, chaque chien est traité comme un membre de la famille. Nous prenons le temps qu'il
-                faut pour que votre compagnon se sente en sécurité et aimé." 💕
+                &ldquo;Chez Pattes Propres, chaque chien est traité comme un membre de la famille. Nous prenons le temps qu&apos;il
+                faut pour que votre compagnon se sente en sécurité et aimé.&rdquo; 💕
               </p>
-              <p className="text-orange-700 font-semibold mt-4">- L'équipe Pattes Propres</p>
+              <p className="text-orange-700 font-semibold mt-4">- L&apos;équipe Pattes Propres</p>
             </CardContent>
           </Card>
         </div>

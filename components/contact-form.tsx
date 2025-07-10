@@ -107,7 +107,7 @@ export default function ContactForm() {
           Parlons de votre toutou ! 💬
         </h3>
         <p className="text-sm text-orange-700 text-center">
-          Remplissez ce formulaire et nous vous répondrons rapidement avec plein d'amour ! 🐾
+          Remplissez ce formulaire et nous vous répondrons rapidement avec plein d&apos;amour ! 🐾
         </p>
       </div>
       <div className="p-6">
@@ -223,7 +223,7 @@ export default function ContactForm() {
                   } bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2`}
                 >
                   <option value="">Sélectionnez la taille</option>
-                  <option value="small">🐕‍🦺 Petit Loulou (jusqu'à 15kg)</option>
+                  <option value="small">🐕‍🦺 Petit Loulou (jusqu&apos;à 15kg)</option>
                   <option value="medium">🐕 Toutou Chéri (15kg à 30kg)</option>
                   <option value="large">🐕‍🦮 Grand Cœur (plus de 30kg)</option>
                 </select>
@@ -323,7 +323,7 @@ export default function ContactForm() {
                   <option value="10:30">☀️ 10:30 - Matinée zen</option>
                   <option value="13:00">🌞 13:00 - Après-midi détente</option>
                   <option value="14:30">🌤️ 14:30 - Sieste spa</option>
-                  <option value="16:00">🌅 16:00 - Fin d'après-midi</option>
+                  <option value="16:00">🌅 16:00 - Fin d&apos;après-midi</option>
                 </select>
               </div>
             </div>

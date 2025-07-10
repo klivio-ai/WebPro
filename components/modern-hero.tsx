@@ -52,7 +52,7 @@ export default function ModernHero() {
               <Mascot variant="bubbles" size="xl" />
               <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
                 <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm text-white px-4 py-2 text-sm font-semibold shadow-soft">
-                  Moi c'est Bulle, votre mascotte ! 🫧
+                  Moi c&apos;est Bulle, votre mascotte ! 🫧
                 </span>
               </div>
             </div>

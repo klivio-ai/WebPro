@@ -69,7 +69,7 @@ ChartContainer.displayName = "Chart"
 
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(
-    ([_, config]) => config.theme || config.color
+    ([, config]) => config.theme || config.color
   )
 
   if (!colorConfig.length) {
@@ -104,13 +104,23 @@ const ChartTooltip = RechartsPrimitive.Tooltip
 
 const ChartTooltipContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
-    React.ComponentProps<"div"> & {
+  React.ComponentProps<"div"> & {
+      active?: boolean
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      payload?: any[]
       hideLabel?: boolean
       hideIndicator?: boolean
       indicator?: "line" | "dot" | "dashed"
       nameKey?: string
       labelKey?: string
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      label?: any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      labelFormatter?: any
+      labelClassName?: string
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      formatter?: any
+      color?: string
     }
 >(
   (
@@ -260,8 +270,10 @@ const ChartLegend = RechartsPrimitive.Legend
 
 const ChartLegendContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<"div"> &
-    Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
+  React.ComponentProps<"div"> & {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      payload?: any[]
+      verticalAlign?: "top" | "middle" | "bottom"
       hideIcon?: boolean
       nameKey?: string
     }

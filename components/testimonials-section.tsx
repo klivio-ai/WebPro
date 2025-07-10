@@ -140,7 +140,7 @@ export default function TestimonialsSection() {
                         </div>
                       </div>
                     </div>
-                    <p className="text-orange-800 italic">"{testimonial.comment}"</p>
+                    <p className="text-orange-800 italic">&ldquo;{testimonial.comment}&rdquo;</p>
                   </div>
                 </div>
               ))}

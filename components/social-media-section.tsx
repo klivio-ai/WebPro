@@ -148,7 +148,7 @@ export default function SocialMediaSection() {
         <div className="max-w-2xl mx-auto bg-gradient-to-r from-orange-100 to-amber-100 rounded-lg p-6 border-2 border-orange-200 shadow-md">
           <h3 className="text-xl font-semibold text-orange-900 mb-2 text-center">Restez informé !</h3>
           <p className="text-orange-700 mb-4 text-center">
-            Inscrivez-vous à notre newsletter pour recevoir des conseils d'entretien, des offres spéciales et des
+            Inscrivez-vous à notre newsletter pour recevoir des conseils d&apos;entretien, des offres spéciales et des
             nouvelles de notre salon.
           </p>
           <form className="flex flex-col sm:flex-row gap-2">
@@ -162,7 +162,7 @@ export default function SocialMediaSection() {
               type="submit"
               className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-6 py-2 rounded-md shadow-md"
             >
-              S'inscrire
+              S&apos;inscrire
             </button>
           </form>
           <p className="text-xs text-orange-600 mt-2 text-center">

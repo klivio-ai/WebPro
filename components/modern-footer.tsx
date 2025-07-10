@@ -31,7 +31,7 @@ export default function ModernFooter() {
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Parce que nos amis à quatre pattes méritent ce qu'il y a de mieux ! 🐾💕
+              Parce que nos amis à quatre pattes méritent ce qu&apos;il y a de mieux ! 🐾💕
             </p>
             <div className="flex space-x-4">
               {[

@@ -373,7 +373,7 @@ export default function MultiStepBooking() {
                   ) : (
                     <div className="text-center py-8 text-orange-600">
                       <Clock className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                      <p>Sélectionnez d'abord une date</p>
+                      <p>Sélectionnez d&apos;abord une date</p>
                     </div>
                   )}
                   {errors.preferredTime && <p className="text-red-500 text-sm mt-1">{errors.preferredTime}</p>}
@@ -415,7 +415,7 @@ export default function MultiStepBooking() {
                   className="w-5 h-5 text-orange-500 border-2 border-orange-300 rounded focus:ring-orange-500"
                 />
                 <label htmlFor="firstVisit" className="text-orange-900">
-                  C'est la première fois que mon chien va chez un toiletteur
+                  C&apos;est la première fois que mon chien va chez un toiletteur
                 </label>
               </div>
             </div>

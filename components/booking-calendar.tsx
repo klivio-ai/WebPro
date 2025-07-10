@@ -85,7 +85,7 @@ export default function BookingCalendar() {
           <CardHeader className="bg-gradient-to-r from-orange-100 to-amber-100">
             <CardTitle className="flex items-center text-orange-900">
               <Clock className="mr-2 h-5 w-5" />
-              L'heure du bonheur
+              L&apos;heure du bonheur
             </CardTitle>
             <CardDescription className="text-orange-700">
               {selectedDate
@@ -114,7 +114,7 @@ export default function BookingCalendar() {
             ) : (
               <div className="text-center py-12">
                 <div className="text-6xl mb-4">🐕</div>
-                <p className="text-orange-600">Choisissez d'abord une date pour voir les créneaux disponibles</p>
+                <p className="text-orange-600">Choisissez d&apos;abord une date pour voir les créneaux disponibles</p>
               </div>
             )}
           </CardContent>

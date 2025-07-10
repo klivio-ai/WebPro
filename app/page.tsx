@@ -4,8 +4,7 @@ import { lazy, Suspense } from "react"
 import ModernNavbar from "@/components/modern-navbar"
 import ModernHero from "@/components/modern-hero"
 import ModernFooter from "@/components/modern-footer"
-import { TypographyH1, TypographyH2, TypographyH3, TypographyLead } from "@/components/ui/typography"
-import { CTAButton } from "@/components/ui/cta-button"
+import { TypographyH2, TypographyH3, TypographyLead } from "@/components/ui/typography"
 import MultiStepBooking from "@/components/multi-step-booking"
 
 // Lazy load components for better performance
@@ -164,7 +163,7 @@ export default function HomePage() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <TypographyH2 className="mb-6">Ce que disent nos clients</TypographyH2>
-            <TypographyLead>La preuve par l'exemple ! 🐾</TypographyLead>
+            <TypographyLead>La preuve par l&apos;exemple ! 🐾</TypographyLead>
           </div>
 
           <Suspense fallback={<div className="text-center">Chargement...</div>}>

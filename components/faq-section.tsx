@@ -104,7 +104,7 @@ export default function FAQSection() {
           <div className="inline-flex items-center bg-orange-100 rounded-full px-6 py-3 text-orange-600">
             <HelpCircle className="w-4 h-4 mr-2" />
             <span className="text-sm font-medium">
-              Vous avez d'autres questions ? N'hésitez pas à nous contacter ! 📞
+              Vous avez d&apos;autres questions ? N&apos;hésitez pas à nous contacter ! 📞
             </span>
           </div>
         </div>

@@ -88,7 +88,7 @@ export default function SocialProofSection() {
 
               {/* Témoignage */}
               <blockquote className="text-orange-800 italic mb-6 leading-relaxed">
-                "{testimonial.text}"
+                &ldquo;{testimonial.text}&rdquo;
               </blockquote>
 
               {/* Auteur */}
