@@ -16,17 +16,31 @@ interface BookingData {
 
   // Étape 2 - Informations du chien
   dogName: string
-  dogSize: "small" | "medium" | "large" | ""
+  dogSize: "small" | "medium" | "large" | undefined
   dogBreed: string
 
   // Étape 3 - Service et date
-  service: "small" | "medium" | "large" | ""
+  service: "small" | "medium" | "large" | undefined
   preferredDate: string
   preferredTime: string
 
   // Étape 4 - Informations complémentaires
   specialNeeds: string
   firstVisit: boolean
+}
+
+interface BookingErrors {
+  name?: string
+  email?: string
+  phone?: string
+  dogName?: string
+  dogSize?: string
+  dogBreed?: string
+  service?: string
+  preferredDate?: string
+  preferredTime?: string
+  specialNeeds?: string
+  firstVisit?: string
 }
 
 export default function MultiStepBooking() {
@@ -36,18 +50,18 @@ export default function MultiStepBooking() {
     email: "",
     phone: "",
     dogName: "",
-    dogSize: "",
+    dogSize: undefined,
     dogBreed: "",
-    service: "",
+    service: undefined,
     preferredDate: "",
     preferredTime: "",
     specialNeeds: "",
     firstVisit: false,
   })
 
-  const [errors, setErrors] = useState<Partial<BookingData>>({})
+  const [errors, setErrors] = useState<BookingErrors>({})
 
-  const availableSlots = {
+  const availableSlots: Record<string, string[]> = {
     "2024-12-13": ["09:00", "10:30", "14:00", "15:30"],
     "2024-12-14": ["09:00", "11:00", "13:30", "16:00"],
     "2024-12-15": ["10:00", "14:30", "16:30"],
@@ -91,7 +105,7 @@ export default function MultiStepBooking() {
   }
 
   const validateStep = (step: BookingStep): boolean => {
-    const newErrors: Partial<BookingData> = {}
+    const newErrors: Partial<BookingErrors> = {}
 
     switch (step) {
       case 1:
@@ -341,7 +355,7 @@ export default function MultiStepBooking() {
                   </label>
                   {bookingData.preferredDate ? (
                     <div className="grid grid-cols-2 gap-2">
-                      {availableSlots[bookingData.preferredDate].map((time) => (
+                      {availableSlots[bookingData.preferredDate].map((time: string) => (
                         <button
                           key={time}
                           type="button"

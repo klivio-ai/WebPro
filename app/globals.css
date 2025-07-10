@@ -50,10 +50,6 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  
   html {
     scroll-behavior: smooth;
   }
@@ -199,7 +195,7 @@
     transform: rotate(30deg);
   }
   50% {
-    transform: rotate(40deg);
+    transform: rotate(35deg);
   }
   100% {
     transform: rotate(30deg);
@@ -207,141 +203,119 @@
 }
 
 @keyframes eyeBlink {
-  0% {
+  0%, 90%, 100% {
     transform: scaleY(1);
   }
-  50% {
+  95% {
     transform: scaleY(0.1);
-  }
-  100% {
-    transform: scaleY(1);
   }
 }
 
 @keyframes earLeft {
-  0% {
-    transform: rotate(-30deg);
+  0%, 100% {
+    transform: rotate(-5deg);
   }
   50% {
-    transform: rotate(-25deg);
-  }
-  100% {
-    transform: rotate(-30deg);
+    transform: rotate(-10deg);
   }
 }
 
 @keyframes earRight {
-  0% {
-    transform: rotate(30deg);
+  0%, 100% {
+    transform: rotate(5deg);
   }
   50% {
-    transform: rotate(25deg);
-  }
-  100% {
-    transform: rotate(30deg);
+    transform: rotate(10deg);
   }
 }
 
 @keyframes bodyBreathe {
-  0% {
+  0%, 100% {
     transform: scale(1);
   }
   50% {
     transform: scale(1.02);
   }
-  100% {
-    transform: scale(1);
-  }
 }
 
 @keyframes bubbleFloat1 {
   0% {
-    transform: translateY(0);
-    opacity: 0.8;
+    transform: translateY(0px) translateX(0px);
+    opacity: 0;
   }
   50% {
-    transform: translateY(-10px);
-    opacity: 0.6;
+    opacity: 1;
   }
   100% {
-    transform: translateY(0);
-    opacity: 0.8;
+    transform: translateY(-100px) translateX(20px);
+    opacity: 0;
   }
 }
 
 @keyframes bubbleFloat2 {
   0% {
-    transform: translateY(0);
-    opacity: 0.6;
+    transform: translateY(0px) translateX(0px);
+    opacity: 0;
   }
   50% {
-    transform: translateY(-15px);
-    opacity: 0.4;
+    opacity: 1;
   }
   100% {
-    transform: translateY(0);
-    opacity: 0.6;
+    transform: translateY(-80px) translateX(-15px);
+    opacity: 0;
   }
 }
 
 @keyframes bubbleFloat3 {
   0% {
-    transform: translateY(0);
-    opacity: 0.9;
+    transform: translateY(0px) translateX(0px);
+    opacity: 0;
   }
   50% {
-    transform: translateY(-8px);
-    opacity: 0.7;
+    opacity: 1;
   }
   100% {
-    transform: translateY(0);
-    opacity: 0.9;
+    transform: translateY(-120px) translateX(10px);
+    opacity: 0;
   }
 }
 
 .animate-tail-wag {
-  transform-origin: 145px 130px;
-  animation: tailWag 2s infinite ease-in-out;
+  animation: tailWag 2s ease-in-out infinite;
 }
 
 .animate-tail-wag-fast {
-  transform-origin: 145px 130px;
-  animation: tailWagFast 1s infinite ease-in-out;
+  animation: tailWagFast 0.5s ease-in-out infinite;
 }
 
 .animate-tail-slow {
-  transform-origin: 145px 125px;
-  animation: tailSlow 3s infinite ease-in-out;
+  animation: tailSlow 3s ease-in-out infinite;
 }
 
 .animate-eye-blink {
-  transform-origin: center;
-  animation: eyeBlink 0.2s ease-in-out;
+  animation: eyeBlink 3s ease-in-out infinite;
 }
 
 .animate-ear-left {
-  transform-origin: 75px 50px;
-  animation: earLeft 4s infinite ease-in-out;
+  animation: earLeft 2s ease-in-out infinite;
 }
 
 .animate-ear-right {
-  transform-origin: 125px 50px;
-  animation: earRight 4s infinite ease-in-out;
+  animation: earRight 2s ease-in-out infinite;
 }
 
 .animate-body-breathe {
-  transform-origin: center;
-  animation: bodyBreathe 4s infinite ease-in-out;
+  animation: bodyBreathe 4s ease-in-out infinite;
 }
 
 .animate-bubble-float-1 {
-  animation: bubbleFloat1 3s infinite ease-in-out;
+  animation: bubbleFloat1 3s ease-in-out infinite;
 }
 
 .animate-bubble-float-2 {
-  animation: bubbleFloat2 4s infinite ease-in-out;
+  animation: bubbleFloat2 4s ease-in-out infinite;
 }
 
 .animate-bubble-float-3 {
-  animation: bubbleFloat3 5s infinite ease-in-out;
+  animation: bubbleFloat3 5s ease-in-out infinite;
 }
