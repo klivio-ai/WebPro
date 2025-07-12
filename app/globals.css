@@ -2,50 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @layer base {
   :root {
+    /* taap.it color palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.75rem;
+    
+    /* taap.it specific colors */
+    --taap-primary: 142 76% 36%;
+    --taap-primary-dark: 142 76% 26%;
+    --taap-secondary: 240 5% 96%;
+    --taap-accent: 142 76% 46%;
+    --taap-success: 142 76% 36%;
+    --taap-warning: 38 92% 50%;
+    --taap-error: 0 84% 60%;
+    --taap-text-primary: 240 10% 3.9%;
+    --taap-text-secondary: 240 3.8% 46.1%;
+    --taap-text-muted: 240 3.8% 46.1%;
+    --taap-border: 240 5.9% 90%;
+    --taap-border-light: 240 5.9% 95%;
+    --taap-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --taap-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --taap-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --taap-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
   }
 }
 
@@ -53,196 +74,920 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
   }
-}
 
-/* Animations pour la mascotte */
-@keyframes tailWag {
-  0% {
-    transform: rotate(0deg);
+  /* taap.it typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
   }
-  25% {
-    transform: rotate(10deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(-10deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
 
-@keyframes tailWagFast {
-  0% {
-    transform: rotate(0deg);
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+    line-height: 1.1;
   }
-  25% {
-    transform: rotate(15deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(-15deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
 
-@keyframes tailSlow {
-  0% {
-    transform: rotate(30deg);
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+    line-height: 1.2;
   }
-  50% {
-    transform: rotate(40deg);
-  }
-  100% {
-    transform: rotate(30deg);
-  }
-}
 
-@keyframes eyeBlink {
-  0% {
-    transform: scaleY(1);
+  h3 {
+    @apply text-2xl md:text-3xl;
+    line-height: 1.3;
   }
-  50% {
-    transform: scaleY(0.1);
-  }
-  100% {
-    transform: scaleY(1);
-  }
-}
 
-@keyframes earLeft {
-  0% {
-    transform: rotate(-30deg);
+  h4 {
+    @apply text-xl md:text-2xl;
+    line-height: 1.4;
   }
-  50% {
-    transform: rotate(-25deg);
-  }
-  100% {
-    transform: rotate(-30deg);
-  }
-}
 
-@keyframes earRight {
-  0% {
-    transform: rotate(30deg);
+  p {
+    @apply text-base leading-relaxed;
   }
-  50% {
-    transform: rotate(25deg);
-  }
-  100% {
-    transform: rotate(30deg);
-  }
-}
 
-@keyframes bodyBreathe {
-  0% {
-    transform: scale(1);
+  /* taap.it button styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
   }
-  50% {
-    transform: scale(1.02);
+
+  .btn-primary {
+    @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500 shadow-sm;
   }
-  100% {
-    transform: scale(1);
+
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-500;
   }
-}
 
-@keyframes bubbleFloat1 {
-  0% {
-    transform: translateY(0);
-    opacity: 0.8;
+  .btn-outline {
+    @apply border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-gray-500;
   }
-  50% {
-    transform: translateY(-10px);
-    opacity: 0.6;
+
+  .btn-ghost {
+    @apply text-gray-700 hover:bg-gray-100 focus:ring-gray-500;
   }
-  100% {
-    transform: translateY(0);
-    opacity: 0.8;
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
   }
-}
 
-@keyframes bubbleFloat2 {
-  0% {
-    transform: translateY(0);
-    opacity: 0.6;
+  .btn-md {
+    @apply px-4 py-2 text-sm;
   }
-  50% {
-    transform: translateY(-15px);
-    opacity: 0.4;
+
+  .btn-lg {
+    @apply px-6 py-3 text-base;
   }
-  100% {
-    transform: translateY(0);
-    opacity: 0.6;
+
+  .btn-xl {
+    @apply px-8 py-4 text-lg;
   }
-}
 
-@keyframes bubbleFloat3 {
-  0% {
-    transform: translateY(0);
-    opacity: 0.9;
+  /* taap.it card styles */
+  .card {
+    @apply bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden;
   }
-  50% {
-    transform: translateY(-8px);
-    opacity: 0.7;
+
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:border-gray-300;
   }
-  100% {
-    transform: translateY(0);
-    opacity: 0.9;
+
+  /* taap.it gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
   }
-}
 
-.animate-tail-wag {
-  transform-origin: 145px 130px;
-  animation: tailWag 2s infinite ease-in-out;
-}
+  .gradient-secondary {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
 
-.animate-tail-wag-fast {
-  transform-origin: 145px 130px;
-  animation: tailWagFast 1s infinite ease-in-out;
-}
+  .gradient-hero {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+  }
 
-.animate-tail-slow {
-  transform-origin: 145px 125px;
-  animation: tailSlow 3s infinite ease-in-out;
-}
+  /* taap.it animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-.animate-eye-blink {
-  transform-origin: center;
-  animation: eyeBlink 0.2s ease-in-out;
-}
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 
-.animate-ear-left {
-  transform-origin: 75px 50px;
-  animation: earLeft 4s infinite ease-in-out;
-}
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 
-.animate-ear-right {
-  transform-origin: 125px 50px;
-  animation: earRight 4s infinite ease-in-out;
-}
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 
-.animate-body-breathe {
-  transform-origin: center;
-  animation: bodyBreathe 4s infinite ease-in-out;
-}
+  @keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    40%, 43% {
+      transform: translate3d(0, -8px, 0);
+    }
+    70% {
+      transform: translate3d(0, -4px, 0);
+    }
+    90% {
+      transform: translate3d(0, -2px, 0);
+    }
+  }
 
-.animate-bubble-float-1 {
-  animation: bubbleFloat1 3s infinite ease-in-out;
-}
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
 
-.animate-bubble-float-2 {
-  animation: bubbleFloat2 4s infinite ease-in-out;
-}
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 
-.animate-bubble-float-3 {
-  animation: bubbleFloat3 5s infinite ease-in-out;
+  /* taap.it utility classes */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out;
+  }
+
+  .animate-bounce {
+    animation: bounce 1s infinite;
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+
+  /* taap.it responsive utilities */
+  .container-taap {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .section-padding-sm {
+    @apply py-8 md:py-12;
+  }
+
+  /* taap.it form styles */
+  .input-taap {
+    @apply block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 sm:text-sm;
+  }
+
+  .textarea-taap {
+    @apply block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 sm:text-sm;
+  }
+
+  .select-taap {
+    @apply block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 sm:text-sm;
+  }
+
+  /* taap.it navigation styles */
+  .nav-link {
+    @apply text-gray-700 hover:text-green-600 transition-colors duration-200 font-medium;
+  }
+
+  .nav-link-active {
+    @apply text-green-600 font-semibold;
+  }
+
+  /* taap.it grid layouts */
+  .grid-features {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+
+  .grid-testimonials {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .grid-pricing {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+  }
+
+  /* taap.it spacing utilities */
+  .space-y-taap > * + * {
+    @apply mt-8;
+  }
+
+  .space-y-taap-sm > * + * {
+    @apply mt-4;
+  }
+
+  .space-y-taap-lg > * + * {
+    @apply mt-12;
+  }
+
+  /* taap.it text utilities */
+  .text-gradient {
+    @apply bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent;
+  }
+
+  .text-muted {
+    @apply text-gray-600;
+  }
+
+  .text-muted-light {
+    @apply text-gray-500;
+  }
+
+  /* taap.it border utilities */
+  .border-taap {
+    @apply border border-gray-200;
+  }
+
+  .border-taap-light {
+    @apply border border-gray-100;
+  }
+
+  /* taap.it shadow utilities */
+  .shadow-taap {
+    box-shadow: var(--taap-shadow);
+  }
+
+  .shadow-taap-md {
+    box-shadow: var(--taap-shadow-md);
+  }
+
+  .shadow-taap-lg {
+    box-shadow: var(--taap-shadow-lg);
+  }
+
+  .shadow-taap-xl {
+    box-shadow: var(--taap-shadow-xl);
+  }
+
+  /* taap.it hover effects */
+  .hover-lift {
+    @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .hover-scale {
+    @apply transition-all duration-200 hover:scale-105;
+  }
+
+  /* taap.it focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
+  }
+
+  /* taap.it loading states */
+  .loading {
+    @apply animate-pulse bg-gray-200;
+  }
+
+  .loading-text {
+    @apply animate-pulse bg-gray-200 h-4 rounded;
+  }
+
+  /* taap.it responsive text */
+  .text-responsive {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+
+  .text-responsive-lg {
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl;
+  }
+
+  .text-responsive-xl {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl;
+  }
+
+  /* taap.it aspect ratios */
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .aspect-portrait {
+    aspect-ratio: 3 / 4;
+  }
+
+  /* taap.it backdrop blur */
+  .backdrop-blur-taap {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* taap.it glass effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-taap border border-white/20;
+  }
+
+  /* taap.it gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-green-600 via-green-500 to-green-600 bg-clip-text text-transparent;
+  }
+
+  /* taap.it badge styles */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .badge-secondary {
+    @apply bg-gray-100 text-gray-800;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-error {
+    @apply bg-red-100 text-red-800;
+  }
+
+  /* taap.it divider */
+  .divider {
+    @apply border-t border-gray-200 my-8;
+  }
+
+  /* taap.it list styles */
+  .list-taap {
+    @apply space-y-3;
+  }
+
+  .list-taap li {
+    @apply flex items-start;
+  }
+
+  .list-taap li::before {
+    @apply content-[''] w-1.5 h-1.5 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0;
+  }
+
+  /* taap.it table styles */
+  .table-taap {
+    @apply min-w-full divide-y divide-gray-200;
+  }
+
+  .table-taap th {
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+  }
+
+  .table-taap td {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900;
+  }
+
+  /* taap.it modal styles */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50;
+  }
+
+  .modal-content {
+    @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-xl p-6 w-full max-w-md mx-4;
+  }
+
+  /* taap.it tooltip */
+  .tooltip {
+    @apply absolute z-10 px-2 py-1 text-xs text-white bg-gray-900 rounded shadow-lg opacity-0 pointer-events-none transition-opacity duration-200;
+  }
+
+  .tooltip::after {
+    @apply content-[''] absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900;
+  }
+
+  /* taap.it progress bar */
+  .progress {
+    @apply w-full bg-gray-200 rounded-full h-2;
+  }
+
+  .progress-bar {
+    @apply bg-green-600 h-2 rounded-full transition-all duration-300;
+  }
+
+  /* taap.it skeleton loading */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+
+  .skeleton-text {
+    @apply skeleton h-4;
+  }
+
+  .skeleton-title {
+    @apply skeleton h-6;
+  }
+
+  .skeleton-avatar {
+    @apply skeleton w-10 h-10 rounded-full;
+  }
+
+  /* taap.it notification */
+  .notification {
+    @apply fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm;
+  }
+
+  .notification-success {
+    @apply bg-green-500 text-white;
+  }
+
+  .notification-error {
+    @apply bg-red-500 text-white;
+  }
+
+  .notification-warning {
+    @apply bg-yellow-500 text-white;
+  }
+
+  .notification-info {
+    @apply bg-blue-500 text-white;
+  }
+
+  /* taap.it dropdown */
+  .dropdown {
+    @apply absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50;
+  }
+
+  .dropdown-item {
+    @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900;
+  }
+
+  /* taap.it tabs */
+  .tabs {
+    @apply border-b border-gray-200;
+  }
+
+  .tab {
+    @apply px-4 py-2 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 border-b-2 border-transparent;
+  }
+
+  .tab-active {
+    @apply text-green-600 border-green-500;
+  }
+
+  /* taap.it accordion */
+  .accordion-item {
+    @apply border-b border-gray-200;
+  }
+
+  .accordion-header {
+    @apply flex justify-between items-center py-4 px-6 cursor-pointer hover:bg-gray-50;
+  }
+
+  .accordion-content {
+    @apply px-6 pb-4;
+  }
+
+  /* taap.it carousel */
+  .carousel {
+    @apply relative overflow-hidden;
+  }
+
+  .carousel-item {
+    @apply absolute inset-0 transition-transform duration-300 ease-in-out;
+  }
+
+  .carousel-item.active {
+    @apply relative;
+  }
+
+  /* taap.it pagination */
+  .pagination {
+    @apply flex items-center space-x-1;
+  }
+
+  .pagination-item {
+    @apply px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 hover:text-gray-700;
+  }
+
+  .pagination-item.active {
+    @apply text-white bg-green-600 border-green-600;
+  }
+
+  /* taap.it breadcrumb */
+  .breadcrumb {
+    @apply flex items-center space-x-2 text-sm text-gray-500;
+  }
+
+  .breadcrumb-item {
+    @apply hover:text-gray-700;
+  }
+
+  .breadcrumb-separator {
+    @apply text-gray-400;
+  }
+
+  /* taap.it search */
+  .search-input {
+    @apply block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-green-500 focus:border-green-500 sm:text-sm;
+  }
+
+  .search-icon {
+    @apply absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none;
+  }
+
+  /* taap.it file upload */
+  .file-upload {
+    @apply relative block w-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500;
+  }
+
+  .file-upload-dragover {
+    @apply border-green-500 bg-green-50;
+  }
+
+  /* taap.it rating */
+  .rating {
+    @apply flex items-center space-x-1;
+  }
+
+  .rating-star {
+    @apply text-yellow-400;
+  }
+
+  .rating-star-empty {
+    @apply text-gray-300;
+  }
+
+  /* taap.it timeline */
+  .timeline {
+    @apply relative border-l border-gray-200 ml-3;
+  }
+
+  .timeline-item {
+    @apply relative pb-8;
+  }
+
+  .timeline-item::before {
+    @apply content-[''] absolute left-0 top-0 w-3 h-3 bg-green-500 rounded-full -ml-1.5;
+  }
+
+  /* taap.it stats */
+  .stats {
+    @apply grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4;
+  }
+
+  .stat {
+    @apply bg-white overflow-hidden shadow rounded-lg;
+  }
+
+  .stat-header {
+    @apply px-4 py-5 sm:p-6;
+  }
+
+  .stat-value {
+    @apply text-2xl font-semibold text-gray-900;
+  }
+
+  .stat-label {
+    @apply text-sm font-medium text-gray-500;
+  }
+
+  /* taap.it alert */
+  .alert {
+    @apply p-4 rounded-md;
+  }
+
+  .alert-success {
+    @apply bg-green-50 text-green-800 border border-green-200;
+  }
+
+  .alert-error {
+    @apply bg-red-50 text-red-800 border border-red-200;
+  }
+
+  .alert-warning {
+    @apply bg-yellow-50 text-yellow-800 border border-yellow-200;
+  }
+
+  .alert-info {
+    @apply bg-blue-50 text-blue-800 border border-blue-200;
+  }
+
+  /* taap.it code */
+  .code {
+    @apply bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono;
+  }
+
+  .code-block {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+  }
+
+  /* taap.it quote */
+  .quote {
+    @apply border-l-4 border-green-500 pl-4 italic text-gray-700;
+  }
+
+  /* taap.it callout */
+  .callout {
+    @apply bg-blue-50 border-l-4 border-blue-400 p-4;
+  }
+
+  .callout-info {
+    @apply bg-blue-50 border-blue-400;
+  }
+
+  .callout-warning {
+    @apply bg-yellow-50 border-yellow-400;
+  }
+
+  .callout-error {
+    @apply bg-red-50 border-red-400;
+  }
+
+  .callout-success {
+    @apply bg-green-50 border-green-400;
+  }
+
+  /* taap.it feature grid */
+  .feature-grid {
+    @apply grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .feature-item {
+    @apply text-center;
+  }
+
+  .feature-icon {
+    @apply mx-auto h-12 w-12 flex items-center justify-center rounded-lg bg-green-100 text-green-600;
+  }
+
+  .feature-title {
+    @apply mt-4 text-lg font-medium text-gray-900;
+  }
+
+  .feature-description {
+    @apply mt-2 text-base text-gray-500;
+  }
+
+  /* taap.it testimonial */
+  .testimonial {
+    @apply bg-white p-6 rounded-lg shadow-sm border border-gray-200;
+  }
+
+  .testimonial-content {
+    @apply text-gray-600 italic;
+  }
+
+  .testimonial-author {
+    @apply mt-4 flex items-center;
+  }
+
+  .testimonial-avatar {
+    @apply h-10 w-10 rounded-full;
+  }
+
+  .testimonial-info {
+    @apply ml-3;
+  }
+
+  .testimonial-name {
+    @apply text-sm font-medium text-gray-900;
+  }
+
+  .testimonial-title {
+    @apply text-sm text-gray-500;
+  }
+
+  /* taap.it pricing */
+  .pricing-card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+  }
+
+  .pricing-card-featured {
+    @apply ring-2 ring-green-500 relative;
+  }
+
+  .pricing-header {
+    @apply text-center;
+  }
+
+  .pricing-title {
+    @apply text-lg font-medium text-gray-900;
+  }
+
+  .pricing-price {
+    @apply mt-4 text-3xl font-bold text-gray-900;
+  }
+
+  .pricing-period {
+    @apply text-sm text-gray-500;
+  }
+
+  .pricing-features {
+    @apply mt-6 space-y-4;
+  }
+
+  .pricing-feature {
+    @apply flex items-center;
+  }
+
+  .pricing-feature-icon {
+    @apply h-5 w-5 text-green-500 mr-3;
+  }
+
+  /* taap.it footer */
+  .footer {
+    @apply bg-gray-900 text-white;
+  }
+
+  .footer-content {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  }
+
+  .footer-section {
+    @apply space-y-4;
+  }
+
+  .footer-title {
+    @apply text-sm font-semibold text-gray-400 uppercase tracking-wider;
+  }
+
+  .footer-link {
+    @apply text-base text-gray-300 hover:text-white;
+  }
+
+  .footer-bottom {
+    @apply border-t border-gray-800 mt-8 pt-8;
+  }
+
+  /* taap.it header */
+  .header {
+    @apply bg-white border-b border-gray-200 sticky top-0 z-40;
+  }
+
+  .header-content {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .header-nav {
+    @apply flex items-center justify-between h-16;
+  }
+
+  .header-logo {
+    @apply flex items-center;
+  }
+
+  .header-menu {
+    @apply hidden md:flex items-center space-x-8;
+  }
+
+  .header-mobile-menu {
+    @apply md:hidden;
+  }
+
+  /* taap.it hero */
+  .hero {
+    @apply relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100;
+  }
+
+  .hero-content {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32;
+  }
+
+  .hero-title {
+    @apply text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl;
+  }
+
+  .hero-subtitle {
+    @apply mt-6 text-lg text-gray-600 max-w-3xl;
+  }
+
+  .hero-actions {
+    @apply mt-10 flex items-center justify-center gap-x-6;
+  }
+
+  /* taap.it section */
+  .section {
+    @apply py-16 sm:py-24;
+  }
+
+  .section-header {
+    @apply text-center max-w-3xl mx-auto;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply mt-4 text-lg text-gray-600;
+  }
+
+  /* taap.it container */
+  .container-taap {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* taap.it utilities */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  }
+
+  .visually-hidden {
+    @apply sr-only;
+  }
+
+  /* taap.it focus visible */
+  .focus-visible {
+    @apply focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
+  }
+
+  /* taap.it reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* taap.it print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
+
+  /* taap.it high contrast mode */
+  @media (prefers-contrast: high) {
+    .btn {
+      @apply border-2;
+    }
+    
+    .card {
+      @apply border-2;
+    }
+  }
+
+  /* taap.it dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .auto-dark {
+      @apply dark;
+    }
+  }
 }
