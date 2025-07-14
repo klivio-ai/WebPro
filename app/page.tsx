@@ -16,47 +16,47 @@ const SocialMediaSection = lazy(() => import("@/components/social-media-section"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-amber-50 to-orange-100">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 via-emerald-50 to-green-100">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-orange-200 bg-white/95 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 w-full border-b border-green-200 bg-white/95 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 md:h-20 items-center justify-between px-4">
           <div className="flex items-center space-x-3">
             <Mascot variant="winking" size="sm" />
             <div>
-              <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
+              <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                 Pattes Propres
               </span>
-              <p className="text-xs text-orange-600 font-medium">Spa pour toutous</p>
+              <p className="text-xs text-green-600 font-medium">Spa pour toutous</p>
             </div>
           </div>
           <nav className="hidden lg:flex items-center space-x-8">
             <Link
               href="#services"
-              className="text-sm font-medium text-orange-700 hover:text-orange-500 transition-colors py-2"
+              className="text-sm font-medium text-green-700 hover:text-green-500 transition-colors py-2"
             >
               Nos soins
             </Link>
             <Link
               href="#tarifs"
-              className="text-sm font-medium text-orange-700 hover:text-orange-500 transition-colors py-2"
+              className="text-sm font-medium text-green-700 hover:text-green-500 transition-colors py-2"
             >
               Tarifs
             </Link>
             <Link
               href="#temoignages"
-              className="text-sm font-medium text-orange-700 hover:text-orange-500 transition-colors py-2"
+              className="text-sm font-medium text-green-700 hover:text-green-500 transition-colors py-2"
             >
               Témoignages
             </Link>
             <Link
               href="#faq"
-              className="text-sm font-medium text-orange-700 hover:text-orange-500 transition-colors py-2"
+              className="text-sm font-medium text-green-700 hover:text-green-500 transition-colors py-2"
             >
               FAQ
             </Link>
             <Link
               href="#contact"
-              className="text-sm font-medium text-orange-700 hover:text-orange-500 transition-colors py-2"
+              className="text-sm font-medium text-green-700 hover:text-green-500 transition-colors py-2"
             >
               Contact
             </Link>
@@ -69,17 +69,17 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-100/50 to-amber-100/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-green-100/50 to-emerald-100/50"></div>
         <div className="container mx-auto text-center relative">
           <div className="mb-8">
-            <span className="inline-flex items-center rounded-full border border-orange-300 bg-gradient-to-r from-orange-200 to-amber-200 text-orange-800 px-6 py-3 text-sm font-semibold shadow-sm">
+            <span className="inline-flex items-center rounded-full border border-green-300 bg-gradient-to-r from-green-200 to-emerald-200 text-green-800 px-6 py-3 text-sm font-semibold shadow-sm">
               🐾 Votre chien mérite le meilleur
             </span>
           </div>
 
           <TypographyH1 className="mb-8">
             Un moment de{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">bonheur</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500">bonheur</span>
             <br />
             pour votre compagnon
           </TypographyH1>
@@ -94,7 +94,7 @@ export default function HomePage() {
             <div className="relative">
               <Mascot variant="bubbles" size="xl" />
               <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-                <span className="inline-flex items-center rounded-full border border-orange-200 bg-white/90 text-orange-700 px-4 py-2 text-sm font-semibold shadow-sm">
+                <span className="inline-flex items-center rounded-full border border-green-200 bg-white/90 text-green-700 px-4 py-2 text-sm font-semibold shadow-sm">
                   Moi c'est Bulle, votre mascotte ! 🫧
                 </span>
               </div>
@@ -161,7 +161,7 @@ export default function HomePage() {
                 ),
                 title: "Bain Moussant Magique",
                 description: "Shampooing doux aux huiles naturelles, bulles parfumées et rinçage tout en douceur",
-                gradient: "from-orange-400 to-amber-400",
+                gradient: "from-green-400 to-emerald-400",
               },
               {
                 icon: (
@@ -182,7 +182,7 @@ export default function HomePage() {
                 ),
                 title: "Câlins & Massage",
                 description: "Séance de détente avec massage relaxant et plein de câlins pour rassurer votre loulou",
-                gradient: "from-pink-400 to-rose-400",
+                gradient: "from-emerald-400 to-teal-400",
               },
               {
                 icon: (
@@ -206,12 +206,12 @@ export default function HomePage() {
                 ),
                 title: "Soins Naturels",
                 description: "Produits bio et naturels, respectueux de la peau sensible de nos amis à quatre pattes",
-                gradient: "from-green-400 to-emerald-400",
+                gradient: "from-teal-400 to-cyan-400",
               },
             ].map((service, index) => (
               <div
                 key={index}
-                className="rounded-2xl border-2 bg-gradient-to-b from-white to-orange-50 border-orange-100 hover:border-orange-200 transition-all hover:shadow-xl text-center p-8"
+                className="rounded-2xl border-2 bg-gradient-to-b from-white to-green-50 border-green-100 hover:border-green-200 transition-all hover:shadow-xl text-center p-8"
               >
                 <div
                   className={`mx-auto mb-6 h-20 w-20 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg`}
@@ -219,7 +219,7 @@ export default function HomePage() {
                   {service.icon}
                 </div>
                 <TypographyH3 className="mb-4">{service.title}</TypographyH3>
-                <p className="text-orange-700 leading-relaxed">{service.description}</p>
+                <p className="text-green-700 leading-relaxed">{service.description}</p>
               </div>
             ))}
           </div>
@@ -227,7 +227,7 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Section */}
-      <section id="tarifs" className="py-16 md:py-24 px-4 bg-gradient-to-b from-white to-orange-50">
+      <section id="tarifs" className="py-16 md:py-24 px-4 bg-gradient-to-b from-white to-green-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <TypographyH2>Nos forfaits bonheur</TypographyH2>
@@ -270,8 +270,8 @@ export default function HomePage() {
                   "Friandise de récompense 🦴",
                 ],
                 popular: true,
-                color: "from-orange-400 to-amber-500",
-                bgColor: "from-orange-50 to-amber-50",
+                color: "from-emerald-400 to-teal-500",
+                bgColor: "from-emerald-50 to-teal-50",
               },
               {
                 name: "Grand Cœur",
@@ -291,21 +291,21 @@ export default function HomePage() {
                   "Friandise de récompense 🦴",
                 ],
                 popular: false,
-                color: "from-purple-400 to-pink-500",
-                bgColor: "from-purple-50 to-pink-50",
+                color: "from-teal-400 to-cyan-500",
+                bgColor: "from-teal-50 to-cyan-50",
               },
             ].map((plan, index) => (
               <div
                 key={index}
                 className={`rounded-2xl border-2 transition-all hover:shadow-2xl ${
                   plan.popular
-                    ? "border-orange-300 shadow-xl scale-105 bg-gradient-to-b from-orange-50 to-amber-50"
-                    : `border-orange-100 hover:border-orange-200 bg-gradient-to-b ${plan.bgColor}`
+                    ? "border-green-300 shadow-xl scale-105 bg-gradient-to-b from-green-50 to-emerald-50"
+                    : `border-green-100 hover:border-green-200 bg-gradient-to-b ${plan.bgColor}`
                 } relative p-8`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white px-6 py-3 text-sm font-bold shadow-lg">
+                    <span className="inline-flex items-center rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 text-sm font-bold shadow-lg">
                       ⭐ Le plus choisi
                     </span>
                   </div>
@@ -313,12 +313,12 @@ export default function HomePage() {
                 <div className="text-center mb-8">
                   <div className="text-5xl mb-4">{plan.emoji}</div>
                   <TypographyH3 className="mb-2">{plan.name}</TypographyH3>
-                  <p className="text-orange-700 mb-6">{plan.description}</p>
+                  <p className="text-green-700 mb-6">{plan.description}</p>
                   <div className="mb-6">
                     <span className={`text-5xl font-bold bg-gradient-to-r ${plan.color} bg-clip-text text-transparent`}>
                       {plan.price}
                     </span>
-                    <span className="text-orange-600 ml-2 text-lg">/ {plan.duration}</span>
+                    <span className="text-green-600 ml-2 text-lg">/ {plan.duration}</span>
                   </div>
                 </div>
                 <ul className="space-y-4 mb-8">
@@ -342,7 +342,7 @@ export default function HomePage() {
                           <path d="M20 6 9 17l-5-5" />
                         </svg>
                       </div>
-                      <span className="text-orange-700 leading-relaxed">{feature}</span>
+                      <span className="text-green-700 leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -369,7 +369,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <div className="inline-flex items-center bg-orange-100 rounded-full px-6 py-3 text-orange-600">
+            <div className="inline-flex items-center bg-green-100 rounded-full px-6 py-3 text-green-600">
               <span className="text-sm font-medium">
                 💡 Supplément de 10€ pour les toutous très sales ou très timides (avec plein de patience en plus !)
               </span>
@@ -381,8 +381,8 @@ export default function HomePage() {
       {/* Testimonials Section - Lazy loaded */}
       <Suspense
         fallback={
-          <div className="py-16 bg-gradient-to-b from-orange-50 to-amber-50 flex justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+          <div className="py-16 bg-gradient-to-b from-green-50 to-emerald-50 flex justify-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div>
           </div>
         }
       >
@@ -390,7 +390,7 @@ export default function HomePage() {
       </Suspense>
 
       {/* Booking Section */}
-      <section id="reservation" className="py-16 md:py-24 px-4 bg-gradient-to-b from-orange-50 to-amber-50">
+      <section id="reservation" className="py-16 md:py-24 px-4 bg-gradient-to-b from-green-50 to-emerald-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <div className="flex justify-center mb-6">
@@ -409,7 +409,7 @@ export default function HomePage() {
       <Suspense
         fallback={
           <div className="py-16 bg-white flex justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div>
           </div>
         }
       >
@@ -420,7 +420,7 @@ export default function HomePage() {
       <Suspense
         fallback={
           <div className="py-16 bg-white flex justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div>
           </div>
         }
       >
@@ -428,7 +428,7 @@ export default function HomePage() {
       </Suspense>
 
       {/* Contact Section - Lazy loaded */}
-      <section id="contact" className="py-16 md:py-24 px-4 bg-gradient-to-b from-orange-50 to-amber-50">
+      <section id="contact" className="py-16 md:py-24 px-4 bg-gradient-to-b from-green-50 to-emerald-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <TypographyH2>Une question ? Parlons-en ! 💬</TypographyH2>
@@ -442,7 +442,7 @@ export default function HomePage() {
             <Suspense
               fallback={
                 <div className="flex justify-center">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div>
                 </div>
               }
             >
@@ -473,7 +473,7 @@ export default function HomePage() {
                 title: "Appelez-nous",
                 content: "01 23 45 67 89",
                 subtitle: "📞 Réponse immédiate",
-                gradient: "from-orange-400 to-amber-400",
+                gradient: "from-green-400 to-emerald-400",
               },
               {
                 icon: (
@@ -496,7 +496,7 @@ export default function HomePage() {
                 title: "Écrivez-nous",
                 content: "contact@pattespropres.fr",
                 subtitle: "📧 Réponse sous 24h",
-                gradient: "from-pink-400 to-rose-400",
+                gradient: "from-emerald-400 to-teal-400",
               },
               {
                 icon: (
@@ -519,7 +519,7 @@ export default function HomePage() {
                 title: "Venez nous voir",
                 content: "123 Rue des Toutous\n75001 Paris",
                 subtitle: "🗺️ Parking gratuit",
-                gradient: "from-green-400 to-emerald-400",
+                gradient: "from-teal-400 to-cyan-400",
               },
               {
                 icon: (
@@ -542,28 +542,28 @@ export default function HomePage() {
                 title: "Nos horaires",
                 content: "🌅 Lun-Ven: 9h-18h\n🌞 Sam: 9h-17h\n😴 Dim: Fermé",
                 subtitle: "",
-                gradient: "from-purple-400 to-pink-400",
+                gradient: "from-cyan-400 to-blue-400",
               },
             ].map((contact, index) => (
               <div
                 key={index}
-                className="rounded-2xl border-2 border-orange-100 bg-white hover:shadow-xl transition-all text-center p-6 md:p-8"
+                className="rounded-2xl border-2 border-green-100 bg-white hover:shadow-xl transition-all text-center p-6 md:p-8"
               >
                 <div
                   className={`mx-auto mb-4 h-16 w-16 rounded-full bg-gradient-to-br ${contact.gradient} flex items-center justify-center shadow-lg`}
                 >
                   {contact.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-orange-900 mb-3">{contact.title}</h3>
-                <p className="text-orange-700 font-semibold mb-2 whitespace-pre-line">{contact.content}</p>
-                {contact.subtitle && <p className="text-sm text-orange-600">{contact.subtitle}</p>}
+                <h3 className="text-lg font-semibold text-green-900 mb-3">{contact.title}</h3>
+                <p className="text-green-700 font-semibold mb-2 whitespace-pre-line">{contact.content}</p>
+                {contact.subtitle && <p className="text-sm text-green-600">{contact.subtitle}</p>}
               </div>
             ))}
           </div>
 
           {/* Message chaleureux */}
           <div className="text-center mt-16">
-            <div className="max-w-3xl mx-auto rounded-2xl border-2 border-orange-200 bg-gradient-to-r from-orange-100 to-amber-100 p-8 shadow-lg">
+            <div className="max-w-3xl mx-auto rounded-2xl border-2 border-green-200 bg-gradient-to-r from-green-100 to-emerald-100 p-8 shadow-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
@@ -574,15 +574,15 @@ export default function HomePage() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-orange-600 mx-auto mb-6"
+                className="text-green-600 mx-auto mb-6"
               >
                 <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
               </svg>
-              <p className="text-orange-800 italic text-lg leading-relaxed mb-4">
+              <p className="text-green-800 italic text-lg leading-relaxed mb-4">
                 "Chez Pattes Propres, chaque chien est traité comme un membre de la famille. Nous prenons le temps qu'il
                 faut pour que votre compagnon se sente en sécurité et aimé." 💕
               </p>
-              <p className="text-orange-700 font-semibold">- L'équipe Pattes Propres</p>
+              <p className="text-green-700 font-semibold">- L'équipe Pattes Propres</p>
             </div>
           </div>
         </div>
@@ -591,8 +591,8 @@ export default function HomePage() {
       {/* Map Section - Lazy loaded */}
       <Suspense
         fallback={
-          <div className="py-16 bg-gradient-to-b from-amber-50 to-orange-50 flex justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+          <div className="py-16 bg-gradient-to-b from-emerald-50 to-green-50 flex justify-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div>
           </div>
         }
       >
@@ -600,7 +600,7 @@ export default function HomePage() {
       </Suspense>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-orange-800 to-amber-800 text-white py-16 px-4">
+      <footer className="bg-gradient-to-r from-green-800 to-emerald-800 text-white py-16 px-4">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-4 gap-8 lg:gap-12">
             <div>
@@ -608,10 +608,10 @@ export default function HomePage() {
                 <Mascot variant="happy" size="sm" />
                 <div>
                   <span className="text-2xl font-bold">Pattes Propres</span>
-                  <p className="text-sm text-orange-200">Spa pour toutous</p>
+                  <p className="text-sm text-green-200">Spa pour toutous</p>
                 </div>
               </div>
-              <p className="text-orange-200 mb-6 leading-relaxed">
+              <p className="text-green-200 mb-6 leading-relaxed">
                 Parce que nos amis à quatre pattes méritent ce qu'il y a de mieux ! 🐾💕
               </p>
               <div className="flex space-x-4">
@@ -625,7 +625,7 @@ export default function HomePage() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-orange-700 hover:bg-orange-600 rounded-full p-3 transition-colors"
+                    className="bg-green-700 hover:bg-green-600 rounded-full p-3 transition-colors"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       {social.icon === "instagram" && (
@@ -643,8 +643,8 @@ export default function HomePage() {
               </div>
             </div>
             <div>
-              <h3 className="font-semibold mb-6 text-orange-100 text-lg">Nos services</h3>
-              <ul className="space-y-3 text-orange-200">
+              <h3 className="font-semibold mb-6 text-green-100 text-lg">Nos services</h3>
+              <ul className="space-y-3 text-green-200">
                 <li className="flex items-center">
                   <span className="mr-2">🛁</span> Bain moussant
                 </li>
@@ -660,8 +660,8 @@ export default function HomePage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-6 text-orange-100 text-lg">Contact</h3>
-              <ul className="space-y-3 text-orange-200">
+              <h3 className="font-semibold mb-6 text-green-100 text-lg">Contact</h3>
+              <ul className="space-y-3 text-green-200">
                 <li className="flex items-center">
                   <svg className="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -685,8 +685,8 @@ export default function HomePage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-6 text-orange-100 text-lg">Horaires</h3>
-              <ul className="space-y-3 text-orange-200">
+              <h3 className="font-semibold mb-6 text-green-100 text-lg">Horaires</h3>
+              <ul className="space-y-3 text-green-200">
                 <li className="flex items-center">
                   <span className="mr-2">🌅</span> Lun-Ven: 9h-18h
                 </li>
@@ -699,7 +699,7 @@ export default function HomePage() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-orange-700 mt-12 pt-8 text-center text-orange-200">
+          <div className="border-t border-green-700 mt-12 pt-8 text-center text-green-200">
             <p>&copy; 2024 Pattes Propres - Fait avec 🧡 pour nos amis les chiens</p>
           </div>
         </div>

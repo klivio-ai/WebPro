@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@radix-ui/react-select": "latest",
+    "@tailwindcss/postcss": "^4.1.11",
+    "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.454.0",
@@ -17,6 +19,7 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.5.5",
+    "tailwindcss": "^4.1.11",
     "tailwindcss-animate": "^1.0.7",
     "zod": "latest"
   },
