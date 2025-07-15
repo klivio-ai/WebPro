@@ -1,4 +1,3 @@
-import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
@@ -6,23 +5,58 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "CleanPaws - Service Professionnel de Nettoyage Canin | Réservation en Ligne",
-  description:
-    "Service professionnel de nettoyage pour chiens. Réservez votre créneau en ligne, tarifs transparents, produits naturels. Votre chien mérite le meilleur soin.",
-  keywords: "nettoyage chien, toilettage canin, bain chien, réservation en ligne, soins chien, Paris",
-  authors: [{ name: "CleanPaws" }],
+  title: "Preview123 - Générateur d'aperçus de liens moderne",
+  description: "Transformez vos liens en aperçus visuels attrayants. Générateur d'aperçus rapide et moderne pour les réseaux sociaux et présentations.",
+  keywords: "aperçu de lien, générateur d'aperçu, preview link, réseaux sociaux, partage de liens",
+  authors: [{ name: "Preview123 Team" }],
+  creator: "Preview123",
+  publisher: "Preview123",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://preview123.fyi"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "CleanPaws - Service Professionnel de Nettoyage Canin",
-    description:
-      "Réservez en ligne votre créneau de nettoyage pour chien. Service professionnel avec produits naturels.",
-    type: "website",
+    title: "Preview123 - Générateur d'aperçus de liens moderne",
+    description: "Transformez vos liens en aperçus visuels attrayants. Générateur d'aperçus rapide et moderne pour les réseaux sociaux et présentations.",
+    url: "https://preview123.fyi",
+    siteName: "Preview123",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Preview123 - Générateur d'aperçus de liens",
+      },
+    ],
     locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Preview123 - Générateur d'aperçus de liens moderne",
+    description: "Transformez vos liens en aperçus visuels attrayants. Générateur d'aperçus rapide et moderne pour les réseaux sociaux et présentations.",
+    images: ["/og-image.png"],
+    creator: "@preview123",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
-    generator: 'v0.dev'
+  verification: {
+    google: "your-google-verification-code",
+  },
 }
 
 export default function RootLayout({
@@ -31,8 +65,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr">
-      <body className={inter.className}>{children}</body>
+    <html lang="fr" className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#667eea" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+      </head>
+      <body className={inter.className}>
+        {children}
+      </body>
     </html>
   )
 }
