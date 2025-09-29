@@ -259,6 +259,59 @@
             font-size: 1.2rem;
         }
 
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: #f7fafc;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1rem;
+        }
+
+        .testimonial-author strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .testimonial-author span {
+            color: #718096;
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
         /* Trust Section */
         .trust {
             padding: 80px 0;
@@ -291,6 +344,38 @@
         }
 
         .trust-item p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: #f7fafc;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-item h3 {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .faq-item p {
             color: #4a5568;
             line-height: 1.6;
         }
@@ -433,6 +518,9 @@
                 <a href="#contact" class="cta-button">
                     <i class="fas fa-rocket"></i> Commencer maintenant
                 </a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    <i class="fas fa-clock"></i> Offre limitée - Plus que 3 créneaux disponibles ce mois
+                </p>
             </div>
         </div>
     </section>
@@ -558,6 +646,44 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Ce que disent nos clients</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Enfin une offre claire ! 499€ et c'est tout, pas de surprise. Mon site était prêt en 5 jours et il me rapporte déjà des clients."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Marie L.</strong>
+                        <span>Restaurant Le Bistrot</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Comparé aux 8000€ demandés par l'agence locale, c'est un cadeau ! Et le support est réactif. Je recommande vivement."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Pierre M.</strong>
+                        <span>Plombier Services</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Simple, efficace, pas cher. Mon site mobile fonctionne parfaitement et j'ai déjà 3 nouveaux clients cette semaine."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Sophie D.</strong>
+                        <span>Coiffure à domicile</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Trust Section -->
     <section class="trust">
         <div class="container">
@@ -598,14 +724,50 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Questions fréquentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Que comprend exactement l'offre à 499€ HT ?</h3>
+                    <p>Création complète de votre site web professionnel, design responsive, optimisation SEO, certificat SSL, et mise en ligne. Aucun frais caché.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Que se passe-t-il après la création ?</h3>
+                    <p>Pour 9€ HT/mois, vous bénéficiez de l'hébergement, des mises à jour, des sauvegardes automatiques et du support technique.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Puis-je modifier mon site moi-même ?</h3>
+                    <p>Oui ! Nous vous formons à l'utilisation de votre interface d'administration. Vous pouvez modifier textes, images et contenus facilement.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Que se passe-t-il si je ne suis pas satisfait ?</h3>
+                    <p>Garantie satisfaction 30 jours. Si vous n'êtes pas satisfait, nous vous remboursons intégralement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Final CTA Section -->
     <section id="contact" class="final-cta">
         <div class="container">
             <h2>Prêt à créer votre site web ?</h2>
             <p>Rejoignez les centaines d'entreprises qui ont choisi la simplicité et l'efficacité</p>
-            <a href="mailto:contact@votresiteweb.fr" class="cta-button">
-                <i class="fas fa-envelope"></i> Demander un devis gratuit
-            </a>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="mailto:contact@votresiteweb.fr" class="cta-button">
+                    <i class="fas fa-envelope"></i> Demander un devis gratuit
+                </a>
+                <a href="tel:0123456789" class="cta-button" style="background: #3182ce;">
+                    <i class="fas fa-phone"></i> Appeler maintenant
+                </a>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                <i class="fas fa-shield-alt"></i> Réponse garantie sous 2h - Devis gratuit sans engagement
+            </p>
         </div>
     </section>
 
