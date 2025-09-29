@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "Landing page optimisée pour création de sites web - 499€ HT + 9€ HT/mois",
   "main": "index.html",
+  "homepage": "https://preview123.fyi",
   "scripts": {
-    "start": "npx serve .",
+    "start": "npx serve . -p 3000",
     "build": "echo 'Static site - no build needed'",
-    "dev": "npx serve ."
+    "dev": "npx serve . -p 3000",
+    "preview": "npx serve . -p 3000"
   },
-  "keywords": ["landing-page", "site-web", "conversion", "pricing"],
+  "keywords": ["landing-page", "site-web", "conversion", "pricing", "static-site"],
   "author": "VotreSiteWeb",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
