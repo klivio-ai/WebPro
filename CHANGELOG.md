@@ -135,16 +135,47 @@
 - **Accessibilité** : WCAG 2.1 AA
 - **Mobile-first** : Optimisé 375px+
 
+### 🔄 OPTIMISATIONS COMPLÉTÉES (PHASE 2)
+
+#### Images et Portfolio ✅
+- ✅ **Images optimisées** : Attributs alt, width, height, lazy loading
+- ✅ **Portfolio enrichi** : Captures réelles Unsplash, résultats clients détaillés
+- ✅ **Effets hover** : Overlay "Voir le projet" sur images portfolio
+- ✅ **WebP support** : Format moderne avec fallback
+
+#### Performance ✅
+- ✅ **Fonts optimisées** : Preload, font-display: swap, fallbacks système
+- ✅ **CSS optimisé** : Variables CSS, design system cohérent
+- ✅ **Lazy loading** : Images below the fold
+- ✅ **Preload resources** : CSS et fonts critiques
+
+#### Accessibilité WCAG 2.1 AA ✅
+- ✅ **ARIA labels** : Navigation, formulaires, sections
+- ✅ **Navigation clavier** : Focus styles, skip links
+- ✅ **Screen readers** : Classes .sr-only, descriptions
+- ✅ **Formulaires** : Labels, descriptions, validation
+- ✅ **Contrastes** : Ratios conformes WCAG
+
+#### Mobile-First ✅
+- ✅ **Viewport 375px** : Optimisation iPhone SE
+- ✅ **Tailles tapables** : Min 44x44px pour tous les éléments
+- ✅ **Textes optimisés** : Min 16px, prévention zoom iOS
+- ✅ **Responsive design** : Breakpoints 375px et 768px
+
+#### Contenu enrichi ✅
+- ✅ **Section garanties** : 6 garanties illustrées avec badges
+- ✅ **Tableau comparatif** : Comparaison détaillée avec calculs
+- ✅ **Calculs d'économies** : Démonstration chiffrée des économies
+- ✅ **Design system** : Variables CSS complètes (8px baseline)
+
 ### 🔄 PROCHAINES ÉTAPES RECOMMANDÉES
 
 #### Optimisations restantes (optionnelles)
-- [ ] **Images** : Attributs alt, width, height, lazy loading
-- [ ] **Portfolio** : Captures réelles, résultats clients
-- [ ] **Performance** : Minification CSS/JS, WebP images
-- [ ] **Accessibilité** : ARIA labels, navigation clavier
-- [ ] **Mobile** : Optimisation viewport 375px
-- [ ] **Credibility** : Logos clients, calculs détaillés
-- [ ] **Design system** : Variables CSS complètes
+- [ ] **Credibility** : Logos clients, certifications, partenariats
+- [ ] **Trust signals** : Timeline de processus détaillée
+- [ ] **Minification** : CSS/JS minifiés pour production
+- [ ] **Service Worker** : Caching avancé
+- [ ] **A/B Testing** : Tests de conversion
 
 #### Tests recommandés
 - [ ] **A/B Test** : CTAs, couleurs, textes
