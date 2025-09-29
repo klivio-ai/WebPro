@@ -163,6 +163,62 @@
             background: #e2e8f0;
         }
 
+        .cta-button.calendly {
+            background: #166534;
+            color: white;
+        }
+
+        .cta-button.calendly:hover {
+            background: #15803d;
+        }
+
+        .calendly-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .calendly-popup.active {
+            display: flex;
+        }
+
+        .calendly-container {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow: auto;
+        }
+
+        .calendly-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #f1f5f9;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            color: #64748b;
+        }
+
+        .calendly-close:hover {
+            background: #e2e8f0;
+        }
+
         /* Features Section */
         .features {
             padding: 120px 0;
@@ -236,65 +292,266 @@
             font-size: 16px;
         }
 
-        /* Comparison Section */
-        .comparison {
+        /* Portfolio Section */
+        .portfolio {
             padding: 120px 0;
             background: #ffffff;
         }
 
-        .comparison-table {
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+        }
+
+        .portfolio-item {
             background: #ffffff;
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid #e2e8f0;
-            margin-top: 64px;
+            transition: all 0.2s ease;
         }
 
-        .table-header {
-            background: #0f172a;
-            color: white;
-            padding: 24px;
-            text-align: center;
+        .portfolio-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .portfolio-image {
+            height: 200px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #64748b;
+        }
+
+        .portfolio-content {
+            padding: 32px;
+        }
+
+        .portfolio-category {
+            color: #166534;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-title {
+            font-size: 20px;
             font-weight: 700;
-            font-size: 18px;
+            color: #0f172a;
+            margin-bottom: 12px;
         }
 
-        .table-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            border-bottom: 1px solid #e2e8f0;
+        .portfolio-description {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 20px;
         }
 
-        .table-row:last-child {
-            border-bottom: none;
+        .portfolio-stats {
+            display: flex;
+            gap: 24px;
+            font-size: 14px;
+            color: #64748b;
         }
 
-        .table-cell {
-            padding: 24px;
+        .portfolio-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 120px 0;
+            background: #f8fafc;
+        }
+
+        .comparison-carousel {
+            margin-top: 64px;
+            position: relative;
+        }
+
+        .comparison-container {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding: 24px 0;
+            scroll-behavior: smooth;
+        }
+
+        .comparison-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .comparison-container::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+
+        .comparison-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .comparison-card {
+            min-width: 300px;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .comparison-card.featured {
+            border: 2px solid #166534;
+            background: #f0fdf4;
+        }
+
+        .comparison-card.featured::before {
+            content: "Recommandé";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #166534;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .comparison-header {
             text-align: center;
-            border-right: 1px solid #e2e8f0;
+            margin-bottom: 32px;
+        }
+
+        .comparison-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .comparison-subtitle {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .comparison-price {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .comparison-price-amount {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .comparison-price-period {
+            font-size: 16px;
+            color: #64748b;
+        }
+
+        .comparison-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .comparison-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
             font-size: 16px;
         }
 
-        .table-cell:last-child {
-            border-right: none;
+        .comparison-feature:last-child {
+            border-bottom: none;
         }
 
-        .table-cell.our-offer {
-            background: #f0fdf4;
+        .comparison-feature-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .comparison-feature-icon.positive {
+            background: #dcfce7;
             color: #166534;
-            font-weight: 600;
         }
 
-        .competitor-price {
+        .comparison-feature-icon.negative {
+            background: #fee2e2;
             color: #dc2626;
-            font-weight: 600;
         }
 
-        .our-price {
-            color: #166534;
-            font-weight: 700;
-            font-size: 18px;
+        .comparison-feature-icon.neutral {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+
+        .comparison-cta {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .comparison-cta.primary {
+            background: #0f172a;
+            color: white;
+        }
+
+        .comparison-cta.primary:hover {
+            background: #1e293b;
+        }
+
+        .comparison-cta.secondary {
+            background: #f1f5f9;
+            color: #0f172a;
+            border: 1px solid #e2e8f0;
+        }
+
+        .comparison-cta.secondary:hover {
+            background: #e2e8f0;
+        }
+
+        .comparison-cta.featured {
+            background: #166534;
+            color: white;
+        }
+
+        .comparison-cta.featured:hover {
+            background: #15803d;
         }
 
         /* Testimonials Section */
@@ -670,6 +927,141 @@
         </div>
     </section>
 
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Nos réalisations</h2>
+            <p class="section-subtitle">Découvrez quelques-uns de nos sites web créés pour nos clients</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Restauration</div>
+                        <h3 class="portfolio-title">Restaurant Le Bistrot</h3>
+                        <p class="portfolio-description">Site vitrine moderne avec menu interactif, réservation en ligne et galerie photos. Design épuré qui met en valeur les plats.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <i class="fas fa-clock"></i>
+                                <span>5 jours</span>
+                            </div>
+                            <div class="portfolio-stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>+40% réservations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Services</div>
+                        <h3 class="portfolio-title">Plombier Services</h3>
+                        <p class="portfolio-description">Site professionnel avec devis en ligne, zone d'intervention et témoignages clients. Optimisé pour le référencement local.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <i class="fas fa-clock"></i>
+                                <span>7 jours</span>
+                            </div>
+                            <div class="portfolio-stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>+60% appels</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Beauté</div>
+                        <h3 class="portfolio-title">Coiffure à domicile</h3>
+                        <p class="portfolio-description">Site mobile-first avec prise de RDV en ligne, galerie de coiffures et avis clients. Interface intuitive et moderne.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <i class="fas fa-clock"></i>
+                                <span>6 jours</span>
+                            </div>
+                            <div class="portfolio-stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>+80% RDV</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Sport</div>
+                        <h3 class="portfolio-title">Salle de Sport FitZone</h3>
+                        <p class="portfolio-description">Site complet avec planning des cours, inscription en ligne et espace membre. Design dynamique et motivant.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <i class="fas fa-clock"></i>
+                                <span>8 jours</span>
+                            </div>
+                            <div class="portfolio-stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>+50% adhésions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Commerce</div>
+                        <h3 class="portfolio-title">Boutique Mode & Style</h3>
+                        <p class="portfolio-description">E-commerce simple avec catalogue produits, panier et paiement sécurisé. Design élégant et professionnel.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <i class="fas fa-clock"></i>
+                                <span>10 jours</span>
+                            </div>
+                            <div class="portfolio-stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>+120% ventes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Formation</div>
+                        <h3 class="portfolio-title">Centre de Formation Pro</h3>
+                        <p class="portfolio-description">Site éducatif avec catalogue de formations, inscription en ligne et espace apprenant. Interface claire et accessible.</p>
+                        <div class="portfolio-stats">
+                            <div class="portfolio-stat">
+                                <i class="fas fa-clock"></i>
+                                <span>9 jours</span>
+                            </div>
+                            <div class="portfolio-stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>+70% inscriptions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Comparison Section -->
     <section id="comparaison" class="comparison">
         <div class="container">
@@ -678,56 +1070,147 @@
                 Découvrez pourquoi notre offre est la plus simple et la plus économique du marché
             </p>
             
-            <div class="comparison-table">
-                <div class="table-header">
-                    Comparatif des tarifs - Site vitrine professionnel
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell" style="font-weight: 600; background: #f7fafc;">Critères</div>
-                    <div class="table-cell" style="font-weight: 600; background: #f7fafc;">Concurrents</div>
-                    <div class="table-cell" style="font-weight: 600; background: #f0fff4;">Notre Offre</div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell">Création du site</div>
-                    <div class="table-cell competitor-price">2 000€ - 15 000€</div>
-                    <div class="table-cell our-offer our-price">499€ HT</div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell">Hébergement mensuel</div>
-                    <div class="table-cell competitor-price">15€ - 50€ HT</div>
-                    <div class="table-cell our-offer our-price">9€ HT</div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell">Maintenance</div>
-                    <div class="table-cell competitor-price">50€ - 150€ HT/mois</div>
-                    <div class="table-cell our-offer">Incluse</div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell">Délai de livraison</div>
-                    <div class="table-cell competitor-price">4 - 8 semaines</div>
-                    <div class="table-cell our-offer">7 jours</div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell">Support client</div>
-                    <div class="table-cell competitor-price">Payant</div>
-                    <div class="table-cell our-offer">Inclus</div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell">Frais cachés</div>
-                    <div class="table-cell competitor-price">Souvent présents</div>
-                    <div class="table-cell our-offer">Aucun</div>
+            <div class="comparison-carousel">
+                <div class="comparison-container">
+                    <!-- Carte Agences Traditionnelles -->
+                    <div class="comparison-card">
+                        <div class="comparison-header">
+                            <h3 class="comparison-title">Agences Traditionnelles</h3>
+                            <p class="comparison-subtitle">Offres complexes et onéreuses</p>
+                        </div>
+                        <div class="comparison-price">
+                            <div class="comparison-price-amount">2 000€ - 15 000€</div>
+                            <div class="comparison-price-period">+ frais cachés</div>
+                        </div>
+                        <ul class="comparison-features">
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon negative">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <span>Prix élevés et imprévisibles</span>
+                            </li>
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon negative">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <span>Délais longs (4-8 semaines)</span>
+                            </li>
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon negative">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <span>Maintenance payante (50-150€/mois)</span>
+                            </li>
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon negative">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <span>Support client payant</span>
+                            </li>
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon negative">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <span>Frais cachés fréquents</span>
+                            </li>
+                        </ul>
+                        <button class="comparison-cta secondary">Non recommandé</button>
+                    </div>
+
+                    <!-- Carte Notre Offre (Recommandée) -->
+                    <div class="comparison-card featured">
+                        <div class="comparison-header">
+                            <h3 class="comparison-title">Notre Offre</h3>
+                            <p class="comparison-subtitle">Simple, transparente, efficace</p>
+                        </div>
+                        <div class="comparison-price">
+                            <div class="comparison-price-amount">499€ HT</div>
+                            <div class="comparison-price-period">+ 9€ HT/mois</div>
+                        </div>
+                        <ul class="comparison-features">
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon positive">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span>Prix fixe et transparent</span>
+                            </li>
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon positive">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span>Livraison rapide (7 jours)</span>
+                            </li>
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon positive">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span>Maintenance incluse</span>
+                            </li>
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon positive">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span>Support client inclus</span>
+                            </li>
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon positive">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span>Aucun frais caché</span>
+                            </li>
+                        </ul>
+                        <button class="comparison-cta featured" onclick="openCalendly()">Choisir cette offre</button>
+                    </div>
+
+                    <!-- Carte Freelancers -->
+                    <div class="comparison-card">
+                        <div class="comparison-header">
+                            <h3 class="comparison-title">Freelancers</h3>
+                            <p class="comparison-subtitle">Prix variables et délais incertains</p>
+                        </div>
+                        <div class="comparison-price">
+                            <div class="comparison-price-amount">500€ - 3 000€</div>
+                            <div class="comparison-price-period">+ maintenance séparée</div>
+                        </div>
+                        <ul class="comparison-features">
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon neutral">
+                                    <i class="fas fa-question"></i>
+                                </div>
+                                <span>Prix variables selon profil</span>
+                            </li>
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon negative">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <span>Délais imprévisibles</span>
+                            </li>
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon negative">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <span>Maintenance non garantie</span>
+                            </li>
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon neutral">
+                                    <i class="fas fa-question"></i>
+                                </div>
+                                <span>Support selon disponibilité</span>
+                            </li>
+                            <li class="comparison-feature">
+                                <div class="comparison-feature-icon negative">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <span>Pas de garantie de résultat</span>
+                            </li>
+                        </ul>
+                        <button class="comparison-cta secondary">Risqué</button>
+                    </div>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 2rem;">
-                <p style="font-size: 1.1rem; color: #2f855a; font-weight: 600;">
+            <div style="text-align: center; margin-top: 48px;">
+                <p style="font-size: 18px; color: #166534; font-weight: 600;">
                     <i class="fas fa-check-circle"></i> 
                     Économisez jusqu'à 14 500€ par rapport aux agences traditionnelles
                 </p>
@@ -850,8 +1333,11 @@
             <h2>Prêt à créer votre site web ?</h2>
             <p>Rejoignez les centaines d'entreprises qui ont choisi la simplicité et l'efficacité</p>
             <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 32px;">
-                <a href="mailto:contact@votresiteweb.fr" class="cta-button">
-                    <i class="fas fa-envelope"></i> Demander un devis gratuit
+                <button onclick="openCalendly()" class="cta-button calendly">
+                    <i class="fas fa-calendar-alt"></i> Prendre un RDV gratuit
+                </button>
+                <a href="mailto:contact@votresiteweb.fr" class="cta-button secondary">
+                    <i class="fas fa-envelope"></i> Demander un devis
                 </a>
                 <a href="tel:0123456789" class="cta-button secondary">
                     <i class="fas fa-phone"></i> Appeler maintenant
@@ -895,6 +1381,19 @@
             </div>
         </div>
     </footer>
+
+    <!-- Calendly Popup -->
+    <div id="calendly-popup" class="calendly-popup">
+        <div class="calendly-container">
+            <button class="calendly-close" onclick="closeCalendly()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="calendly-embed" style="min-width: 320px; height: 600px;"></div>
+        </div>
+    </div>
+
+    <!-- Calendly Script -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
     <script>
         // Smooth scrolling for navigation links
@@ -941,6 +1440,46 @@
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
             } else {
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Calendly Functions
+        function openCalendly() {
+            const popup = document.getElementById('calendly-popup');
+            const embed = document.getElementById('calendly-embed');
+            
+            // Clear previous content
+            embed.innerHTML = '';
+            
+            // Create Calendly widget
+            Calendly.initInlineWidget({
+                url: 'https://calendly.com/votresiteweb/rdv-creation-site-web',
+                parentElement: embed,
+                prefill: {},
+                utm: {}
+            });
+            
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCalendly() {
+            const popup = document.getElementById('calendly-popup');
+            popup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('calendly-popup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCalendly();
+            }
+        });
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCalendly();
             }
         });
     </script>
