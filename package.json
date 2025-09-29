@@ -1,0 +1,14 @@
+{
+  "name": "landing-page-site-web",
+  "version": "1.0.0",
+  "description": "Landing page optimisée pour création de sites web - 499€ HT + 9€ HT/mois",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'Static site - no build needed'",
+    "dev": "npx serve ."
+  },
+  "keywords": ["landing-page", "site-web", "conversion", "pricing"],
+  "author": "VotreSiteWeb",
+  "license": "MIT"
+}
