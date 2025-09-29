@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Votre Site Web Simple - 499€ HT + 9€ HT/mois</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -16,76 +16,72 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #2d3748;
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            color: #0f172a;
+            background: #ffffff;
+            font-weight: 400;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
+        }
+
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         /* Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 20px 0;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 24px;
             font-weight: 700;
-            color: #4a5568;
+            color: #0f172a;
+            letter-spacing: -0.02em;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 32px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #4a5568;
+            color: #64748b;
             font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 15px;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: #3182ce;
+            color: #0f172a;
         }
 
         /* Hero Section */
         .hero {
-            padding: 120px 0 80px;
+            padding: 160px 0 120px;
             text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #ffffff;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
         }
 
         .hero-content {
@@ -94,132 +90,173 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #0f172a;
         }
 
         .hero .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            font-weight: 300;
+            font-size: 20px;
+            margin-bottom: 48px;
+            color: #64748b;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .pricing-highlight {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 48px;
+            margin: 48px 0;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .price {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #0f172a;
+            letter-spacing: -0.02em;
         }
 
         .price-details {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 18px;
+            color: #64748b;
+            font-weight: 500;
         }
 
         .cta-button {
-            display: inline-block;
-            background: #48bb78;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0f172a;
             color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
+            padding: 16px 32px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
-            margin-top: 1rem;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            margin-top: 32px;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+            background: #1e293b;
+            transform: translateY(-1px);
+        }
+
+        .cta-button.secondary {
+            background: #f1f5f9;
+            color: #0f172a;
+            border: 1px solid #e2e8f0;
+        }
+
+        .cta-button.secondary:hover {
+            background: #e2e8f0;
         }
 
         /* Features Section */
         .features {
-            padding: 80px 0;
-            background: white;
+            padding: 120px 0;
+            background: #f8fafc;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: #2d3748;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #64748b;
+            margin-bottom: 64px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
         }
 
         .feature-card {
-            background: #f7fafc;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: left;
+            transition: all 0.2s ease;
             border: 1px solid #e2e8f0;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
         }
 
         .feature-icon {
-            font-size: 3rem;
-            color: #3182ce;
-            margin-bottom: 1rem;
+            width: 48px;
+            height: 48px;
+            background: #f1f5f9;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 20px;
+            color: #0f172a;
         }
 
         .feature-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #2d3748;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0f172a;
         }
 
         .feature-card p {
-            color: #4a5568;
+            color: #64748b;
             line-height: 1.6;
+            font-size: 16px;
         }
 
         /* Comparison Section */
         .comparison {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 120px 0;
+            background: #ffffff;
         }
 
         .comparison-table {
-            background: white;
-            border-radius: 15px;
+            background: #ffffff;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-top: 3rem;
+            border: 1px solid #e2e8f0;
+            margin-top: 64px;
         }
 
         .table-header {
-            background: #3182ce;
+            background: #0f172a;
             color: white;
-            padding: 1.5rem;
+            padding: 24px;
             text-align: center;
-            font-weight: 600;
-            font-size: 1.2rem;
+            font-weight: 700;
+            font-size: 18px;
         }
 
         .table-row {
@@ -233,9 +270,10 @@
         }
 
         .table-cell {
-            padding: 1.5rem;
+            padding: 24px;
             text-align: center;
             border-right: 1px solid #e2e8f0;
+            font-size: 16px;
         }
 
         .table-cell:last-child {
@@ -243,210 +281,252 @@
         }
 
         .table-cell.our-offer {
-            background: #f0fff4;
-            color: #2f855a;
+            background: #f0fdf4;
+            color: #166534;
             font-weight: 600;
         }
 
         .competitor-price {
-            color: #e53e3e;
+            color: #dc2626;
             font-weight: 600;
         }
 
         .our-price {
-            color: #2f855a;
+            color: #166534;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 18px;
         }
 
         /* Testimonials Section */
         .testimonials {
-            padding: 80px 0;
-            background: #f7fafc;
+            padding: 120px 0;
+            background: #f8fafc;
         }
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
         }
 
         .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
         }
 
         .testimonial-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
         }
 
         .testimonial-content {
-            margin-bottom: 1.5rem;
+            margin-bottom: 24px;
         }
 
         .testimonial-content p {
             font-style: italic;
-            color: #4a5568;
+            color: #475569;
             line-height: 1.6;
-            font-size: 1.1rem;
+            font-size: 18px;
         }
 
         .testimonial-author {
             border-top: 1px solid #e2e8f0;
-            padding-top: 1rem;
+            padding-top: 20px;
         }
 
         .testimonial-author strong {
-            color: #2d3748;
-            font-weight: 600;
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 16px;
         }
 
         .testimonial-author span {
-            color: #718096;
-            font-size: 0.9rem;
+            color: #64748b;
+            font-size: 14px;
             display: block;
-            margin-top: 0.25rem;
+            margin-top: 4px;
         }
 
         /* Trust Section */
         .trust {
-            padding: 80px 0;
-            background: white;
+            padding: 120px 0;
+            background: #ffffff;
         }
 
         .trust-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+            margin-top: 64px;
         }
 
         .trust-item {
             text-align: center;
-            padding: 2rem;
+            padding: 40px 24px;
         }
 
         .trust-icon {
-            font-size: 2.5rem;
-            color: #48bb78;
-            margin-bottom: 1rem;
+            width: 64px;
+            height: 64px;
+            background: #f0fdf4;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 24px;
+            color: #166534;
         }
 
         .trust-item h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #2d3748;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0f172a;
         }
 
         .trust-item p {
-            color: #4a5568;
+            color: #64748b;
             line-height: 1.6;
+            font-size: 16px;
         }
 
         /* FAQ Section */
         .faq {
-            padding: 80px 0;
-            background: #f7fafc;
+            padding: 120px 0;
+            background: #f8fafc;
         }
 
         .faq-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
         }
 
         .faq-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
         }
 
         .faq-item h3 {
-            color: #2d3748;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            color: #0f172a;
+            font-weight: 700;
+            margin-bottom: 16px;
+            font-size: 18px;
         }
 
         .faq-item p {
-            color: #4a5568;
+            color: #64748b;
             line-height: 1.6;
+            font-size: 16px;
         }
 
         /* CTA Section */
         .final-cta {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0;
+            background: #0f172a;
             color: white;
             text-align: center;
         }
 
         .final-cta h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
         }
 
         .final-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            font-size: 20px;
+            margin-bottom: 48px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Footer */
         footer {
-            background: #2d3748;
+            background: #0f172a;
             color: white;
-            padding: 3rem 0;
+            padding: 80px 0 40px;
             text-align: center;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 48px;
+            margin-bottom: 48px;
         }
 
         .footer-section h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
         }
 
         .footer-section p, .footer-section a {
-            color: #a0aec0;
+            color: #94a3b8;
             text-decoration: none;
             line-height: 1.6;
+            font-size: 16px;
         }
 
         .footer-section a:hover {
-            color: white;
+            color: #ffffff;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 40px;
             }
 
             .hero .subtitle {
-                font-size: 1.1rem;
+                font-size: 18px;
             }
 
             .price {
-                font-size: 2.5rem;
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 36px;
             }
 
             .nav-links {
                 display: none;
+            }
+
+            .features-grid,
+            .testimonials-grid,
+            .faq-grid {
+                grid-template-columns: 1fr;
             }
 
             .table-row {
@@ -461,6 +541,14 @@
 
             .table-cell:last-child {
                 border-bottom: none;
+            }
+
+            .final-cta h2 {
+                font-size: 36px;
+            }
+
+            .final-cta p {
+                font-size: 18px;
             }
         }
 
@@ -529,6 +617,7 @@
     <section class="features">
         <div class="container">
             <h2 class="section-title">Pourquoi nous choisir ?</h2>
+            <p class="section-subtitle">Une approche simple et transparente pour votre présence en ligne</p>
             <div class="features-grid">
                 <div class="feature-card fade-in-up">
                     <div class="feature-icon">
@@ -585,7 +674,7 @@
     <section id="comparaison" class="comparison">
         <div class="container">
             <h2 class="section-title">Comparaison avec nos concurrents</h2>
-            <p style="text-align: center; font-size: 1.1rem; color: #4a5568; margin-bottom: 2rem;">
+            <p class="section-subtitle">
                 Découvrez pourquoi notre offre est la plus simple et la plus économique du marché
             </p>
             
@@ -650,6 +739,7 @@
     <section class="testimonials">
         <div class="container">
             <h2 class="section-title">Ce que disent nos clients</h2>
+            <p class="section-subtitle">Des témoignages authentiques de nos clients satisfaits</p>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
@@ -688,6 +778,7 @@
     <section class="trust">
         <div class="container">
             <h2 class="section-title">Ils nous font confiance</h2>
+            <p class="section-subtitle">Des garanties solides pour votre tranquillité</p>
             <div class="trust-grid">
                 <div class="trust-item fade-in-up">
                     <div class="trust-icon">
@@ -728,6 +819,7 @@
     <section class="faq">
         <div class="container">
             <h2 class="section-title">Questions fréquentes</h2>
+            <p class="section-subtitle">Toutes les réponses à vos questions</p>
             <div class="faq-grid">
                 <div class="faq-item">
                     <h3>Que comprend exactement l'offre à 499€ HT ?</h3>
@@ -757,11 +849,11 @@
         <div class="container">
             <h2>Prêt à créer votre site web ?</h2>
             <p>Rejoignez les centaines d'entreprises qui ont choisi la simplicité et l'efficacité</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 32px;">
                 <a href="mailto:contact@votresiteweb.fr" class="cta-button">
                     <i class="fas fa-envelope"></i> Demander un devis gratuit
                 </a>
-                <a href="tel:0123456789" class="cta-button" style="background: #3182ce;">
+                <a href="tel:0123456789" class="cta-button secondary">
                     <i class="fas fa-phone"></i> Appeler maintenant
                 </a>
             </div>
