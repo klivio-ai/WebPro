@@ -599,179 +599,7 @@
             position: relative;
         }
 
-        .comparison-container {
-            display: flex;
-            gap: 24px;
-            overflow-x: auto;
-            padding: 24px 0;
-            scroll-behavior: smooth;
-        }
 
-        .comparison-container::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .comparison-container::-webkit-scrollbar-track {
-            background: #f1f5f9;
-            border-radius: 4px;
-        }
-
-        .comparison-container::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-
-        .comparison-card {
-            min-width: 300px;
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 32px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
-            position: relative;
-        }
-
-        .comparison-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            border-color: #cbd5e1;
-        }
-
-        .comparison-card.featured {
-            border: 2px solid #166534;
-            background: #f0fdf4;
-        }
-
-        .comparison-card.featured::before {
-            content: "Recommandé";
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #166534;
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .comparison-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .comparison-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 8px;
-        }
-
-        .comparison-subtitle {
-            font-size: 14px;
-            color: #64748b;
-        }
-
-        .comparison-price {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .comparison-price-amount {
-            font-size: 36px;
-            font-weight: 800;
-            color: #0f172a;
-            margin-bottom: 4px;
-        }
-
-        .comparison-price-period {
-            font-size: 16px;
-            color: #64748b;
-        }
-
-        .comparison-features {
-            list-style: none;
-            margin-bottom: 32px;
-        }
-
-        .comparison-feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid #f1f5f9;
-            font-size: 16px;
-        }
-
-        .comparison-feature:last-child {
-            border-bottom: none;
-        }
-
-        .comparison-feature-icon {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            flex-shrink: 0;
-        }
-
-        .comparison-feature-icon.positive {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .comparison-feature-icon.negative {
-            background: #fee2e2;
-            color: #dc2626;
-        }
-
-        .comparison-feature-icon.neutral {
-            background: #f1f5f9;
-            color: #64748b;
-        }
-
-        .comparison-cta {
-            width: 100%;
-            padding: 16px;
-            border-radius: 12px;
-            border: none;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .comparison-cta.primary {
-            background: #0f172a;
-            color: white;
-        }
-
-        .comparison-cta.primary:hover {
-            background: #1e293b;
-        }
-
-        .comparison-cta.secondary {
-            background: #f1f5f9;
-            color: #0f172a;
-            border: 1px solid #e2e8f0;
-        }
-
-        .comparison-cta.secondary:hover {
-            background: #e2e8f0;
-        }
-
-        .comparison-cta.featured {
-            background: #166534;
-            color: white;
-        }
-
-        .comparison-cta.featured:hover {
-            background: #15803d;
-        }
 
         /* Testimonials Section */
         .testimonials {
@@ -1028,14 +856,6 @@
                 margin-bottom: 16px;
             }
 
-            .comparison-container {
-                gap: 16px;
-            }
-
-            .comparison-card {
-                min-width: 280px;
-                padding: 24px;
-            }
 
             .trust-grid {
                 grid-template-columns: 1fr;
@@ -1496,221 +1316,208 @@
             <h2 class="section-title">La comparaison qui parle d'elle-même</h2>
             <p class="section-subtitle">Même qualité professionnelle, sans la complexité ni le prix excessif</p>
             
-            <div class="comparison-carousel">
-                <div class="comparison-container">
-                    <!-- Carte Agences Traditionnelles -->
-                    <div class="comparison-card">
-                        <div class="comparison-header">
-                            <h3 class="comparison-title">Agences Traditionnelles</h3>
-                            <p class="comparison-subtitle">Offres complexes et onéreuses</p>
+            <!-- Comparison Carousel -->
+            <div class="comparison-carousel-container" style="margin-top: 64px; position: relative;">
+                <!-- Navigation buttons -->
+                <button class="comparison-btn comparison-prev" id="comparisonPrev" style="position: absolute; left: -60px; top: 50%; transform: translateY(-50%); background: #ff6b35; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all 0.3s ease;">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="comparison-btn comparison-next" id="comparisonNext" style="position: absolute; right: -60px; top: 50%; transform: translateY(-50%); background: #ff6b35; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all 0.3s ease;">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="comparison-carousel" id="comparisonCarousel" style="display: flex; overflow: hidden; gap: 24px; padding: 20px 0; scroll-behavior: smooth;">
+                    
+                    <!-- Slide 1: TEMPS DE CRÉATION -->
+                    <div class="comparison-slide" style="min-width: 100%; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
+                        <div style="padding: 40px; text-align: center;">
+                            <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 32px; color: #0f172a;">⏱️ TEMPS DE CRÉATION</h3>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 32px;">
+                                <!-- Agences -->
+                                <div style="padding: 24px; background: #fef2f2; border-radius: 12px; border: 2px solid #fecaca;">
+                                    <div style="font-size: 18px; font-weight: 600; color: #dc2626; margin-bottom: 8px;">Agences</div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #dc2626; margin-bottom: 8px;">3-6 mois</div>
+                                    <div style="font-size: 14px; color: #7f1d1d;">+ réunions multiples</div>
+                                </div>
+                                
+                                <!-- Freelances -->
+                                <div style="padding: 24px; background: #fef3c7; border-radius: 12px; border: 2px solid #fde68a;">
+                                    <div style="font-size: 18px; font-weight: 600; color: #92400e; margin-bottom: 8px;">Freelances</div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #92400e; margin-bottom: 8px;">1-3 mois</div>
+                                    <div style="font-size: 14px; color: #78350f;">+ délais variables</div>
+                                </div>
+                                
+                                <!-- NOUS (highlight) -->
+                                <div style="padding: 24px; background: #f0fdf4; border-radius: 12px; border: 2px solid #bbf7d0; position: relative;">
+                                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">✅ Meilleur choix</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #166534; margin-bottom: 8px;">Preview123</div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #166534; margin-bottom: 8px;">7 jours</div>
+                                    <div style="font-size: 14px; color: #065f46;">Garanti ou remboursé</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="comparison-price">
-                            <div class="comparison-price-amount">2 000€ - 15 000€</div>
-                            <div class="comparison-price-period">+ frais cachés</div>
-                        </div>
-                        <ul class="comparison-features">
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon negative">
-                                    <i class="fas fa-times"></i>
-                                </div>
-                                <span>Prix élevés et imprévisibles</span>
-                            </li>
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon negative">
-                                    <i class="fas fa-times"></i>
-                                </div>
-                                <span>Délais longs (4-8 semaines)</span>
-                            </li>
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon negative">
-                                    <i class="fas fa-times"></i>
-                                </div>
-                                <span>Maintenance payante (50-150€/mois)</span>
-                            </li>
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon negative">
-                                    <i class="fas fa-times"></i>
-                                </div>
-                                <span>Support client payant</span>
-                            </li>
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon negative">
-                                    <i class="fas fa-times"></i>
-                                </div>
-                                <span>Frais cachés fréquents</span>
-                            </li>
-                        </ul>
-                        <button class="comparison-cta secondary">Non recommandé</button>
                     </div>
-
-                    <!-- Carte Notre Offre (Recommandée) -->
-                    <div class="comparison-card featured">
-                        <div class="comparison-header">
-                            <h3 class="comparison-title">Notre Offre</h3>
-                            <p class="comparison-subtitle">Simple, transparente, efficace</p>
+                    
+                    <!-- Slide 2: NOMBRE DE RÉUNIONS -->
+                    <div class="comparison-slide" style="min-width: 100%; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
+                        <div style="padding: 40px; text-align: center;">
+                            <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 32px; color: #0f172a;">📞 NOMBRE DE RÉUNIONS</h3>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 32px;">
+                                <!-- Agences -->
+                                <div style="padding: 24px; background: #fef2f2; border-radius: 12px; border: 2px solid #fecaca;">
+                                    <div style="font-size: 18px; font-weight: 600; color: #dc2626; margin-bottom: 8px;">Agences</div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #dc2626; margin-bottom: 8px;">5-8 réunions</div>
+                                    <div style="font-size: 14px; color: #7f1d1d;">+ briefs interminables</div>
+                                </div>
+                                
+                                <!-- Freelances -->
+                                <div style="padding: 24px; background: #fef3c7; border-radius: 12px; border: 2px solid #fde68a;">
+                                    <div style="font-size: 18px; font-weight: 600; color: #92400e; margin-bottom: 8px;">Freelances</div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #92400e; margin-bottom: 8px;">3-5 réunions</div>
+                                    <div style="font-size: 14px; color: #78350f;">+ coordination difficile</div>
+                                </div>
+                                
+                                <!-- NOUS (highlight) -->
+                                <div style="padding: 24px; background: #f0fdf4; border-radius: 12px; border: 2px solid #bbf7d0; position: relative;">
+                                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">✅ Meilleur choix</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #166534; margin-bottom: 8px;">Preview123</div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #166534; margin-bottom: 8px;">1 seul appel</div>
+                                    <div style="font-size: 14px; color: #065f46;">C'est tout !</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="comparison-price">
-                            <div class="comparison-price-amount">499€ HT</div>
-                            <div class="comparison-price-period">+ 9€ HT/mois</div>
-                        </div>
-                        <ul class="comparison-features">
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon positive">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <span>Prix fixe et transparent</span>
-                            </li>
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon positive">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <span>Livraison rapide (7 jours)</span>
-                            </li>
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon positive">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <span>Maintenance incluse</span>
-                            </li>
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon positive">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <span>Support client inclus</span>
-                            </li>
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon positive">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <span>Aucun frais caché</span>
-                            </li>
-                        </ul>
-                        <button class="comparison-cta featured" onclick="openCalendly()">Choisir cette offre</button>
                     </div>
-
-                    <!-- Carte Freelancers -->
-                    <div class="comparison-card">
-                        <div class="comparison-header">
-                            <h3 class="comparison-title">Freelancers</h3>
-                            <p class="comparison-subtitle">Prix variables et délais incertains</p>
+                    
+                    <!-- Slide 3: PRIX TOTAL PREMIÈRE ANNÉE -->
+                    <div class="comparison-slide" style="min-width: 100%; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
+                        <div style="padding: 40px; text-align: center;">
+                            <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 32px; color: #0f172a;">💰 PRIX TOTAL PREMIÈRE ANNÉE</h3>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 32px;">
+                                <!-- Agences -->
+                                <div style="padding: 24px; background: #fef2f2; border-radius: 12px; border: 2px solid #fecaca;">
+                                    <div style="font-size: 18px; font-weight: 600; color: #dc2626; margin-bottom: 8px;">Agences</div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #dc2626; margin-bottom: 8px;">8000-15000€</div>
+                                    <div style="font-size: 14px; color: #7f1d1d;">+ frais cachés</div>
+                                </div>
+                                
+                                <!-- Freelances -->
+                                <div style="padding: 24px; background: #fef3c7; border-radius: 12px; border: 2px solid #fde68a;">
+                                    <div style="font-size: 18px; font-weight: 600; color: #92400e; margin-bottom: 8px;">Freelances</div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #92400e; margin-bottom: 8px;">2000-5000€</div>
+                                    <div style="font-size: 14px; color: #78350f;">+ maintenance séparée</div>
+                                </div>
+                                
+                                <!-- NOUS (highlight) -->
+                                <div style="padding: 24px; background: #f0fdf4; border-radius: 12px; border: 2px solid #bbf7d0; position: relative;">
+                                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">✅ Meilleur choix</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #166534; margin-bottom: 8px;">Preview123</div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #166534; margin-bottom: 8px;">607€ TTC</div>
+                                    <div style="font-size: 14px; color: #065f46;">Tout inclus</div>
+                                    <div style="background: #dcfce7; color: #166534; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; margin-top: 8px;">Économisez jusqu'à 14 393€</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="comparison-price">
-                            <div class="comparison-price-amount">500€ - 3 000€</div>
-                            <div class="comparison-price-period">+ maintenance séparée</div>
-                        </div>
-                        <ul class="comparison-features">
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon neutral">
-                                    <i class="fas fa-question"></i>
-                                </div>
-                                <span>Prix variables selon profil</span>
-                            </li>
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon negative">
-                                    <i class="fas fa-times"></i>
-                                </div>
-                                <span>Délais imprévisibles</span>
-                            </li>
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon negative">
-                                    <i class="fas fa-times"></i>
-                                </div>
-                                <span>Maintenance non garantie</span>
-                            </li>
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon neutral">
-                                    <i class="fas fa-question"></i>
-                                </div>
-                                <span>Support selon disponibilité</span>
-                            </li>
-                            <li class="comparison-feature">
-                                <div class="comparison-feature-icon negative">
-                                    <i class="fas fa-times"></i>
-                                </div>
-                                <span>Pas de garantie de résultat</span>
-                            </li>
-                        </ul>
-                        <button class="comparison-cta secondary">Risqué</button>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Tableau comparatif détaillé -->
-            <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-top: 48px;">
-                <div style="background: #166534; color: white; padding: 24px; text-align: center;">
-                    <h3 style="font-size: 24px; font-weight: 700; margin: 0;">Comparatif détaillé des solutions</h3>
+                    
+                    <!-- Slide 4: COMPLEXITÉ DU PROCESSUS -->
+                    <div class="comparison-slide" style="min-width: 100%; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
+                        <div style="padding: 40px; text-align: center;">
+                            <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 32px; color: #0f172a;">📋 COMPLEXITÉ DU PROCESSUS</h3>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 32px;">
+                                <!-- Agences -->
+                                <div style="padding: 24px; background: #fef2f2; border-radius: 12px; border: 2px solid #fecaca;">
+                                    <div style="font-size: 18px; font-weight: 600; color: #dc2626; margin-bottom: 8px;">Agences</div>
+                                    <div style="font-size: 16px; color: #7f1d1d; line-height: 1.4;">Brief de 30 pages, validations multiples, réunions sans fin</div>
+                                </div>
+                                
+                                <!-- Freelances -->
+                                <div style="padding: 24px; background: #fef3c7; border-radius: 12px; border: 2px solid #fde68a;">
+                                    <div style="font-size: 18px; font-weight: 600; color: #92400e; margin-bottom: 8px;">Freelances</div>
+                                    <div style="font-size: 16px; color: #78350f; line-height: 1.4;">Process variable, peu structuré, coordination difficile</div>
+                                </div>
+                                
+                                <!-- NOUS (highlight) -->
+                                <div style="padding: 24px; background: #f0fdf4; border-radius: 12px; border: 2px solid #bbf7d0; position: relative;">
+                                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">✅ Meilleur choix</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #166534; margin-bottom: 8px;">Preview123</div>
+                                    <div style="font-size: 16px; color: #065f46; line-height: 1.4;">Formulaire 5 minutes, c'est parti !</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 5: MAINTENANCE & SUPPORT -->
+                    <div class="comparison-slide" style="min-width: 100%; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
+                        <div style="padding: 40px; text-align: center;">
+                            <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 32px; color: #0f172a;">🔧 MAINTENANCE & SUPPORT</h3>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 32px;">
+                                <!-- Agences -->
+                                <div style="padding: 24px; background: #fef2f2; border-radius: 12px; border: 2px solid #fecaca;">
+                                    <div style="font-size: 18px; font-weight: 600; color: #dc2626; margin-bottom: 8px;">Agences</div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #dc2626; margin-bottom: 8px;">1500-3000€/an</div>
+                                    <div style="font-size: 14px; color: #7f1d1d;">Contrats annuels</div>
+                                </div>
+                                
+                                <!-- Freelances -->
+                                <div style="padding: 24px; background: #fef3c7; border-radius: 12px; border: 2px solid #fde68a;">
+                                    <div style="font-size: 18px; font-weight: 600; color: #92400e; margin-bottom: 8px;">Freelances</div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #92400e; margin-bottom: 8px;">50-100€/h</div>
+                                    <div style="font-size: 14px; color: #78350f;">Facturation à l'heure</div>
+                                </div>
+                                
+                                <!-- NOUS (highlight) -->
+                                <div style="padding: 24px; background: #f0fdf4; border-radius: 12px; border: 2px solid #bbf7d0; position: relative;">
+                                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">✅ Meilleur choix</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #166534; margin-bottom: 8px;">Preview123</div>
+                                    <div style="font-size: 24px; font-weight: 700; color: #166534; margin-bottom: 8px;">9€/mois</div>
+                                    <div style="font-size: 14px; color: #065f46;">Tout inclus</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 6: FORMATION & AUTONOMIE -->
+                    <div class="comparison-slide" style="min-width: 100%; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
+                        <div style="padding: 40px; text-align: center;">
+                            <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 32px; color: #0f172a;">🎓 FORMATION & AUTONOMIE</h3>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 32px;">
+                                <!-- Agences -->
+                                <div style="padding: 24px; background: #fef2f2; border-radius: 12px; border: 2px solid #fecaca;">
+                                    <div style="font-size: 18px; font-weight: 600; color: #dc2626; margin-bottom: 8px;">Agences</div>
+                                    <div style="font-size: 16px; color: #7f1d1d; line-height: 1.4;">Formation payante (500€+), interface complexe</div>
+                                </div>
+                                
+                                <!-- Freelances -->
+                                <div style="padding: 24px; background: #fef3c7; border-radius: 12px; border: 2px solid #fde68a;">
+                                    <div style="font-size: 18px; font-weight: 600; color: #92400e; margin-bottom: 8px;">Freelances</div>
+                                    <div style="font-size: 16px; color: #78350f; line-height: 1.4;">Débrouille-toi, pas de formation</div>
+                                </div>
+                                
+                                <!-- NOUS (highlight) -->
+                                <div style="padding: 24px; background: #f0fdf4; border-radius: 12px; border: 2px solid #bbf7d0; position: relative;">
+                                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #22c55e; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">✅ Meilleur choix</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #166534; margin-bottom: 8px;">Preview123</div>
+                                    <div style="font-size: 16px; color: #065f46; line-height: 1.4;">Formation incluse, interface intuitive</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div style="overflow-x: auto;">
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <thead>
-                            <tr style="background: #f8fafc;">
-                                <th style="padding: 20px; text-align: left; font-weight: 600; color: #0f172a; border-bottom: 1px solid #e2e8f0;">Critères</th>
-                                <th style="padding: 20px; text-align: center; font-weight: 600; color: #dc2626; border-bottom: 1px solid #e2e8f0;">Agence classique</th>
-                                <th style="padding: 20px; text-align: center; font-weight: 600; color: #f59e0b; border-bottom: 1px solid #e2e8f0;">Freelance</th>
-                                <th style="padding: 20px; text-align: center; font-weight: 600; color: #166534; border-bottom: 1px solid #e2e8f0; background: #f0fdf4;">Preview123</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="padding: 16px 20px; font-weight: 600; color: #0f172a; border-bottom: 1px solid #f1f5f9;">Prix création</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #dc2626; border-bottom: 1px solid #f1f5f9;">5 000€ - 15 000€</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #f59e0b; border-bottom: 1px solid #f1f5f9;">2 000€ - 5 000€</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #166534; font-weight: 700; border-bottom: 1px solid #f1f5f9; background: #f0fdf4;">499€ HT</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 16px 20px; font-weight: 600; color: #0f172a; border-bottom: 1px solid #f1f5f9;">Délai de livraison</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #dc2626; border-bottom: 1px solid #f1f5f9;">1-3 mois</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #f59e0b; border-bottom: 1px solid #f1f5f9;">2-8 semaines</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #166534; font-weight: 700; border-bottom: 1px solid #f1f5f9; background: #f0fdf4;">7 jours</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 16px 20px; font-weight: 600; color: #0f172a; border-bottom: 1px solid #f1f5f9;">Hébergement mensuel</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #dc2626; border-bottom: 1px solid #f1f5f9;">50-200€/mois</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #f59e0b; border-bottom: 1px solid #f1f5f9;">À négocier</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #166534; font-weight: 700; border-bottom: 1px solid #f1f5f9; background: #f0fdf4;">9€ HT/mois</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 16px 20px; font-weight: 600; color: #0f172a; border-bottom: 1px solid #f1f5f9;">Support client</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #dc2626; border-bottom: 1px solid #f1f5f9;">Facturé</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #f59e0b; border-bottom: 1px solid #f1f5f9;">Variable</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #166534; font-weight: 700; border-bottom: 1px solid #f1f5f9; background: #f0fdf4;">Inclus</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 16px 20px; font-weight: 600; color: #0f172a; border-bottom: 1px solid #f1f5f9;">Maintenance</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #dc2626; border-bottom: 1px solid #f1f5f9;">50-200€/mois</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #f59e0b; border-bottom: 1px solid #f1f5f9;">À négocier</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #166534; font-weight: 700; border-bottom: 1px solid #f1f5f9; background: #f0fdf4;">Incluse</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 16px 20px; font-weight: 600; color: #0f172a; border-bottom: 1px solid #f1f5f9;">Garantie</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #dc2626; border-bottom: 1px solid #f1f5f9;">Variable</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #f59e0b; border-bottom: 1px solid #f1f5f9;">Limitée</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #166534; font-weight: 700; border-bottom: 1px solid #f1f5f9; background: #f0fdf4;">30 jours</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 16px 20px; font-weight: 600; color: #0f172a; border-bottom: 1px solid #f1f5f9;">Frais cachés</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #dc2626; border-bottom: 1px solid #f1f5f9;">Fréquents</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #f59e0b; border-bottom: 1px solid #f1f5f9;">Possibles</td>
-                                <td style="padding: 16px 20px; text-align: center; color: #166534; font-weight: 700; border-bottom: 1px solid #f1f5f9; background: #f0fdf4;">Aucun</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 48px; padding: 32px; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 16px; border: 1px solid #f59e0b;">
-                <h3 style="font-size: 24px; font-weight: 700; color: #92400e; margin-bottom: 16px;">
-                    <i class="fas fa-calculator"></i> Calcul d'économies
-                </h3>
-                <p style="color: #92400e; font-size: 18px; margin-bottom: 16px;">
-                    <strong>Agence classique :</strong> 8 000€ création + 100€/mois × 12 mois = <span style="color: #dc2626; font-weight: 700;">9 200€ la première année</span>
-                </p>
-                <p style="color: #92400e; font-size: 18px; margin-bottom: 24px;">
-                    <strong>Preview123 :</strong> 499€ création + 9€/mois × 12 mois = <span style="color: #166534; font-weight: 700;">607€ la première année</span>
-                </p>
-                <div style="background: #166534; color: white; padding: 16px 32px; border-radius: 12px; display: inline-block; font-size: 20px; font-weight: 700;">
-                    <i class="fas fa-trophy"></i> Économisez 8 593€ la première année !
+                <!-- Pagination dots -->
+                <div class="comparison-pagination" style="display: flex; justify-content: center; gap: 8px; margin-top: 32px;">
+                    <button class="comparison-dot active" data-slide="0" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #ff6b35; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="comparison-dot" data-slide="1" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="comparison-dot" data-slide="2" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="comparison-dot" data-slide="3" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="comparison-dot" data-slide="4" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="comparison-dot" data-slide="5" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
                 </div>
             </div>
         </div>
