@@ -2085,58 +2085,6 @@
         </div>
     </section>
 
-    <!-- Social Proof Section -->
-    <section class="social-proof" style="padding: 80px 0; background: #f8fafc; text-align: center;">
-        <div class="container">
-            <h2 class="section-title">Ils nous font confiance</h2>
-            <p class="section-subtitle">Plus de 500 entreprises nous font confiance</p>
-            
-            <!-- Compteurs animés -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 48px; margin: 64px 0;">
-                <div class="counter-item">
-                    <div class="counter-number" data-target="500" style="font-size: 48px; font-weight: 800; color: #166534; margin-bottom: 8px;">0</div>
-                    <div style="font-size: 18px; color: #64748b; font-weight: 600;">Sites créés</div>
-                </div>
-                <div class="counter-item">
-                    <div class="counter-number" data-target="4.9" style="font-size: 48px; font-weight: 800; color: #166534; margin-bottom: 8px;">0</div>
-                    <div style="font-size: 18px; color: #64748b; font-weight: 600;">Note moyenne</div>
-                </div>
-                <div class="counter-item">
-                    <div class="counter-number" data-target="7" style="font-size: 48px; font-weight: 800; color: #166534; margin-bottom: 8px;">0</div>
-                    <div style="font-size: 18px; color: #64748b; font-weight: 600;">Jours de livraison</div>
-                </div>
-                <div class="counter-item">
-                    <div class="counter-number" data-target="24" style="font-size: 48px; font-weight: 800; color: #166534; margin-bottom: 8px;">0</div>
-                    <div style="font-size: 18px; color: #64748b; font-weight: 600;">Support 7j/7</div>
-                </div>
-            </div>
-            
-            <!-- Badges de confiance -->
-            <div style="display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-top: 48px;">
-                <div style="display: flex; align-items: center; gap: 12px; background: white; padding: 16px 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                    <i class="fas fa-shield-alt" style="color: #166534; font-size: 24px;"></i>
-                    <div>
-                        <div style="font-weight: 600; color: #0f172a;">Paiement sécurisé</div>
-                        <div style="font-size: 14px; color: #64748b;">Stripe SSL</div>
-                    </div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 12px; background: white; padding: 16px 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                    <i class="fas fa-handshake" style="color: #166534; font-size: 24px;"></i>
-                    <div>
-                        <div style="font-weight: 600; color: #0f172a;">Garantie 30 jours</div>
-                        <div style="font-size: 14px; color: #64748b;">Satisfaction</div>
-                    </div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 12px; background: white; padding: 16px 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                    <i class="fas fa-check-circle" style="color: #166534; font-size: 24px;"></i>
-                    <div>
-                        <div style="font-weight: 600; color: #0f172a;">RGPD conforme</div>
-                        <div style="font-size: 14px; color: #64748b;">Protection données</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Guarantees Section -->
     <section class="guarantees" style="padding: 120px 0; background: #ffffff;">
@@ -2723,43 +2671,6 @@
             }
         });
 
-        // Animated counters
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter-number');
-            
-            counters.forEach(counter => {
-                const target = parseFloat(counter.getAttribute('data-target'));
-                const increment = target / 100;
-                let current = 0;
-                
-                const updateCounter = () => {
-                    if (current < target) {
-                        current += increment;
-                        counter.textContent = Math.ceil(current);
-                        setTimeout(updateCounter, 20);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-                
-                updateCounter();
-            });
-        }
-
-        // Trigger counter animation when section is visible
-        const socialProofSection = document.querySelector('.social-proof');
-        const socialProofObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    socialProofObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        if (socialProofSection) {
-            socialProofObserver.observe(socialProofSection);
-        }
 
         // Exit intent popup
         let exitIntentShown = false;
