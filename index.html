@@ -238,93 +238,525 @@
             color: #0f172a;
         }
 
-        /* Hero Section */
+        /* Hero Section - Refonte complète */
+        :root {
+            /* Couleurs principales - adapter aux couleurs existantes du site */
+            --color-primary: #ff6b35; /* Orange existant du site */
+            --color-primary-light: #ff8a65;
+            --color-primary-dark: #e55a2b;
+            
+            /* Couleurs neutres */
+            --color-text: #0f172a;
+            --color-text-secondary: #64748b;
+            --color-text-tertiary: #94a3b8;
+            
+            --color-bg: #ffffff;
+            --color-bg-secondary: #f8fafc;
+            
+            --color-border: rgba(0, 0, 0, 0.08);
+            
+            /* Ombres */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
+            
+            /* Transitions */
+            --transition-base: 0.2s ease;
+            --transition-slow: 0.3s ease;
+        }
+
         .hero {
-            padding: 160px 0 120px;
-            text-align: center;
-            background: #ffffff;
+            padding: clamp(4rem, 10vh, 8rem) 0;
+            background: var(--color-bg);
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 5vw, 3rem);
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
+            display: grid;
+            grid-template-columns: 55% 45%;
+            gap: 4rem;
             align-items: center;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .hero-text {
-            flex: 1;
             text-align: left;
         }
 
-        .hero-illustration {
-            flex: 1;
+        /* Hiérarchie typographique améliorée */
+        .hero-pretitle {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--color-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 .highlight {
+            color: var(--color-primary);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+            margin-bottom: 2rem;
+            max-width: 540px;
+        }
+
+        /* Badge disponibilité */
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 107, 53, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Mise en valeur du prix */
+        .pricing-highlight {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--color-bg);
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-md);
+        }
+
+        .price-main, .price-secondary {
+            text-align: center;
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+        }
+
+        .price-secondary .price-amount {
+            font-size: 1.5rem;
+        }
+
+        .price-label {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--color-text-secondary);
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .price-divider {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+        }
+
+        /* Call-to-Action */
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 107, 53, 0.05);
+        }
+
+        .btn-icon {
+            transition: transform var(--transition-base);
+        }
+
+        .btn:hover .btn-icon {
+            transform: translateX(2px);
+        }
+
+        /* Trust signals */
+        .trust-indicators {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+        }
+
+        .trust-label {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .trust-divider {
+            width: 1px;
+            height: 40px;
+            background: var(--color-border);
+        }
+
+        /* Visuel Hero */
+        .hero-visual {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .visual-container {
             position: relative;
-        }
-
-        .device-mockup {
-            position: relative;
-            background: #f1f5f9;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .device-mockup.desktop {
-            width: 300px;
-            height: 200px;
-            border-radius: 8px;
-        }
-
-        .device-mockup.mobile {
-            width: 80px;
-            height: 140px;
-            border-radius: 20px;
-            position: absolute;
-            left: -40px;
-            top: 20px;
             z-index: 2;
         }
 
-        .device-mockup .screen {
+        .mockup-browser {
             width: 100%;
-            height: 100%;
+            max-width: 500px;
             background: white;
-            border-radius: inherit;
-            padding: 20px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .browser-header {
             display: flex;
-            flex-direction: column;
-            gap: 8px;
+            align-items: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-bottom: 1px solid var(--color-border);
         }
 
-        .device-mockup.mobile .screen {
-            padding: 15px;
-            gap: 6px;
+        .browser-dots {
+            display: flex;
+            gap: 0.5rem;
         }
 
-        .content-lines .line {
+        .browser-dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e2e8f0;
+        }
+
+        .browser-dots span:first-child {
+            background: #ff5f57;
+        }
+
+        .browser-dots span:nth-child(2) {
+            background: #ffbd2e;
+        }
+
+        .browser-dots span:last-child {
+            background: #28ca42;
+        }
+
+        .browser-url {
+            margin-left: 1rem;
+            padding: 0.25rem 0.75rem;
+            background: white;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            border: 1px solid var(--color-border);
+        }
+
+        .browser-content {
+            padding: 2rem;
+        }
+
+        .mockup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .mockup-logo {
+            width: 120px;
+            height: 24px;
+            background: var(--color-primary);
+            border-radius: 4px;
+        }
+
+        .mockup-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .mockup-nav span {
+            width: 60px;
             height: 8px;
             background: #e2e8f0;
             border-radius: 4px;
-            margin-bottom: 4px;
         }
 
-        .content-lines .line.short {
+        .mockup-hero {
+            margin-bottom: 2rem;
+        }
+
+        .mockup-title {
+            width: 80%;
+            height: 24px;
+            background: var(--color-text);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .mockup-subtitle {
             width: 60%;
+            height: 16px;
+            background: var(--color-text-secondary);
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
         }
 
-        .device-mockup.mobile .content-lines .line {
-            height: 6px;
+        .mockup-cta {
+            width: 160px;
+            height: 40px;
+            background: var(--color-primary);
+            border-radius: 8px;
         }
 
-        .hero-cta-container {
-            margin-top: 32px;
+        .mockup-features {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .feature-item {
+            flex: 1;
+            height: 80px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+        }
+
+        /* Éléments décoratifs */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+        }
+
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--color-primary);
+            top: 10%;
+            right: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--color-primary-light);
+            bottom: 20%;
+            left: 5%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .circle-3 {
+            width: 100px;
+            height: 100px;
+            background: var(--color-primary-dark);
+            top: 60%;
+            right: 20%;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        /* Responsive Hero Section */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            
+            .hero-text {
+                text-align: center;
+            }
+            
+            .trust-indicators {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: clamp(3rem, 8vh, 6rem) 0;
+            }
+            
+            .hero-container {
+                padding: 0 clamp(1rem, 4vw, 2rem);
+            }
+            
+            .hero-content {
+                gap: 2rem;
+            }
+            
+            .pricing-highlight {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            
+            .trust-indicators {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .trust-divider {
+                width: 40px;
+                height: 1px;
+            }
+            
+            .mockup-browser {
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: clamp(1.875rem, 8vw, 2.5rem);
+            }
+            
+            .hero-subtitle {
+                font-size: clamp(1rem, 4vw, 1.25rem);
+            }
+            
+            .pricing-highlight {
+                padding: 1rem;
+            }
+            
+            .price-amount {
+                font-size: 1.75rem;
+            }
+            
+            .price-secondary .price-amount {
+                font-size: 1.25rem;
+            }
+            
+            .mockup-browser {
+                max-width: 320px;
+            }
+            
+            .browser-content {
+                padding: 1.5rem;
+            }
         }
 
         /* Popup Modal Styles */
@@ -788,78 +1220,259 @@
         }
 
         /* Features Section */
-        .features {
-            padding: 120px 0;
-            background: #f8fafc;
+        /* Value Cards Section - Refonte complète */
+        .value-cards-section {
+            padding: clamp(4rem, 8vw, 6rem) 0;
+            background: var(--color-bg-secondary);
+        }
+
+        .value-cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 5vw, 3rem);
+        }
+
+        /* En-tête de section */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 16px;
-            color: #0f172a;
-            letter-spacing: -0.02em;
-            width: 100%;
+            font-size: clamp(1.875rem, 4vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-text);
+            margin-bottom: 1rem;
         }
 
-        .section-subtitle {
-            text-align: center;
-            font-size: 20px;
-            color: #64748b;
-            margin-bottom: 64px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
+        .section-description {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+            max-width: 640px;
+            margin: 0 auto;
         }
 
-        .features-grid {
+        /* Grille de cartes */
+        .value-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-            margin-top: 64px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
 
-        .feature-card {
-            background: #ffffff;
-            padding: 40px;
+        /* Design des cartes individuelles */
+        .value-card {
+            background: white;
             border-radius: 16px;
-            text-align: left;
-            transition: all 0.2s ease;
-            border: 1px solid #e2e8f0;
+            padding: 2rem;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .feature-card:hover {
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            border-color: #cbd5e1;
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(255, 107, 53, 0.2);
         }
 
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: #f1f5f9;
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Icônes des cartes */
+        .card-icon-wrapper {
+            width: 56px;
+            height: 56px;
             border-radius: 12px;
+            background: rgba(255, 107, 53, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
-            font-size: 20px;
-            color: #0f172a;
+            margin-bottom: 1.5rem;
         }
 
-        .feature-card h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #0f172a;
+        .card-icon {
+            color: var(--color-primary);
+            stroke-width: 2px;
         }
 
-        .feature-card p {
-            color: #64748b;
+        /* Contenu des cartes */
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+        }
+
+        .card-description {
+            font-size: 0.9375rem;
             line-height: 1.6;
-            font-size: 16px;
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+
+        /* Animations d'apparition au scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Accessibility Improvements */
+        .btn:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        .value-card:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        /* Skip link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--color-primary);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in-up,
+            .value-card,
+            .btn,
+            .mockup-browser,
+            .floating-circle {
+                animation: none !important;
+                transition: none !important;
+            }
+            
+            .fade-in-up {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* Performance Optimizations */
+        .value-card,
+        .btn,
+        .mockup-browser,
+        .floating-circle {
+            will-change: transform;
+            contain: layout style paint;
+        }
+
+        .hero-visual {
+            contain: layout style paint;
+        }
+
+        /* Optimize animations for 60fps */
+        .value-card:hover,
+        .btn:hover {
+            transform: translateY(-4px);
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* GPU acceleration for smooth animations */
+        .mockup-browser {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        .floating-circle {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        /* Responsive Value Cards */
+        @media (max-width: 1024px) {
+            .value-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .value-cards-section {
+                padding: clamp(3rem, 6vw, 4rem) 0;
+            }
+            
+            .value-cards-container {
+                padding: 0 clamp(1rem, 4vw, 2rem);
+            }
+            
+            .value-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .value-card {
+                padding: 1.5rem;
+            }
+            
+            .card-icon-wrapper {
+                width: 48px;
+                height: 48px;
+                margin-bottom: 1rem;
+            }
+            
+            .card-icon {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .section-title {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+            }
+            
+            .section-description {
+                font-size: 1rem;
+            }
+            
+            .value-card {
+                padding: 1.25rem;
+            }
+            
+            .card-title {
+                font-size: 1.125rem;
+            }
+            
+            .card-description {
+                font-size: 0.875rem;
+            }
         }
 
         /* Portfolio Section */
@@ -1906,6 +2519,9 @@
     <!-- Skip to content link for accessibility -->
     <a href="#main-content" class="skip-link" style="position: absolute; top: -40px; left: 6px; background: #000; color: #fff; padding: 8px; text-decoration: none; z-index: 10000; border-radius: 4px;">Aller au contenu principal</a>
     
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
     <!-- Header -->
     <header role="banner">
         <nav class="container" role="navigation" aria-label="Navigation principale">
@@ -1926,37 +2542,97 @@
     <!-- Hero Section -->
     <main id="main-content">
     <section id="accueil" class="hero" role="banner" aria-labelledby="hero-title">
-        <div class="container">
-            <div class="hero-content fade-in-up">
+        <div class="hero-container">
+            <div class="hero-content">
                 <div class="hero-text">
-                    <!-- Titre principal selon le wireframe -->
-                    <h1 id="hero-title">Votre site web professionnel, simple et rapide.</h1>
+                    <span class="hero-pretitle">Création de sites web professionnels</span>
+                    <h1 id="hero-title">Votre site web professionnel, livré en <span class="highlight">7 jours</span></h1>
+                    <p class="hero-subtitle">Sans complexité, sans frais cachés, sans surprise</p>
                     
-                    <!-- Sous-titre avec prix et garantie -->
-                    <p class="subtitle">Livré en 7 jours. 499 € + 9 €/mois. Satisfait ou remboursé.</p>
-                    
+                    <div class="availability-badge">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Places limitées ce mois-ci</span>
+                    </div>
+
+                    <div class="pricing-highlight">
+                        <div class="price-main">
+                            <span class="price-amount">499€</span>
+                            <span class="price-label">HT création</span>
+                        </div>
+                        <div class="price-divider">+</div>
+                        <div class="price-secondary">
+                            <span class="price-amount">9€</span>
+                            <span class="price-label">HT/mois</span>
+                        </div>
+                    </div>
+
+                    <div class="cta-group">
+                        <a href="#contact" class="btn btn-primary" aria-label="Démarrer mon projet de site web">
+                            Démarrer mon projet
+                            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#exemples" class="btn btn-secondary" aria-label="Voir des exemples de sites web créés">
+                            Voir des exemples
+                        </a>
+                    </div>
+
+                    <div class="trust-indicators">
+                        <div class="trust-item">
+                            <span class="trust-value">4.9/5</span>
+                            <span class="trust-label">Note moyenne</span>
+                        </div>
+                        <div class="trust-divider"></div>
+                        <div class="trust-item">
+                            <span class="trust-value">500+</span>
+                            <span class="trust-label">Sites créés</span>
+                        </div>
+                        <div class="trust-divider"></div>
+                        <div class="trust-item">
+                            <span class="trust-value">7 jours</span>
+                            <span class="trust-label">Livraison garantie</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Illustration desktop/mobile selon le wireframe -->
-                <div class="hero-illustration">
-                    <div class="device-mockup desktop">
-                        <div class="screen">
-                            <div class="content-lines">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line short"></div>
+                <div class="hero-visual">
+                    <div class="visual-container">
+                        <div class="mockup-browser">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="browser-url">votresiteweb.fr</div>
+                            </div>
+                            <div class="browser-content">
+                                <div class="mockup-header">
+                                    <div class="mockup-logo"></div>
+                                    <div class="mockup-nav">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="mockup-hero">
+                                    <div class="mockup-title"></div>
+                                    <div class="mockup-subtitle"></div>
+                                    <div class="mockup-cta"></div>
+                                </div>
+                                <div class="mockup-features">
+                                    <div class="feature-item"></div>
+                                    <div class="feature-item"></div>
+                                    <div class="feature-item"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="device-mockup mobile">
-                        <div class="screen">
-                            <div class="content-lines">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line short"></div>
-                            </div>
-                        </div>
+                    <div class="floating-elements">
+                        <div class="floating-circle circle-1"></div>
+                        <div class="floating-circle circle-2"></div>
+                        <div class="floating-circle circle-3"></div>
                     </div>
                 </div>
             </div>
@@ -2028,58 +2704,78 @@
 
 
 
-    <!-- Features Section -->
-    <section id="services" class="features" role="region" aria-labelledby="services-title">
-        <div class="container">
-            <h2 id="services-title" class="section-title">Pourquoi nous choisir ?</h2>
-            <p class="section-subtitle">Une approche simple et transparente pour votre présence en ligne</p>
-            <div class="features-grid">
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-euro-sign"></i>
+    <!-- Value Cards Section -->
+    <section id="services" class="value-cards-section" role="region" aria-labelledby="services-title">
+        <div class="value-cards-container">
+            <div class="section-header">
+                <h2 id="services-title" class="section-title">Une approche simple et transparente</h2>
+                <p class="section-description">
+                    Tout ce dont vous avez besoin pour votre présence en ligne, sans complexité
+                </p>
+            </div>
+            
+            <div class="value-grid">
+                <div class="value-card fade-in-up">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Icône prix transparent" role="img">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
                     </div>
-                    <h3>Tarif Transparent</h3>
-                    <p>Un prix fixe de 499€ HT pour la création, puis seulement 9€ HT par mois. Aucun frais caché, aucune surprise.</p>
+                    <h3 class="card-title">Prix transparent</h3>
+                    <p class="card-description">499€ pour la création, 9€/mois pour l'hébergement et la maintenance. Aucun frais caché.</p>
                 </div>
                 
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
+                <div class="value-card fade-in-up">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Icône livraison rapide" role="img">
+                            <polyline points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polyline>
+                        </svg>
                     </div>
-                    <h3>Livraison Rapide</h3>
-                    <p>Votre site web professionnel livré en 7 jours ouvrés. Pas de délais interminables comme chez nos concurrents.</p>
+                    <h3 class="card-title">Livraison rapide</h3>
+                    <p class="card-description">Votre site professionnel prêt en 7 jours ouvrés, sans compromis sur la qualité.</p>
                 </div>
                 
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                <div class="value-card fade-in-up">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Icône design adaptatif" role="img">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
                     </div>
-                    <h3>Design Responsive</h3>
-                    <p>Votre site s'adapte parfaitement à tous les écrans : ordinateur, tablette et mobile. Une expérience optimale partout.</p>
+                    <h3 class="card-title">Design adaptatif</h3>
+                    <p class="card-description">Une expérience optimale sur tous les appareils : mobile, tablette et ordinateur.</p>
                 </div>
                 
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                <div class="value-card fade-in-up">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Icône maintenance incluse" role="img">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
                     </div>
-                    <h3>Maintenance Incluse</h3>
-                    <p>Mises à jour, sauvegardes et support technique inclus dans votre abonnement mensuel. Vous n'avez rien à gérer.</p>
+                    <h3 class="card-title">Maintenance incluse</h3>
+                    <p class="card-description">Mises à jour, sauvegardes et support technique inclus dans votre abonnement mensuel.</p>
                 </div>
                 
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-search"></i>
+                <div class="value-card fade-in-up">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Icône SEO optimisé" role="img">
+                            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+                        </svg>
                     </div>
-                    <h3>SEO Optimisé</h3>
-                    <p>Votre site est optimisé pour les moteurs de recherche dès la création. Plus de visibilité, plus de clients.</p>
+                    <h3 class="card-title">SEO optimisé</h3>
+                    <p class="card-description">Votre site optimisé pour les moteurs de recherche dès la création. Plus de visibilité.</p>
                 </div>
                 
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
+                <div class="value-card fade-in-up">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Icône support dédié" role="img">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
                     </div>
-                    <h3>Support Dédié</h3>
-                    <p>Une équipe à votre écoute pour toutes vos questions. Support par email et téléphone inclus.</p>
+                    <h3 class="card-title">Support dédié</h3>
+                    <p class="card-description">Une équipe à votre écoute pour toutes vos questions. Support par email et téléphone.</p>
                 </div>
             </div>
             
@@ -3118,38 +3814,61 @@
             });
         });
 
-        // Add animation on scroll
+        // Enhanced animation on scroll with cascade effect - Performance optimized
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    // For value cards, add cascade delay
+                    if (entry.target.classList.contains('value-card')) {
+                        const cards = document.querySelectorAll('.value-card');
+                        const index = Array.from(cards).indexOf(entry.target);
+                        requestAnimationFrame(() => {
+                            setTimeout(() => {
+                                entry.target.classList.add('is-visible');
+                            }, index * 100); // 100ms delay between each card
+                        });
+                    } else {
+                        // For other elements, immediate animation
+                        requestAnimationFrame(() => {
+                            entry.target.classList.add('is-visible');
+                        });
+                    }
+                    // Unobserve after animation to improve performance
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all fade-in-up elements
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        // Initialize fade-in-up elements with performance optimization
+        const fadeElements = document.querySelectorAll('.fade-in-up');
+        fadeElements.forEach(el => {
+            el.classList.add('fade-in-up');
             observer.observe(el);
         });
 
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
+        // Header background on scroll - Performance optimized with debounce
+        let scrollTimeout;
+        const header = document.querySelector('header');
+        
+        function updateHeaderBackground() {
             if (window.scrollY > 100) {
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
             } else {
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
             }
-        });
+        }
+        
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                cancelAnimationFrame(scrollTimeout);
+            }
+            scrollTimeout = requestAnimationFrame(updateHeaderBackground);
+        }, { passive: true });
 
         // Calendly Functions
         function openCalendly() {
