@@ -1182,6 +1182,11 @@
 
         /* Mobile optimizations */
         @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 20px !important;
+            }
+            
             .faq-accordion {
                 margin: 48px 0 0;
             }
@@ -1562,6 +1567,35 @@
             .website-types div[style*="display: grid"] {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 15px !important;
+            }
+            
+            /* Portfolio responsive */
+            .portfolio-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+                padding: 0 16px !important;
+            }
+            
+            .portfolio-item {
+                margin: 0 auto;
+                max-width: 320px;
+            }
+            
+            .portfolio-item .site-info {
+                padding: 20px !important;
+            }
+            
+            .portfolio-item h3 {
+                font-size: 18px !important;
+            }
+            
+            .features-tags {
+                gap: 6px !important;
+            }
+            
+            .features-tags span {
+                font-size: 11px !important;
+                padding: 3px 6px !important;
             }
 
             .price {
@@ -2058,142 +2092,127 @@
         </div>
     </section>
 
+    <!-- Portfolio & Types Section -->
+    <section id="portfolio" class="portfolio-types" style="padding: 80px 0; background: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 16px;">Des sites pour tous les métiers</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 48px;">Restaurant, coiffeur, coach... Découvrez nos réalisations</p>
             
-            <!-- Portfolio Carousel -->
-            <div class="portfolio-carousel-container" style="margin-top: 64px;">
-                <!-- Navigation buttons -->
-                <button class="carousel-btn carousel-prev" id="portfolioPrev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-btn carousel-next" id="portfolioNext">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+            <!-- Grille des réalisations -->
+            <div class="portfolio-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto;">
                 
-                <div class="portfolio-carousel" id="portfolioCarousel" style="gap: 24px; padding: 20px 0;">
-                    
-                    <!-- Slide 1: Restaurant -->
-                    <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
-                        <div class="site-preview" style="height: 200px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=200&fit=crop&crop=center" 
-                                 alt="Site restaurant" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="site-info" style="padding: 24px;">
-                            <span class="category-tag" style="background: #dbeafe; color: #1e40af; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Restaurant</span>
-                            <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Restaurant Le Gourmet</h3>
-                            <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site vitrine moderne avec menu interactif, réservation en ligne et galerie photos.</p>
-                            <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📱 Mobile-first</span>
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">🍽️ Menu digital</span>
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📅 Réservations</span>
-                            </div>
-                            <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
-                        </div>
+                <!-- Restaurant -->
+                <div class="portfolio-item" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                    <div class="site-preview" style="height: 200px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=200&fit=crop&crop=center" 
+                             alt="Site restaurant" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    
-                    <!-- Slide 2: Plombier -->
-                    <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
-                        <div class="site-preview" style="height: 200px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1581578731548-c6a0c3f2fcc0?w=400&h=200&fit=crop&crop=center" 
-                                 alt="Site plombier" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="site-info" style="padding: 24px;">
+                        <span class="category-tag" style="background: #dbeafe; color: #1e40af; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Restaurant</span>
+                        <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Restaurant Le Gourmet</h3>
+                        <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site vitrine moderne avec menu interactif, réservation en ligne et galerie photos.</p>
+                        <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📱 Mobile-first</span>
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">🍽️ Menu digital</span>
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📅 Réservations</span>
                         </div>
-                        <div class="site-info" style="padding: 24px;">
-                            <span class="category-tag" style="background: #fef3c7; color: #92400e; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Services</span>
-                            <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Plombier Services</h3>
-                            <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site professionnel avec devis en ligne, zone d'intervention et témoignages clients.</p>
-                            <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📞 Devis en ligne</span>
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📍 Zone d'intervention</span>
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">⭐ Témoignages</span>
-                            </div>
-                            <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 3: Coiffure -->
-                    <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
-                        <div class="site-preview" style="height: 200px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=200&fit=crop&crop=center" 
-                                 alt="Site coiffure" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="site-info" style="padding: 24px;">
-                            <span class="category-tag" style="background: #fce7f3; color: #be185d; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Beauté</span>
-                            <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Coiffure à domicile</h3>
-                            <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site mobile-first avec prise de RDV en ligne, galerie de coiffures et avis clients.</p>
-                            <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📱 Mobile-first</span>
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📅 RDV en ligne</span>
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">🖼️ Galerie</span>
-                            </div>
-                            <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 4: Salle de sport -->
-                    <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
-                        <div class="site-preview" style="height: 200px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=200&fit=crop&crop=center" 
-                                 alt="Site salle de sport" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="site-info" style="padding: 24px;">
-                            <span class="category-tag" style="background: #dcfce7; color: #166534; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Sport</span>
-                            <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Salle de Sport FitZone</h3>
-                            <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site complet avec planning des cours, inscription en ligne et espace membre.</p>
-                            <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📅 Planning cours</span>
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">👤 Espace membre</span>
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">💪 Motivant</span>
-                            </div>
-                            <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 5: Boutique -->
-                    <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
-                        <div class="site-preview" style="height: 200px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=200&fit=crop&crop=center" 
-                                 alt="Site boutique" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="site-info" style="padding: 24px;">
-                            <span class="category-tag" style="background: #f3e8ff; color: #7c3aed; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Commerce</span>
-                            <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Boutique Mode & Style</h3>
-                            <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">E-commerce simple avec catalogue produits, panier et paiement sécurisé.</p>
-                            <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">🛒 Panier</span>
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">💳 Paiement sécurisé</span>
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📦 Catalogue</span>
-                            </div>
-                            <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 6: Formation -->
-                    <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
-                        <div class="site-preview" style="height: 200px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop&crop=center" 
-                                 alt="Site formation" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="site-info" style="padding: 24px;">
-                            <span class="category-tag" style="background: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Formation</span>
-                            <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Centre de Formation Pro</h3>
-                            <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site éducatif avec catalogue de formations, inscription en ligne et espace apprenant.</p>
-                            <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📚 Catalogue</span>
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">👨‍🎓 Espace apprenant</span>
-                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📝 Inscription</span>
-                            </div>
-                            <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
-                        </div>
+                        <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
                     </div>
                 </div>
                 
-                <!-- Pagination dots -->
-                <div class="carousel-pagination" style="display: flex; justify-content: center; gap: 8px; margin-top: 32px;">
-                    <button class="pagination-dot active" data-slide="0"></button>
-                    <button class="pagination-dot" data-slide="1"></button>
-                    <button class="pagination-dot" data-slide="2"></button>
-                    <button class="pagination-dot" data-slide="3"></button>
-                    <button class="pagination-dot" data-slide="4"></button>
-                    <button class="pagination-dot" data-slide="5"></button>
+                <!-- Coiffeur -->
+                <div class="portfolio-item" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                    <div class="site-preview" style="height: 200px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=200&fit=crop&crop=center" 
+                             alt="Site coiffure" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="site-info" style="padding: 24px;">
+                        <span class="category-tag" style="background: #fce7f3; color: #be185d; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Beauté</span>
+                        <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Coiffure à domicile</h3>
+                        <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site mobile-first avec prise de RDV en ligne, galerie de coiffures et avis clients.</p>
+                        <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📱 Mobile-first</span>
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📅 RDV en ligne</span>
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">🖼️ Galerie</span>
+                        </div>
+                        <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
+                    </div>
+                </div>
+                
+                <!-- Coach -->
+                <div class="portfolio-item" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                    <div class="site-preview" style="height: 200px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=200&fit=crop&crop=center" 
+                             alt="Site coach" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="site-info" style="padding: 24px;">
+                        <span class="category-tag" style="background: #fef3c7; color: #92400e; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Coaching</span>
+                        <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Coach Personnel</h3>
+                        <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site professionnel avec présentation des services, témoignages et prise de RDV.</p>
+                        <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📅 RDV en ligne</span>
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">⭐ Témoignages</span>
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">💪 Motivant</span>
+                        </div>
+                        <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
+                    </div>
+                </div>
+                
+                <!-- Services (Plombier) -->
+                <div class="portfolio-item" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                    <div class="site-preview" style="height: 200px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c6a0c3f2fcc0?w=400&h=200&fit=crop&crop=center" 
+                             alt="Site plombier" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="site-info" style="padding: 24px;">
+                        <span class="category-tag" style="background: #fef3c7; color: #92400e; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Services</span>
+                        <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Plombier Services</h3>
+                        <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site professionnel avec devis en ligne, zone d'intervention et témoignages clients.</p>
+                        <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📞 Devis en ligne</span>
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📍 Zone d'intervention</span>
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">⭐ Témoignages</span>
+                        </div>
+                        <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
+                    </div>
+                </div>
+                
+                <!-- Boutique -->
+                <div class="portfolio-item" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                    <div class="site-preview" style="height: 200px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=200&fit=crop&crop=center" 
+                             alt="Site boutique" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="site-info" style="padding: 24px;">
+                        <span class="category-tag" style="background: #e0e7ff; color: #3730a3; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">E-commerce</span>
+                        <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Boutique Mode</h3>
+                        <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Boutique en ligne avec catalogue produits, panier et paiement sécurisé.</p>
+                        <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">🛒 E-commerce</span>
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">💳 Paiement sécurisé</span>
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📱 Mobile</span>
+                        </div>
+                        <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
+                    </div>
+                </div>
+                
+                <!-- Salle de sport -->
+                <div class="portfolio-item" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+                    <div class="site-preview" style="height: 200px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=200&fit=crop&crop=center" 
+                             alt="Site salle de sport" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="site-info" style="padding: 24px;">
+                        <span class="category-tag" style="background: #dcfce7; color: #166534; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Sport</span>
+                        <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Salle de Sport FitZone</h3>
+                        <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site complet avec planning des cours, inscription en ligne et espace membre.</p>
+                        <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📅 Planning cours</span>
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">👤 Espace membre</span>
+                            <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">💪 Motivant</span>
+                        </div>
+                        <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
+                    </div>
                 </div>
             </div>
         </div>
