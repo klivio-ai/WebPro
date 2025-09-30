@@ -807,33 +807,44 @@
         }
 
         /* Carousel Styles */
-        .portfolio-carousel-container, .comparison-carousel-container {
+        .portfolio-carousel-container, .comparison-carousel-container, .testimonials-carousel-container {
             position: relative;
             overflow: hidden;
             margin: 0 auto;
             max-width: 100%;
+            padding: 0 20px;
         }
 
-        .portfolio-carousel, .comparison-carousel {
+        .portfolio-carousel, .comparison-carousel, .testimonials-carousel {
             display: flex;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             width: 100%;
             overflow: hidden;
+            touch-action: pan-y;
         }
 
         .portfolio-slide {
             flex: 0 0 auto;
             min-width: 350px;
             max-width: 100%;
+            scroll-snap-align: start;
         }
 
         .comparison-slide {
             flex: 0 0 auto;
             min-width: 100%;
             max-width: 100%;
+            scroll-snap-align: start;
         }
 
-        .carousel-btn, .comparison-btn {
+        .testimonial-slide {
+            flex: 0 0 auto;
+            min-width: 350px;
+            max-width: 100%;
+            scroll-snap-align: start;
+        }
+
+        .carousel-btn, .comparison-btn, .testimonials-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -851,23 +862,24 @@
             font-size: 18px;
             transition: all 0.3s ease;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            touch-action: manipulation;
         }
 
-        .carousel-btn:hover, .comparison-btn:hover {
+        .carousel-btn:hover, .comparison-btn:hover, .testimonials-btn:hover {
             background: #e55a2b;
             transform: translateY(-50%) scale(1.1);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .carousel-prev, .comparison-prev {
+        .carousel-prev, .comparison-prev, .testimonials-prev {
             left: 20px;
         }
 
-        .carousel-next, .comparison-next {
+        .carousel-next, .comparison-next, .testimonials-next {
             right: 20px;
         }
 
-        .pagination-dot, .comparison-dot {
+        .pagination-dot, .comparison-dot, .testimonials-dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
@@ -875,44 +887,50 @@
             background: #e2e8f0;
             cursor: pointer;
             transition: all 0.3s ease;
+            touch-action: manipulation;
         }
 
-        .pagination-dot.active, .comparison-dot.active {
+        .pagination-dot.active, .comparison-dot.active, .testimonials-dot.active {
             background: #ff6b35;
+            transform: scale(1.2);
         }
 
         /* Additional responsive styles */
         @media (max-width: 1200px) {
-            .carousel-prev, .comparison-prev {
+            .carousel-prev, .comparison-prev, .testimonials-prev {
                 left: 15px;
             }
-            .carousel-next, .comparison-next {
+            .carousel-next, .comparison-next, .testimonials-next {
                 right: 15px;
             }
         }
 
         @media (max-width: 992px) {
-            .carousel-prev, .comparison-prev {
+            .carousel-prev, .comparison-prev, .testimonials-prev {
                 left: 10px;
             }
-            .carousel-next, .comparison-next {
+            .carousel-next, .comparison-next, .testimonials-next {
                 right: 10px;
             }
         }
 
         @media (max-width: 768px) {
-            .portfolio-slide {
+            .portfolio-carousel-container, .comparison-carousel-container, .testimonials-carousel-container {
+                padding: 0 10px;
+            }
+            
+            .portfolio-slide, .testimonial-slide {
                 min-width: 280px !important;
             }
             
-            .carousel-prev, .comparison-prev {
-                left: 8px;
+            .carousel-prev, .comparison-prev, .testimonials-prev {
+                left: 5px;
             }
-            .carousel-next, .comparison-next {
-                right: 8px;
+            .carousel-next, .comparison-next, .testimonials-next {
+                right: 5px;
             }
             
-            .carousel-btn, .comparison-btn {
+            .carousel-btn, .comparison-btn, .testimonials-btn {
                 width: 40px;
                 height: 40px;
                 font-size: 14px;
@@ -920,12 +938,21 @@
         }
 
         @media (max-width: 480px) {
-            .carousel-btn, .comparison-btn {
+            .portfolio-carousel-container, .comparison-carousel-container, .testimonials-carousel-container {
+                padding: 0 5px;
+            }
+            
+            .carousel-btn, .comparison-btn, .testimonials-btn {
                 display: none !important;
             }
             
-            .portfolio-slide {
+            .portfolio-slide, .testimonial-slide {
                 min-width: 250px !important;
+            }
+            
+            .pagination-dot, .comparison-dot, .testimonials-dot {
+                width: 10px;
+                height: 10px;
             }
         }
 
@@ -1763,77 +1790,154 @@
         <div class="container">
             <h2 class="section-title">Ce que disent nos clients</h2>
             <p class="section-subtitle">Des témoignages authentiques de nos clients satisfaits</p>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                        </div>
-                        <p>"Enfin une offre claire ! 499€ et c'est tout, pas de surprise. Mon site était prêt en 5 jours et il me rapporte déjà des clients."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                            <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">
-                                ML
+            
+            <!-- Testimonials Carousel -->
+            <div class="testimonials-carousel-container" style="margin-top: 48px;">
+                <button class="testimonials-btn testimonials-prev" id="testimonialsPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="testimonials-btn testimonials-next" id="testimonialsNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="testimonials-carousel" id="testimonialsCarousel" style="gap: 24px; padding: 20px 0;">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                </div>
+                                <p>"Enfin une offre claire ! 499€ et c'est tout, pas de surprise. Mon site était prêt en 5 jours et il me rapporte déjà des clients."</p>
                             </div>
-                            <div>
-                                <strong>Marie L.</strong>
-                                <div style="font-size: 14px; color: #64748b;">Restauratrice - Paris</div>
+                            <div class="testimonial-author">
+                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">
+                                        ML
+                                    </div>
+                                    <div>
+                                        <strong>Marie L.</strong>
+                                        <div style="font-size: 14px; color: #64748b;">Restauratrice - Paris</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                </div>
+                                <p>"Comparé aux 8000€ demandés par l'agence locale, c'est un cadeau ! Et le support est réactif. Je recommande vivement."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">
+                                        PM
+                                    </div>
+                                    <div>
+                                        <strong>Pierre M.</strong>
+                                        <div style="font-size: 14px; color: #64748b;">Plombier - Lyon</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                </div>
+                                <p>"Simple, efficace, pas cher. Mon site mobile fonctionne parfaitement et j'ai déjà 3 nouveaux clients cette semaine."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #ed64a6 0%, #d53f8c 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">
+                                        SD
+                                    </div>
+                                    <div>
+                                        <strong>Sophie D.</strong>
+                                        <div style="font-size: 14px; color: #64748b;">Coiffeuse - Marseille</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                </div>
+                                <p>"Service impeccable ! Mon site e-commerce génère déjà des ventes. L'équipe est à l'écoute et très professionnelle."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">
+                                        AL
+                                    </div>
+                                    <div>
+                                        <strong>Antoine L.</strong>
+                                        <div style="font-size: 14px; color: #64748b;">Boutique en ligne - Toulouse</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                    <i class="fas fa-star" style="color: #ffd700;"></i>
+                                </div>
+                                <p>"Rapide, efficace et à un prix imbattable. Mon cabinet médical a maintenant une présence web professionnelle."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">
+                                        DR
+                                    </div>
+                                    <div>
+                                        <strong>Dr. Robert</strong>
+                                        <div style="font-size: 14px; color: #64748b;">Médecin - Nice</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                        </div>
-                        <p>"Comparé aux 8000€ demandés par l'agence locale, c'est un cadeau ! Et le support est réactif. Je recommande vivement."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                            <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">
-                                PM
-                            </div>
-                            <div>
-                                <strong>Pierre M.</strong>
-                                <div style="font-size: 14px; color: #64748b;">Plombier - Lyon</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                            <i class="fas fa-star" style="color: #ffd700;"></i>
-                        </div>
-                        <p>"Simple, efficace, pas cher. Mon site mobile fonctionne parfaitement et j'ai déjà 3 nouveaux clients cette semaine."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                            <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #ed64a6 0%, #d53f8c 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">
-                                SD
-                            </div>
-                            <div>
-                                <strong>Sophie D.</strong>
-                                <div style="font-size: 14px; color: #64748b;">Coiffeuse - Marseille</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="carousel-pagination" style="display: flex; justify-content: center; gap: 8px; margin-top: 32px;">
+                    <button class="testimonials-dot active" data-slide="0"></button>
+                    <button class="testimonials-dot" data-slide="1"></button>
+                    <button class="testimonials-dot" data-slide="2"></button>
+                    <button class="testimonials-dot" data-slide="3"></button>
+                    <button class="testimonials-dot" data-slide="4"></button>
                 </div>
             </div>
             
@@ -2650,10 +2754,13 @@
             const totalSlides = slides.length;
             let slideWidth = 350 + 24; // Default slide width + gap
             let isAnimating = false;
+            let autoPlayInterval;
             
             // Calculate slide width based on screen size
             function calculateSlideWidth() {
-                if (window.innerWidth <= 768) {
+                if (window.innerWidth <= 480) {
+                    slideWidth = 250 + 24; // Small mobile
+                } else if (window.innerWidth <= 768) {
                     slideWidth = 280 + 24; // Mobile slide width
                 } else {
                     slideWidth = 350 + 24; // Desktop slide width
@@ -2675,7 +2782,7 @@
                 
                 setTimeout(() => {
                     isAnimating = false;
-                }, 300);
+                }, 400);
             }
             
             function nextSlide() {
@@ -2696,6 +2803,19 @@
                 updateCarousel();
             }
             
+            // Auto-play functions
+            function startAutoPlay() {
+                if (autoPlayInterval) clearInterval(autoPlayInterval);
+                autoPlayInterval = setInterval(nextSlide, 6000);
+            }
+            
+            function stopAutoPlay() {
+                if (autoPlayInterval) {
+                    clearInterval(autoPlayInterval);
+                    autoPlayInterval = null;
+                }
+            }
+            
             // Event listeners
             if (nextBtn) nextBtn.addEventListener('click', nextSlide);
             if (prevBtn) prevBtn.addEventListener('click', prevSlide);
@@ -2704,16 +2824,6 @@
                 dot.addEventListener('click', () => goToSlide(index));
             });
             
-            // Auto-play
-            let autoPlayInterval;
-            function startAutoPlay() {
-                autoPlayInterval = setInterval(nextSlide, 5000);
-            }
-            
-            function stopAutoPlay() {
-                clearInterval(autoPlayInterval);
-            }
-            
             // Start auto-play
             startAutoPlay();
             
@@ -2721,13 +2831,15 @@
             carousel.addEventListener('mouseenter', stopAutoPlay);
             carousel.addEventListener('mouseleave', startAutoPlay);
             
-            // Touch/swipe support for mobile
+            // Enhanced touch/swipe support for mobile
             let startX = 0;
             let endX = 0;
             let isDragging = false;
+            let startTime = 0;
             
             carousel.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
+                startTime = Date.now();
                 isDragging = true;
                 stopAutoPlay();
             }, { passive: true });
@@ -2742,8 +2854,10 @@
                 isDragging = false;
                 endX = e.changedTouches[0].clientX;
                 const diff = startX - endX;
+                const timeDiff = Date.now() - startTime;
                 
-                if (Math.abs(diff) > 50) { // Minimum swipe distance
+                // More sensitive swipe detection
+                if (Math.abs(diff) > 30 && timeDiff < 500) {
                     if (diff > 0) {
                         nextSlide();
                     } else {
@@ -2754,8 +2868,12 @@
             }, { passive: true });
             
             // Handle window resize
+            let resizeTimeout;
             window.addEventListener('resize', () => {
-                updateCarousel();
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    updateCarousel();
+                }, 100);
             });
             
             // Initialize
@@ -2870,6 +2988,146 @@
             
             // Initialize
             updateComparisonCarousel();
+        });
+
+        // Testimonials Carousel JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonialsCarousel = document.getElementById('testimonialsCarousel');
+            const testimonialsPrev = document.getElementById('testimonialsPrev');
+            const testimonialsNext = document.getElementById('testimonialsNext');
+            const testimonialsDots = document.querySelectorAll('.testimonials-dot');
+            const testimonialsSlides = document.querySelectorAll('.testimonial-slide');
+            
+            if (!testimonialsCarousel || !testimonialsSlides.length) return;
+            
+            let currentSlide = 0;
+            const totalSlides = testimonialsSlides.length;
+            let slideWidth = 350 + 24; // Default slide width + gap
+            let isAnimating = false;
+            let autoPlayInterval;
+            
+            // Calculate slide width based on screen size
+            function calculateTestimonialsSlideWidth() {
+                if (window.innerWidth <= 480) {
+                    slideWidth = 250 + 24; // Small mobile
+                } else if (window.innerWidth <= 768) {
+                    slideWidth = 280 + 24; // Mobile slide width
+                } else {
+                    slideWidth = 350 + 24; // Desktop slide width
+                }
+            }
+            
+            function updateTestimonialsCarousel() {
+                if (isAnimating) return;
+                isAnimating = true;
+                
+                calculateTestimonialsSlideWidth();
+                const translateX = -currentSlide * slideWidth;
+                testimonialsCarousel.style.transform = `translateX(${translateX}px)`;
+                
+                // Update pagination dots
+                testimonialsDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+                
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 400);
+            }
+            
+            function nextTestimonialsSlide() {
+                if (isAnimating) return;
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateTestimonialsCarousel();
+            }
+            
+            function prevTestimonialsSlide() {
+                if (isAnimating) return;
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateTestimonialsCarousel();
+            }
+            
+            function goToTestimonialsSlide(slideIndex) {
+                if (isAnimating || slideIndex === currentSlide) return;
+                currentSlide = slideIndex;
+                updateTestimonialsCarousel();
+            }
+            
+            // Auto-play functions
+            function startTestimonialsAutoPlay() {
+                if (autoPlayInterval) clearInterval(autoPlayInterval);
+                autoPlayInterval = setInterval(nextTestimonialsSlide, 7000);
+            }
+            
+            function stopTestimonialsAutoPlay() {
+                if (autoPlayInterval) {
+                    clearInterval(autoPlayInterval);
+                    autoPlayInterval = null;
+                }
+            }
+            
+            // Event listeners
+            if (testimonialsNext) testimonialsNext.addEventListener('click', nextTestimonialsSlide);
+            if (testimonialsPrev) testimonialsPrev.addEventListener('click', prevTestimonialsSlide);
+            
+            testimonialsDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => goToTestimonialsSlide(index));
+            });
+            
+            // Start auto-play
+            startTestimonialsAutoPlay();
+            
+            // Pause on hover
+            testimonialsCarousel.addEventListener('mouseenter', stopTestimonialsAutoPlay);
+            testimonialsCarousel.addEventListener('mouseleave', startTestimonialsAutoPlay);
+            
+            // Enhanced touch/swipe support for mobile
+            let startX = 0;
+            let endX = 0;
+            let isDragging = false;
+            let startTime = 0;
+            
+            testimonialsCarousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                startTime = Date.now();
+                isDragging = true;
+                stopTestimonialsAutoPlay();
+            }, { passive: true });
+            
+            testimonialsCarousel.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+            }, { passive: false });
+            
+            testimonialsCarousel.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+                const timeDiff = Date.now() - startTime;
+                
+                // More sensitive swipe detection
+                if (Math.abs(diff) > 30 && timeDiff < 500) {
+                    if (diff > 0) {
+                        nextTestimonialsSlide();
+                    } else {
+                        prevTestimonialsSlide();
+                    }
+                }
+                startTestimonialsAutoPlay();
+            }, { passive: true });
+            
+            // Handle window resize
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    updateTestimonialsCarousel();
+                }, 100);
+            });
+            
+            // Initialize
+            updateTestimonialsCarousel();
         });
     </script>
 
