@@ -2708,37 +2708,6 @@
             }
         });
 
-        // Sticky footer CTA for mobile
-        function createStickyFooter() {
-            if (window.innerWidth <= 768) {
-                const stickyFooter = document.createElement('div');
-                stickyFooter.style.cssText = `
-                    position: fixed;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    background: #ff6b35;
-                    color: white;
-                    padding: 16px;
-                    text-align: center;
-                    z-index: 1000;
-                    box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
-                `;
-                stickyFooter.innerHTML = `
-                    <a href="#contact" style="color: white; text-decoration: none; font-weight: 600; font-size: 16px;">
-                        <i class="fas fa-rocket"></i> Obtenir mon devis gratuit
-                    </a>
-                `;
-                document.body.appendChild(stickyFooter);
-                
-                // Add padding to body to prevent content overlap
-                document.body.style.paddingBottom = '80px';
-            }
-        }
-
-        // Create sticky footer on load and resize
-        createStickyFooter();
-        window.addEventListener('resize', createStickyFooter);
 
         // Portfolio Carousel JavaScript
         document.addEventListener('DOMContentLoaded', function() {
