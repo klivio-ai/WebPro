@@ -327,6 +327,302 @@
             margin-top: 32px;
         }
 
+        /* Popup Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            padding: 30px 30px 20px;
+            border-bottom: 1px solid #f1f5f9;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #64748b;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+
+        .modal-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0;
+        }
+
+        .modal-subtitle {
+            font-size: 16px;
+            color: #64748b;
+            margin: 8px 0 0;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 20px;
+            height: 2px;
+            background: #e2e8f0;
+            transform: translateY(-50%);
+        }
+
+        .step.active {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .step.completed {
+            background: #22c55e;
+            color: white;
+        }
+
+        .step:not(.active):not(.completed) {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+
+        .step.completed::after {
+            background: #22c55e;
+        }
+
+        .step.active::after {
+            background: #ff6b35;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0f172a;
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            background: #fafafa;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .checkbox-input {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: #ff6b35;
+        }
+
+        .checkbox-label {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        .checkbox-label a {
+            color: #ff6b35;
+            text-decoration: underline;
+        }
+
+        .modal-footer {
+            padding: 20px 30px 30px;
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e55a2b;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 40px 30px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+            color: white;
+        }
+
+        .success-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .success-text {
+            color: #64748b;
+            margin-bottom: 24px;
+        }
+
         .hero h1 {
             font-size: 64px;
             font-weight: 800;
@@ -2629,75 +2925,31 @@
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="contact-form" style="padding: 120px 0; background: #f8fafc;">
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section" style="padding: 120px 0; background: #f8fafc;">
         <div class="container">
             <div style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <h2 style="font-size: 48px; font-weight: 800; margin-bottom: 16px; color: #0f172a;">Prêt à créer votre site web ?</h2>
                 <p style="font-size: 20px; color: #64748b; margin-bottom: 48px;">Rejoignez les centaines d'entreprises qui ont choisi la simplicité et l'efficacité</p>
                 
-                <!-- Formulaire de contact -->
-                <div style="background: white; padding: 48px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 32px;">
-                    <form id="contactForm" style="display: grid; gap: 24px;" role="form" aria-labelledby="contact-title" aria-describedby="contact-description">
-                        <div id="contact-description" class="sr-only">Formulaire de contact pour demander un devis gratuit</div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-                            <div>
-                                <label for="nom" style="display: block; font-weight: 600; margin-bottom: 8px; color: #0f172a;">Nom complet *</label>
-                                <input type="text" id="nom" name="nom" required 
-                                       style="width: 100%; padding: 16px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 16px; min-height: 44px;"
-                                       aria-describedby="nom-help" aria-required="true">
-                                <div id="nom-help" class="sr-only">Veuillez entrer votre nom complet</div>
-                            </div>
-                            <div>
-                                <label for="email" style="display: block; font-weight: 600; margin-bottom: 8px; color: #0f172a;">Email *</label>
-                                <input type="email" id="email" name="email" required 
-                                       style="width: 100%; padding: 16px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 16px; min-height: 44px;"
-                                       aria-describedby="email-help" aria-required="true">
-                                <div id="email-help" class="sr-only">Veuillez entrer une adresse email valide</div>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="telephone" style="display: block; font-weight: 600; margin-bottom: 8px; color: #0f172a;">Téléphone (optionnel)</label>
-                            <input type="tel" id="telephone" name="telephone" 
-                                   style="width: 100%; padding: 16px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 16px; min-height: 44px;"
-                                   aria-describedby="tel-help">
-                            <div id="tel-help" class="sr-only">Numéro de téléphone pour vous contacter plus rapidement</div>
-                        </div>
-                        <div>
-                            <label for="message" style="display: block; font-weight: 600; margin-bottom: 8px; color: #0f172a;">Décrivez votre projet *</label>
-                            <textarea id="message" name="message" rows="4" required 
-                                      style="width: 100%; padding: 16px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 16px; resize: vertical; min-height: 120px;"
-                                      aria-describedby="message-help" aria-required="true"></textarea>
-                            <div id="message-help" class="sr-only">Décrivez votre projet de site web en quelques mots</div>
-                        </div>
-                        <div style="display: flex; align-items: flex-start; gap: 12px;">
-                            <input type="checkbox" id="rgpd" name="rgpd" required 
-                                   style="width: 20px; height: 20px; margin-top: 2px; min-width: 20px; min-height: 20px;"
-                                   aria-describedby="rgpd-help" aria-required="true">
-                            <label for="rgpd" style="font-size: 14px; color: #64748b; line-height: 1.4;">
-                                J'accepte la <a href="#" style="color: #166534; text-decoration: underline;">politique de confidentialité</a> et consens au traitement de mes données personnelles *
-                            </label>
-                            <div id="rgpd-help" class="sr-only">Acceptation obligatoire pour traiter votre demande</div>
-                        </div>
-                        <button type="submit" style="background: #ff6b35; color: white; padding: 20px 40px; border: none; border-radius: 12px; font-size: 18px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; min-height: 60px;"
-                                aria-describedby="submit-help">
-                            <i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer ma demande
-                        </button>
-                        <div id="submit-help" class="sr-only">Envoyer votre demande de devis gratuit</div>
-                    </form>
+                <!-- CTA Principal -->
+                <div style="margin-bottom: 48px;">
+                    <button onclick="openContactModal()" class="btn btn-primary" style="font-size: 20px; padding: 24px 48px;">
+                        <i class="fas fa-rocket"></i> Démarrer mon projet maintenant
+                    </button>
                 </div>
                 
                 <!-- Indicateurs de réponse -->
                 <div style="display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;">
                     <div style="display: flex; align-items: center; gap: 12px; background: white; padding: 16px 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                        <i class="fas fa-clock" style="color: #166534; font-size: 20px;"></i>
+                        <i class="fas fa-clock" style="color: #ff6b35; font-size: 20px;"></i>
                         <div>
                             <div style="font-weight: 600; color: #0f172a;">Réponse sous 2h</div>
                             <div style="font-size: 14px; color: #64748b;">Ouvrées</div>
                         </div>
                     </div>
                     <div style="display: flex; align-items: center; gap: 12px; background: white; padding: 16px 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                        <i class="fas fa-gift" style="color: #166534; font-size: 20px;"></i>
+                        <i class="fas fa-gift" style="color: #ff6b35; font-size: 20px;"></i>
                         <div>
                             <div style="font-weight: 600; color: #0f172a;">Devis gratuit</div>
                             <div style="font-size: 14px; color: #64748b;">Sans engagement</div>
@@ -2714,13 +2966,10 @@
                 
                 <!-- CTAs alternatifs -->
                 <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                    <button onclick="openCalendly()" class="cta-button calendly">
-                        <i class="fas fa-calendar-alt"></i> Prendre un RDV gratuit
-                    </button>
-                    <a href="https://wa.me/33123456789" class="cta-button secondary" target="_blank">
+                    <a href="https://wa.me/33123456789" class="btn btn-secondary" target="_blank">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
-                    <a href="tel:0123456789" class="cta-button secondary">
+                    <a href="tel:0123456789" class="btn btn-secondary">
                         <i class="fas fa-phone"></i> Appeler maintenant
                     </a>
                 </div>
@@ -2761,6 +3010,118 @@
             </div>
         </div>
     </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeContactModal()">&times;</button>
+                <h2 class="modal-title">Créons votre site web</h2>
+                <p class="modal-subtitle">Quelques questions pour personnaliser votre projet</p>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Step Indicator -->
+                <div class="step-indicator">
+                    <div class="step active" data-step="1">1</div>
+                    <div class="step" data-step="2">2</div>
+                    <div class="step" data-step="3">3</div>
+                </div>
+
+                <form id="contactForm">
+                    <!-- Step 1: Informations personnelles -->
+                    <div class="form-step active" data-step="1">
+                        <div class="form-group">
+                            <label class="form-label" for="nom">Nom complet *</label>
+                            <input type="text" id="nom" name="nom" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="telephone">Téléphone (optionnel)</label>
+                            <input type="tel" id="telephone" name="telephone" class="form-input">
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Type de projet -->
+                    <div class="form-step" data-step="2">
+                        <div class="form-group">
+                            <label class="form-label" for="typeProjet">Type de site web *</label>
+                            <select id="typeProjet" name="typeProjet" class="form-input form-select" required>
+                                <option value="">Sélectionnez votre type de site</option>
+                                <option value="restaurant">Restaurant / Café</option>
+                                <option value="coach">Coach / Consultant</option>
+                                <option value="boutique">Boutique en ligne</option>
+                                <option value="photographe">Photographe</option>
+                                <option value="professionnel">Professionnel / Service</option>
+                                <option value="association">Association</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="budget">Budget approximatif</label>
+                            <select id="budget" name="budget" class="form-input form-select">
+                                <option value="">Sélectionnez votre budget</option>
+                                <option value="499">499€ - Parfait pour commencer</option>
+                                <option value="999">999€ - Avec fonctionnalités avancées</option>
+                                <option value="1999">1999€ - Solution complète</option>
+                                <option value="plus">Plus de 2000€ - Projet sur mesure</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="delai">Délai souhaité</label>
+                            <select id="delai" name="delai" class="form-input form-select">
+                                <option value="">Quand souhaitez-vous être en ligne ?</option>
+                                <option value="urgent">Urgent (dans la semaine)</option>
+                                <option value="1mois">Dans 1 mois</option>
+                                <option value="2mois">Dans 2 mois</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Description du projet -->
+                    <div class="form-step" data-step="3">
+                        <div class="form-group">
+                            <label class="form-label" for="message">Décrivez votre projet *</label>
+                            <textarea id="message" name="message" class="form-input form-textarea" placeholder="Parlez-nous de votre activité, vos objectifs, vos inspirations..." required></textarea>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="rgpd" name="rgpd" class="checkbox-input" required>
+                            <label for="rgpd" class="checkbox-label">
+                                J'accepte la <a href="#" target="_blank">politique de confidentialité</a> et consens au traitement de mes données personnelles *
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Success Message -->
+                    <div class="form-step" data-step="success" style="display: none;">
+                        <div class="success-message">
+                            <div class="success-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <h3 class="success-title">Demande envoyée !</h3>
+                            <p class="success-text">Merci pour votre confiance. Nous vous recontacterons dans les 2 heures pour discuter de votre projet.</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="prevBtn" onclick="changeStep(-1)" style="display: none;">
+                    <i class="fas fa-arrow-left"></i> Précédent
+                </button>
+                <button type="button" class="btn btn-primary" id="nextBtn" onclick="changeStep(1)">
+                    Suivant <i class="fas fa-arrow-right"></i>
+                </button>
+                <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitForm()" style="display: none;">
+                    <i class="fas fa-paper-plane"></i> Envoyer ma demande
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Calendly Popup -->
     <div id="calendly-popup" class="calendly-popup">
@@ -3586,6 +3947,171 @@
         document.addEventListener('DOMContentLoaded', function() {
             initScrollAnimations();
             initHoverEffects();
+        });
+
+        // Contact Modal Functions
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function openContactModal() {
+            document.getElementById('contactModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            resetForm();
+        }
+
+        function changeStep(direction) {
+            const steps = document.querySelectorAll('.step');
+            const formSteps = document.querySelectorAll('.form-step');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Validation avant de passer à l'étape suivante
+            if (direction === 1 && !validateCurrentStep()) {
+                return;
+            }
+
+            // Mettre à jour l'étape actuelle
+            currentStep += direction;
+
+            // Mettre à jour les indicateurs d'étapes
+            steps.forEach((step, index) => {
+                step.classList.remove('active', 'completed');
+                if (index + 1 < currentStep) {
+                    step.classList.add('completed');
+                } else if (index + 1 === currentStep) {
+                    step.classList.add('active');
+                }
+            });
+
+            // Afficher/masquer les étapes du formulaire
+            formSteps.forEach((step, index) => {
+                step.classList.remove('active');
+                if (index + 1 === currentStep) {
+                    step.classList.add('active');
+                }
+            });
+
+            // Mettre à jour les boutons
+            prevBtn.style.display = currentStep > 1 ? 'flex' : 'none';
+            nextBtn.style.display = currentStep < totalSteps ? 'flex' : 'none';
+            submitBtn.style.display = currentStep === totalSteps ? 'flex' : 'none';
+        }
+
+        function validateCurrentStep() {
+            const currentFormStep = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+            const requiredFields = currentFormStep.querySelectorAll('[required]');
+            
+            for (let field of requiredFields) {
+                if (!field.value.trim()) {
+                    field.focus();
+                    field.style.borderColor = '#ef4444';
+                    setTimeout(() => {
+                        field.style.borderColor = '#e2e8f0';
+                    }, 3000);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function submitForm() {
+            if (!validateCurrentStep()) {
+                return;
+            }
+
+            // Simuler l'envoi du formulaire
+            const formData = new FormData(document.getElementById('contactForm'));
+            const data = Object.fromEntries(formData);
+
+            // Afficher le message de succès
+            showSuccessMessage();
+        }
+
+        function showSuccessMessage() {
+            const steps = document.querySelectorAll('.step');
+            const formSteps = document.querySelectorAll('.form-step');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Marquer toutes les étapes comme complétées
+            steps.forEach(step => {
+                step.classList.remove('active');
+                step.classList.add('completed');
+            });
+
+            // Afficher le message de succès
+            formSteps.forEach(step => {
+                step.classList.remove('active');
+                if (step.dataset.step === 'success') {
+                    step.style.display = 'block';
+                } else {
+                    step.style.display = 'none';
+                }
+            });
+
+            // Masquer tous les boutons
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            submitBtn.style.display = 'none';
+
+            // Fermer automatiquement après 3 secondes
+            setTimeout(() => {
+                closeContactModal();
+            }, 3000);
+        }
+
+        function resetForm() {
+            currentStep = 1;
+            document.getElementById('contactForm').reset();
+            
+            const steps = document.querySelectorAll('.step');
+            const formSteps = document.querySelectorAll('.form-step');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Réinitialiser les indicateurs d'étapes
+            steps.forEach((step, index) => {
+                step.classList.remove('active', 'completed');
+                if (index === 0) {
+                    step.classList.add('active');
+                }
+            });
+
+            // Réinitialiser les étapes du formulaire
+            formSteps.forEach((step, index) => {
+                step.classList.remove('active');
+                step.style.display = '';
+                if (index === 0) {
+                    step.classList.add('active');
+                }
+            });
+
+            // Réinitialiser les boutons
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'flex';
+            submitBtn.style.display = 'none';
+        }
+
+        // Fermer le modal en cliquant sur l'overlay
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactModal();
+            }
+        });
+
+        // Fermer le modal avec la touche Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('contactModal').classList.contains('active')) {
+                closeContactModal();
+            }
         });
     </script>
 </body>
