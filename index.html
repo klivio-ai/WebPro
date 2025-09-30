@@ -327,6 +327,40 @@
             background: #15803d;
         }
 
+        /* Scroll Animations */
+        .feature-card, .portfolio-slide, .testimonial-card, .etape-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .feature-card.animate-in, .portfolio-slide.animate-in, .testimonial-card.animate-in, .etape-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced hover effects */
+        .portfolio-slide {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-slide:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
+        }
+
+        .etape-card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+
+        /* Smooth scroll for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
         .calendly-popup {
             position: fixed;
             top: 0;
@@ -1180,8 +1214,8 @@
                 <li role="none"><a href="#tarifs" role="menuitem" aria-label="Aller à la section tarifs">Tarifs</a></li>
                 <li role="none"><a href="#contact" role="menuitem" aria-label="Aller à la section contact">Contact</a></li>
             </ul>
-            <a href="#contact" class="cta-button" style="background: #ff6b35; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px;" aria-label="Obtenir un devis gratuit">
-                DEVIS GRATUIT
+            <a href="#contact" class="cta-button" style="background: #ff6b35; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px;" aria-label="Créer mon site maintenant">
+                CRÉER MON SITE
             </a>
         </nav>
     </header>
@@ -1191,8 +1225,8 @@
     <section id="accueil" class="hero" role="banner" aria-labelledby="hero-title">
         <div class="container">
             <div class="hero-content fade-in-up">
-                <h1 id="hero-title">Créez votre site web professionnel à 499€</h1>
-                <p class="subtitle">Site web professionnel livré en 7 jours avec hébergement et maintenance inclus</p>
+                <h1 id="hero-title">Le site web le plus simple à obtenir. Point.</h1>
+                <p class="subtitle">Pas de jargon. Pas de réunions sans fin. Juste votre site pro en 7 jours.</p>
                 
                 <div class="pricing-highlight">
                     <div class="price">499€ HT</div>
@@ -1204,11 +1238,18 @@
 
                 <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 32px;">
                     <a href="#contact" class="cta-button" style="background: #ff6b35; font-size: 18px; padding: 20px 40px;">
-                        <i class="fas fa-rocket"></i> Obtenir mon devis gratuit
+                        <i class="fas fa-rocket"></i> Créer mon site maintenant
                     </a>
                     <a href="#portfolio" class="cta-button secondary" style="font-size: 16px; padding: 18px 36px;">
-                        <i class="fas fa-eye"></i> Voir nos réalisations
+                        <i class="fas fa-eye"></i> Voir des exemples de sites
                     </a>
+                </div>
+                
+                <!-- Badge de crédibilité -->
+                <div style="display: flex; justify-content: center; margin-top: 24px;">
+                    <div style="background: rgba(255,255,255,0.15); padding: 12px 24px; border-radius: 25px; font-size: 14px; font-weight: 500;">
+                        ✓ Plus de 500 sites créés  ✓ Note moyenne 4.9/5  ✓ 30 jours satisfait ou remboursé
+                    </div>
                 </div>
                 
                 <!-- Badges de réassurance -->
@@ -1293,184 +1334,157 @@
                     <p>Une équipe à votre écoute pour toutes vos questions. Support par email et téléphone inclus.</p>
                 </div>
             </div>
+            
+            <!-- Micro-CTA dans la section avantages -->
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="#processus" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 16px; display: inline-flex; align-items: center; gap: 8px;">
+                    Découvrez comment nous procédons →
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
+    <section id="portfolio" class="portfolio" style="padding: 120px 0; background: #ffffff;">
         <div class="container">
-            <h2 class="section-title">Nos réalisations</h2>
-            <p class="section-subtitle">Découvrez quelques-uns de nos sites web créés pour nos clients</p>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <picture>
-                            <source srcset="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=200&fit=crop&crop=center&fm=webp" type="image/webp">
+            <h2 class="section-title">Ils ont choisi la simplicité (et ne le regrettent pas)</h2>
+            <p class="section-subtitle">Des sites pros créés en 7 jours, pour tous types de métiers</p>
+            
+            <!-- Portfolio Carousel -->
+            <div class="portfolio-carousel-container" style="margin-top: 64px; position: relative;">
+                <!-- Navigation buttons -->
+                <button class="carousel-btn carousel-prev" id="portfolioPrev" style="position: absolute; left: -60px; top: 50%; transform: translateY(-50%); background: #ff6b35; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all 0.3s ease;">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn carousel-next" id="portfolioNext" style="position: absolute; right: -60px; top: 50%; transform: translateY(-50%); background: #ff6b35; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all 0.3s ease;">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="portfolio-carousel" id="portfolioCarousel" style="display: flex; overflow: hidden; gap: 24px; padding: 20px 0; scroll-behavior: smooth;">
+                    
+                    <!-- Slide 1: Restaurant -->
+                    <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
+                        <div class="site-preview" style="height: 200px; overflow: hidden;">
                             <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=200&fit=crop&crop=center" 
-                                 alt="Site web restaurant moderne avec menu interactif et réservation en ligne" 
-                                 width="400" height="200" loading="lazy">
-                        </picture>
-                    </div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-category">Restauration</div>
-                        <h3 class="portfolio-title">Restaurant Le Bistrot</h3>
-                        <p class="portfolio-description">Site vitrine moderne avec menu interactif, réservation en ligne et galerie photos. Design épuré qui met en valeur les plats.</p>
-                        <div class="portfolio-stats">
-                            <div class="portfolio-stat">
-                                <i class="fas fa-clock"></i>
-                                <span>5 jours</span>
+                                 alt="Site restaurant" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="site-info" style="padding: 24px;">
+                            <span class="category-tag" style="background: #dbeafe; color: #1e40af; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Restaurant</span>
+                            <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Restaurant Le Gourmet</h3>
+                            <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site vitrine moderne avec menu interactif, réservation en ligne et galerie photos.</p>
+                            <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📱 Mobile-first</span>
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">🍽️ Menu digital</span>
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📅 Réservations</span>
                             </div>
-                            <div class="portfolio-stat">
-                                <i class="fas fa-chart-line"></i>
-                                <span>+40% réservations</span>
-                            </div>
-                            <div class="portfolio-stat">
-                                <i class="fas fa-users"></i>
-                                <span>+25% nouveaux clients</span>
-                            </div>
+                            <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
                         </div>
                     </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <picture>
-                            <source srcset="https://images.unsplash.com/photo-1581578731548-c6a0c3f2fcc0?w=400&h=200&fit=crop&crop=center&fm=webp" type="image/webp">
+                    
+                    <!-- Slide 2: Plombier -->
+                    <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
+                        <div class="site-preview" style="height: 200px; overflow: hidden;">
                             <img src="https://images.unsplash.com/photo-1581578731548-c6a0c3f2fcc0?w=400&h=200&fit=crop&crop=center" 
-                                 alt="Site web plombier professionnel avec devis en ligne et zone d'intervention" 
-                                 width="400" height="200" loading="lazy">
-                        </picture>
-                    </div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-category">Services</div>
-                        <h3 class="portfolio-title">Plombier Services</h3>
-                        <p class="portfolio-description">Site professionnel avec devis en ligne, zone d'intervention et témoignages clients. Optimisé pour le référencement local.</p>
-                        <div class="portfolio-stats">
-                            <div class="portfolio-stat">
-                                <i class="fas fa-clock"></i>
-                                <span>7 jours</span>
+                                 alt="Site plombier" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="site-info" style="padding: 24px;">
+                            <span class="category-tag" style="background: #fef3c7; color: #92400e; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Services</span>
+                            <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Plombier Services</h3>
+                            <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site professionnel avec devis en ligne, zone d'intervention et témoignages clients.</p>
+                            <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📞 Devis en ligne</span>
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📍 Zone d'intervention</span>
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">⭐ Témoignages</span>
                             </div>
-                            <div class="portfolio-stat">
-                                <i class="fas fa-chart-line"></i>
-                                <span>+60% appels</span>
-                            </div>
-                            <div class="portfolio-stat">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>+35% zone couverte</span>
-                            </div>
+                            <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
                         </div>
                     </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <picture>
-                            <source srcset="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=200&fit=crop&crop=center&fm=webp" type="image/webp">
+                    
+                    <!-- Slide 3: Coiffure -->
+                    <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
+                        <div class="site-preview" style="height: 200px; overflow: hidden;">
                             <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=200&fit=crop&crop=center" 
-                                 alt="Site web coiffure à domicile avec prise de RDV en ligne et galerie de coiffures" 
-                                 width="400" height="200" loading="lazy">
-                        </picture>
+                                 alt="Site coiffure" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="site-info" style="padding: 24px;">
+                            <span class="category-tag" style="background: #fce7f3; color: #be185d; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Beauté</span>
+                            <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Coiffure à domicile</h3>
+                            <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site mobile-first avec prise de RDV en ligne, galerie de coiffures et avis clients.</p>
+                            <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📱 Mobile-first</span>
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📅 RDV en ligne</span>
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">🖼️ Galerie</span>
+                            </div>
+                            <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
+                        </div>
                     </div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-category">Beauté</div>
-                        <h3 class="portfolio-title">Coiffure à domicile</h3>
-                        <p class="portfolio-description">Site mobile-first avec prise de RDV en ligne, galerie de coiffures et avis clients. Interface intuitive et moderne.</p>
-                        <div class="portfolio-stats">
-                            <div class="portfolio-stat">
-                                <i class="fas fa-clock"></i>
-                                <span>6 jours</span>
+                    
+                    <!-- Slide 4: Salle de sport -->
+                    <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
+                        <div class="site-preview" style="height: 200px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=200&fit=crop&crop=center" 
+                                 alt="Site salle de sport" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="site-info" style="padding: 24px;">
+                            <span class="category-tag" style="background: #dcfce7; color: #166534; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Sport</span>
+                            <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Salle de Sport FitZone</h3>
+                            <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site complet avec planning des cours, inscription en ligne et espace membre.</p>
+                            <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📅 Planning cours</span>
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">👤 Espace membre</span>
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">💪 Motivant</span>
                             </div>
-                            <div class="portfolio-stat">
-                                <i class="fas fa-chart-line"></i>
-                                <span>+80% RDV</span>
+                            <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 5: Boutique -->
+                    <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
+                        <div class="site-preview" style="height: 200px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=200&fit=crop&crop=center" 
+                                 alt="Site boutique" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="site-info" style="padding: 24px;">
+                            <span class="category-tag" style="background: #f3e8ff; color: #7c3aed; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Commerce</span>
+                            <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Boutique Mode & Style</h3>
+                            <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">E-commerce simple avec catalogue produits, panier et paiement sécurisé.</p>
+                            <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">🛒 Panier</span>
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">💳 Paiement sécurisé</span>
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📦 Catalogue</span>
                             </div>
-                            <div class="portfolio-stat">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>90% mobile</span>
+                            <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 6: Formation -->
+                    <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
+                        <div class="site-preview" style="height: 200px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop&crop=center" 
+                                 alt="Site formation" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="site-info" style="padding: 24px;">
+                            <span class="category-tag" style="background: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;">Formation</span>
+                            <h3 style="font-size: 20px; font-weight: 700; margin: 12px 0 8px 0; color: #0f172a;">Centre de Formation Pro</h3>
+                            <p style="color: #64748b; line-height: 1.5; margin-bottom: 16px;">Site éducatif avec catalogue de formations, inscription en ligne et espace apprenant.</p>
+                            <div class="features-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📚 Catalogue</span>
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">👨‍🎓 Espace apprenant</span>
+                                <span style="background: #f0fdf4; color: #166534; padding: 4px 8px; border-radius: 8px; font-size: 12px;">📝 Inscription</span>
                             </div>
+                            <a href="#" class="view-demo" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 14px;">Voir la démo →</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=200&fit=crop&crop=center" 
-                             alt="Site web salle de sport avec planning des cours et inscription en ligne" 
-                             width="400" height="200" loading="lazy">
-                    </div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-category">Sport</div>
-                        <h3 class="portfolio-title">Salle de Sport FitZone</h3>
-                        <p class="portfolio-description">Site complet avec planning des cours, inscription en ligne et espace membre. Design dynamique et motivant.</p>
-                        <div class="portfolio-stats">
-                            <div class="portfolio-stat">
-                                <i class="fas fa-clock"></i>
-                                <span>8 jours</span>
-                            </div>
-                            <div class="portfolio-stat">
-                                <i class="fas fa-chart-line"></i>
-                                <span>+50% adhésions</span>
-                            </div>
-                            <div class="portfolio-stat">
-                                <i class="fas fa-calendar-check"></i>
-                                <span>+200 cours/mois</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=200&fit=crop&crop=center" 
-                             alt="Site e-commerce boutique mode avec catalogue produits et panier sécurisé" 
-                             width="400" height="200" loading="lazy">
-                    </div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-category">Commerce</div>
-                        <h3 class="portfolio-title">Boutique Mode & Style</h3>
-                        <p class="portfolio-description">E-commerce simple avec catalogue produits, panier et paiement sécurisé. Design élégant et professionnel.</p>
-                        <div class="portfolio-stats">
-                            <div class="portfolio-stat">
-                                <i class="fas fa-clock"></i>
-                                <span>10 jours</span>
-                            </div>
-                            <div class="portfolio-stat">
-                                <i class="fas fa-chart-line"></i>
-                                <span>+120% ventes</span>
-                            </div>
-                            <div class="portfolio-stat">
-                                <i class="fas fa-shopping-cart"></i>
-                                <span>+300 commandes</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop&crop=center" 
-                             alt="Site web centre de formation avec catalogue formations et inscription en ligne" 
-                             width="400" height="200" loading="lazy">
-                    </div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-category">Formation</div>
-                        <h3 class="portfolio-title">Centre de Formation Pro</h3>
-                        <p class="portfolio-description">Site éducatif avec catalogue de formations, inscription en ligne et espace apprenant. Interface claire et accessible.</p>
-                        <div class="portfolio-stats">
-                            <div class="portfolio-stat">
-                                <i class="fas fa-clock"></i>
-                                <span>9 jours</span>
-                            </div>
-                            <div class="portfolio-stat">
-                                <i class="fas fa-chart-line"></i>
-                                <span>+70% inscriptions</span>
-                            </div>
-                            <div class="portfolio-stat">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>+150 étudiants</span>
-                            </div>
-                        </div>
-                    </div>
+                
+                <!-- Pagination dots -->
+                <div class="carousel-pagination" style="display: flex; justify-content: center; gap: 8px; margin-top: 32px;">
+                    <button class="pagination-dot active" data-slide="0" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #ff6b35; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="pagination-dot" data-slide="1" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="pagination-dot" data-slide="2" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="pagination-dot" data-slide="3" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="pagination-dot" data-slide="4" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="pagination-dot" data-slide="5" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
                 </div>
             </div>
         </div>
@@ -1479,10 +1493,8 @@
     <!-- Comparison Section -->
     <section id="tarifs" class="comparison">
         <div class="container">
-            <h2 class="section-title">Comparaison avec nos concurrents</h2>
-            <p class="section-subtitle">
-                Découvrez pourquoi notre offre est la plus simple et la plus économique du marché
-            </p>
+            <h2 class="section-title">La comparaison qui parle d'elle-même</h2>
+            <p class="section-subtitle">Même qualité professionnelle, sans la complexité ni le prix excessif</p>
             
             <div class="comparison-carousel">
                 <div class="comparison-container">
@@ -1782,6 +1794,13 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Micro-CTA dans la section témoignages -->
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="#contact" style="color: #ff6b35; text-decoration: none; font-weight: 600; font-size: 16px; display: inline-flex; align-items: center; gap: 8px;">
+                    Rejoignez nos clients satisfaits →
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1964,53 +1983,118 @@
     </section>
 
     <!-- Process Section -->
-    <section class="process" style="padding: 120px 0; background: #ffffff;">
+    <section id="processus" class="processus-section" style="padding: 120px 0; background: #f8fafc;">
         <div class="container">
-            <h2 class="section-title">Comment ça marche ?</h2>
-            <p class="section-subtitle">Un processus simple et transparent en 4 étapes</p>
+            <h2 class="section-title">Votre site en ligne en 3 étapes ridiculement simples</h2>
+            <p class="section-subtitle">Pas de jargon, pas de réunions interminables, pas de stress</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 48px; margin-top: 64px;">
-                <div style="text-align: center; position: relative;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: white; font-size: 32px;">
-                        📝
+            <div class="etapes-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; margin-top: 64px; position: relative;">
+                
+                <!-- ÉTAPE 1 -->
+                <div class="etape-card" style="text-align: center; padding: 40px 24px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: relative; transition: transform 0.3s ease;">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: white; font-size: 40px;">
+                        💬
                     </div>
-                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #0f172a;">1. Vous remplissez le brief</h3>
-                    <p style="color: #64748b; line-height: 1.6;">10 minutes pour nous expliquer votre projet, vos besoins et vos préférences</p>
-                    <div style="position: absolute; top: 40px; right: -24px; width: 48px; height: 2px; background: #e2e8f0; display: none;" class="process-arrow"></div>
+                    <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #0f172a;">ÉTAPE 1</h3>
+                    <h4 style="font-size: 20px; font-weight: 600; margin-bottom: 16px; color: #0f172a;">Vous nous parlez de votre projet (15 min)</h4>
+                    <p style="color: #64748b; line-height: 1.6; margin-bottom: 20px;">Un simple formulaire ou appel. Pas de brief de 20 pages à remplir.</p>
+                    <div style="background: #dbeafe; color: #1e40af; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; display: inline-block;">
+                        Aucune connaissance technique requise
+                    </div>
                 </div>
                 
-                <div style="text-align: center; position: relative;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: white; font-size: 32px;">
-                        🎨
+                <!-- ÉTAPE 2 -->
+                <div class="etape-card" style="text-align: center; padding: 40px 24px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: relative; transition: transform 0.3s ease;">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: white; font-size: 40px;">
+                        ⚡
                     </div>
-                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #0f172a;">2. Nous créons le design</h3>
-                    <p style="color: #64748b; line-height: 1.6;">3 jours pour concevoir votre site web sur mesure selon vos spécifications</p>
-                    <div style="position: absolute; top: 40px; right: -24px; width: 48px; height: 2px; background: #e2e8f0; display: none;" class="process-arrow"></div>
+                    <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #0f172a;">ÉTAPE 2</h3>
+                    <h4 style="font-size: 20px; font-weight: 600; margin-bottom: 16px; color: #0f172a;">Nous créons votre site (5-7 jours)</h4>
+                    <p style="color: #64748b; line-height: 1.6; margin-bottom: 20px;">Zéro réunion. Zéro validation interminable. Nous gérons tout.</p>
+                    <div style="background: #fef3c7; color: #92400e; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; display: inline-block;">
+                        Vous n'avez rien à faire
+                    </div>
                 </div>
                 
-                <div style="text-align: center; position: relative;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: white; font-size: 32px;">
-                        ⚙️
+                <!-- ÉTAPE 3 -->
+                <div class="etape-card" style="text-align: center; padding: 40px 24px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: relative; transition: transform 0.3s ease;">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: white; font-size: 40px;">
+                        ✅
                     </div>
-                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #0f172a;">3. Développement et mise en ligne</h3>
-                    <p style="color: #64748b; line-height: 1.6;">4 jours pour développer, optimiser et mettre en ligne votre site web</p>
-                    <div style="position: absolute; top: 40px; right: -24px; width: 48px; height: 2px; background: #e2e8f0; display: none;" class="process-arrow"></div>
-                </div>
-                
-                <div style="text-align: center;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: white; font-size: 32px;">
-                        🚀
+                    <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #0f172a;">ÉTAPE 3</h3>
+                    <h4 style="font-size: 20px; font-weight: 600; margin-bottom: 16px; color: #0f172a;">Votre site est en ligne et performant</h4>
+                    <p style="color: #64748b; line-height: 1.6; margin-bottom: 20px;">Prêt à recevoir des clients. Formation simple incluse.</p>
+                    <div style="background: #d1fae5; color: #065f46; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; display: inline-block;">
+                        7 jours chrono
                     </div>
-                    <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #0f172a;">4. Formation et lancement</h3>
-                    <p style="color: #64748b; line-height: 1.6;">1 jour pour vous former et lancer officiellement votre site web</p>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 48px; padding: 32px; background: #f0fdf4; border-radius: 16px; border: 1px solid #bbf7d0;">
-                <h3 style="font-size: 24px; font-weight: 700; color: #166534; margin-bottom: 16px;">
-                    <i class="fas fa-clock"></i> Livraison garantie en 7 jours
-                </h3>
-                <p style="color: #166534; font-size: 18px;">Ou remboursé intégralement</p>
+            <!-- CTA après les étapes -->
+            <div style="text-align: center; margin-top: 64px;">
+                <a href="#contact" class="cta-button" style="background: #ff6b35; color: white; padding: 20px 40px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 18px; display: inline-block; transition: transform 0.3s ease;">
+                    <i class="fas fa-rocket"></i> Démarrer mon projet maintenant
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- No Hassle Section -->
+    <section class="no-hassle-section" style="padding: 120px 0; background: #ffffff;">
+        <div class="container">
+            <h2 class="section-title">Ce que vous n'aurez PAS à gérer</h2>
+            <p class="section-subtitle">Pendant que vous vous concentrez sur votre business</p>
+            
+            <div class="two-columns" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 64px; align-items: start;">
+                
+                <!-- Colonne gauche : Ce qu'on évite -->
+                <div class="avoid-list" style="padding: 40px; background: #fef2f2; border-radius: 16px; border: 2px solid #fecaca;">
+                    <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 32px; color: #dc2626; display: flex; align-items: center; gap: 12px;">
+                        ❌ Avec les agences traditionnelles
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 16px 0; border-bottom: 1px solid #fecaca; display: flex; align-items: center; gap: 12px; color: #7f1d1d; font-weight: 500;">
+                            <span style="color: #dc2626; font-weight: 700;">✗</span>
+                            Rédiger un brief technique de 40 pages
+                        </li>
+                        <li style="padding: 16px 0; border-bottom: 1px solid #fecaca; display: flex; align-items: center; gap: 12px; color: #7f1d1d; font-weight: 500;">
+                            <span style="color: #dc2626; font-weight: 700;">✗</span>
+                            Participer à 8 réunions de validation
+                        </li>
+                        <li style="padding: 16px 0; border-bottom: 1px solid #fecaca; display: flex; align-items: center; gap: 12px; color: #7f1d1d; font-weight: 500;">
+                            <span style="color: #dc2626; font-weight: 700;">✗</span>
+                            Apprendre WordPress ou un CMS complexe
+                        </li>
+                        <li style="padding: 16px 0; border-bottom: 1px solid #fecaca; display: flex; align-items: center; gap: 12px; color: #7f1d1d; font-weight: 500;">
+                            <span style="color: #dc2626; font-weight: 700;">✗</span>
+                            Gérer hébergeur, DNS, certificats SSL
+                        </li>
+                        <li style="padding: 16px 0; border-bottom: 1px solid #fecaca; display: flex; align-items: center; gap: 12px; color: #7f1d1d; font-weight: 500;">
+                            <span style="color: #dc2626; font-weight: 700;">✗</span>
+                            Coordonner 5 prestataires différents
+                        </li>
+                        <li style="padding: 16px 0; display: flex; align-items: center; gap: 12px; color: #7f1d1d; font-weight: 500;">
+                            <span style="color: #dc2626; font-weight: 700;">✗</span>
+                            Comprendre du jargon technique
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Colonne droite : Ce qu'on offre -->
+                <div class="solution-box" style="padding: 40px; background: #f0fdf4; border-radius: 16px; border: 2px solid #bbf7d0; text-align: center;">
+                    <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 24px; color: #166534; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                        ✅ Avec nous
+                    </h3>
+                    <p class="big-text" style="font-size: 28px; font-weight: 700; color: #166534; margin-bottom: 16px; line-height: 1.3;">
+                        Juste nous, qui gérons tout de A à Z
+                    </p>
+                    <p style="color: #166534; font-size: 18px; margin-bottom: 32px; line-height: 1.5;">
+                        Un seul interlocuteur. Un process fluide. Zéro stress.
+                    </p>
+                    <a href="#contact" class="cta-button" style="background: #22c55e; color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 16px; display: inline-block; transition: transform 0.3s ease;">
+                        Je veux cette simplicité
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -2509,6 +2593,245 @@
         // Create sticky footer on load and resize
         createStickyFooter();
         window.addEventListener('resize', createStickyFooter);
+
+        // Portfolio Carousel JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('portfolioCarousel');
+            const prevBtn = document.getElementById('portfolioPrev');
+            const nextBtn = document.getElementById('portfolioNext');
+            const dots = document.querySelectorAll('.pagination-dot');
+            const slides = document.querySelectorAll('.portfolio-slide');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            const slideWidth = 350 + 24; // slide width + gap
+            
+            function updateCarousel() {
+                const translateX = -currentSlide * slideWidth;
+                carousel.style.transform = `translateX(${translateX}px)`;
+                
+                // Update pagination dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+            
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateCarousel();
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => goToSlide(index));
+            });
+            
+            // Auto-play (optional)
+            let autoPlayInterval;
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(nextSlide, 5000);
+            }
+            
+            function stopAutoPlay() {
+                clearInterval(autoPlayInterval);
+            }
+            
+            // Start auto-play
+            startAutoPlay();
+            
+            // Pause on hover
+            carousel.addEventListener('mouseenter', stopAutoPlay);
+            carousel.addEventListener('mouseleave', startAutoPlay);
+            
+            // Touch/swipe support for mobile
+            let startX = 0;
+            let endX = 0;
+            
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+            
+            carousel.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > 50) { // Minimum swipe distance
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+            });
+        });
+
+        // Comparison Carousel JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const comparisonCarousel = document.getElementById('comparisonCarousel');
+            const comparisonPrev = document.getElementById('comparisonPrev');
+            const comparisonNext = document.getElementById('comparisonNext');
+            const comparisonDots = document.querySelectorAll('.comparison-dot');
+            const comparisonSlides = document.querySelectorAll('.comparison-slide');
+            
+            if (comparisonCarousel && comparisonPrev && comparisonNext) {
+                let currentSlide = 0;
+                const totalSlides = comparisonSlides.length;
+                
+                function updateComparisonCarousel() {
+                    const translateX = -currentSlide * 100;
+                    comparisonCarousel.style.transform = `translateX(${translateX}%)`;
+                    
+                    // Update pagination dots
+                    comparisonDots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentSlide);
+                    });
+                }
+                
+                function nextComparisonSlide() {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateComparisonCarousel();
+                }
+                
+                function prevComparisonSlide() {
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    updateComparisonCarousel();
+                }
+                
+                function goToComparisonSlide(slideIndex) {
+                    currentSlide = slideIndex;
+                    updateComparisonCarousel();
+                }
+                
+                // Event listeners
+                comparisonNext.addEventListener('click', nextComparisonSlide);
+                comparisonPrev.addEventListener('click', prevComparisonSlide);
+                
+                comparisonDots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => goToComparisonSlide(index));
+                });
+                
+                // Auto-play (slower for comparison)
+                let comparisonAutoPlayInterval;
+                function startComparisonAutoPlay() {
+                    comparisonAutoPlayInterval = setInterval(nextComparisonSlide, 6000);
+                }
+                
+                function stopComparisonAutoPlay() {
+                    clearInterval(comparisonAutoPlayInterval);
+                }
+                
+                // Start auto-play
+                startComparisonAutoPlay();
+                
+                // Pause on hover
+                comparisonCarousel.addEventListener('mouseenter', stopComparisonAutoPlay);
+                comparisonCarousel.addEventListener('mouseleave', startComparisonAutoPlay);
+            }
+        });
+    </script>
+
+    <!-- Mobile CTA Sticky -->
+    <div class="mobile-cta-bar" id="mobileCtaBar" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #ff6b35; color: white; padding: 16px; z-index: 1000; box-shadow: 0 -4px 20px rgba(0,0,0,0.15);">
+        <div style="display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto;">
+            <div>
+                <div style="font-weight: 600; font-size: 16px;">Démarrer mon projet</div>
+                <div style="font-size: 14px; opacity: 0.9;">À partir de 499€</div>
+            </div>
+            <a href="#contact" style="background: white; color: #ff6b35; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: transform 0.3s ease;">
+                Créer maintenant
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Mobile CTA Sticky functionality
+        function createMobileCTA() {
+            const mobileCtaBar = document.getElementById('mobileCtaBar');
+            if (window.innerWidth <= 768) {
+                mobileCtaBar.style.display = 'block';
+                document.body.style.paddingBottom = '80px';
+            } else {
+                mobileCtaBar.style.display = 'none';
+                document.body.style.paddingBottom = '0';
+            }
+        }
+
+        // Create mobile CTA on load and resize
+        createMobileCTA();
+        window.addEventListener('resize', createMobileCTA);
+
+        // Scroll animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document.querySelectorAll('.feature-card, .portfolio-slide, .testimonial-card, .etape-card').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Hover effects for interactive elements
+        function initHoverEffects() {
+            // Portfolio slides hover effect
+            document.querySelectorAll('.portfolio-slide').forEach(slide => {
+                slide.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                slide.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // CTA buttons hover effect
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px) scale(1.02)';
+                });
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Etapes cards hover effect
+            document.querySelectorAll('.etape-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-4px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        }
+
+        // Initialize animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollAnimations();
+            initHoverEffects();
+        });
     </script>
 </body>
 </html>
