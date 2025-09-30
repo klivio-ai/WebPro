@@ -249,6 +249,82 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero-illustration {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .device-mockup {
+            position: relative;
+            background: #f1f5f9;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .device-mockup.desktop {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+        }
+
+        .device-mockup.mobile {
+            width: 80px;
+            height: 140px;
+            border-radius: 20px;
+            position: absolute;
+            left: -40px;
+            top: 20px;
+            z-index: 2;
+        }
+
+        .device-mockup .screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: inherit;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .device-mockup.mobile .screen {
+            padding: 15px;
+            gap: 6px;
+        }
+
+        .content-lines .line {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            margin-bottom: 4px;
+        }
+
+        .content-lines .line.short {
+            width: 60%;
+        }
+
+        .device-mockup.mobile .content-lines .line {
+            height: 6px;
+        }
+
+        .hero-cta-container {
+            margin-top: 32px;
         }
 
         .hero h1 {
@@ -849,6 +925,38 @@
                 padding: 0 20px 16px 20px;
                 font-size: 14px;
             }
+
+            /* Hero responsive pour très petits écrans */
+            .hero h1 {
+                font-size: 28px !important;
+                line-height: 1.2 !important;
+            }
+
+            .hero .subtitle {
+                font-size: 14px !important;
+            }
+
+            .device-mockup.desktop {
+                width: 200px !important;
+                height: 130px !important;
+            }
+
+            .device-mockup.mobile {
+                width: 50px !important;
+                height: 80px !important;
+                left: -25px !important;
+                top: 10px !important;
+            }
+
+            /* Website Types responsive pour très petits écrans */
+            .website-types div[style*="display: grid"] {
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
+            }
+
+            .website-types div[style*="padding: 30px 20px"] {
+                padding: 20px 15px !important;
+            }
         }
 
         /* CTA Section */
@@ -1103,6 +1211,16 @@
                 padding: 100px 0 60px;
             }
 
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
             .hero h1 {
                 font-size: 32px;
                 line-height: 1.2;
@@ -1110,6 +1228,44 @@
 
             .hero .subtitle {
                 font-size: 16px;
+            }
+
+            .hero-illustration {
+                order: -1;
+            }
+
+            .device-mockup.desktop {
+                width: 250px;
+                height: 160px;
+            }
+
+            .device-mockup.mobile {
+                width: 60px;
+                height: 100px;
+                left: -30px;
+                top: 15px;
+            }
+
+            /* Social Proof responsive */
+            .social-proof div[style*="display: flex"] {
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+
+            .social-proof div[style*="width: 1px"] {
+                display: none !important;
+            }
+
+            /* Process Steps responsive */
+            .process-steps div[style*="display: flex"] {
+                flex-direction: column !important;
+                gap: 40px !important;
+            }
+
+            /* Website Types responsive */
+            .website-types div[style*="display: grid"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 15px !important;
             }
 
             .price {
@@ -1442,56 +1598,148 @@
     <section id="accueil" class="hero" role="banner" aria-labelledby="hero-title">
         <div class="container">
             <div class="hero-content fade-in-up">
-                <h1 id="hero-title">Le site web le plus simple à obtenir. Point.</h1>
-                <p class="subtitle">Pas de jargon. Pas de réunions sans fin. Juste votre site pro en 7 jours.</p>
-                
-                <div class="pricing-highlight">
-                    <div class="price">499€ HT</div>
-                    <div class="price-details">+ 9€ HT par mois</div>
-                    <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.8;">
-                        Création + Hébergement + Maintenance
-                    </p>
+                <div class="hero-text">
+                    <!-- Titre principal selon le wireframe -->
+                    <h1 id="hero-title">Votre site web professionnel, simple et rapide.</h1>
+                    
+                    <!-- Sous-titre avec prix et garantie -->
+                    <p class="subtitle">Livré en 7 jours. 499 € + 9 €/mois. Satisfait ou remboursé.</p>
+                    
+                    <!-- Boutons CTA selon le wireframe -->
+                    <div class="hero-cta-container">
+                        <a href="#contact" class="cta-button primary" style="background: white; color: #0f172a; border: 2px solid #0f172a; font-size: 18px; padding: 20px 40px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 16px;">
+                            Créer mon site maintenant
+                        </a>
+                        <br>
+                        <a href="#portfolio" class="cta-button secondary" style="color: #0f172a; text-decoration: underline; font-size: 16px;">
+                            Voir des exemples de sites
+                        </a>
+                    </div>
                 </div>
+                
+                <!-- Illustration desktop/mobile selon le wireframe -->
+                <div class="hero-illustration">
+                    <div class="device-mockup desktop">
+                        <div class="screen">
+                            <div class="content-lines">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line short"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="device-mockup mobile">
+                        <div class="screen">
+                            <div class="content-lines">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 32px;">
-                    <a href="#contact" class="cta-button" style="background: #ff6b35; font-size: 18px; padding: 20px 40px;">
-                        <i class="fas fa-rocket"></i> Créer mon site maintenant
-                    </a>
-                    <a href="#portfolio" class="cta-button secondary" style="font-size: 16px; padding: 18px 36px;">
-                        <i class="fas fa-eye"></i> Voir des exemples de sites
-                    </a>
+    <!-- Social Proof Section -->
+    <section class="social-proof" style="background: #f8fafc; padding: 40px 0; border-top: 1px solid #e2e8f0;">
+        <div class="container">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
+                <!-- Logos clients -->
+                <div style="display: flex; gap: 30px; align-items: center;">
+                    <div style="width: 80px; height: 40px; background: #e2e8f0; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #64748b; font-weight: 600;">LOGO</div>
+                    <div style="width: 80px; height: 40px; background: #e2e8f0; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #64748b; font-weight: 600;">LOGO</div>
                 </div>
                 
-                <!-- Badge de crédibilité -->
-                <div style="display: flex; justify-content: center; margin-top: 24px;">
-                    <div style="background: rgba(255,255,255,0.15); padding: 12px 24px; border-radius: 25px; font-size: 14px; font-weight: 500;">
-                        ✓ Plus de 500 sites créés  ✓ Note moyenne 4.9/5  ✓ 30 jours satisfait ou remboursé
-                    </div>
+                <!-- Séparateur -->
+                <div style="width: 1px; height: 30px; background: #cbd5e1;"></div>
+                
+                <!-- Statistiques -->
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-star" style="color: #fbbf24; font-size: 18px;"></i>
+                    <span style="font-weight: 600; color: #0f172a;">500+ sites créés</span>
                 </div>
                 
-                <!-- Badges de réassurance -->
-                <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 32px; font-size: 14px;">
-                    <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px;">
-                        <i class="fas fa-shield-alt" style="color: #4ade80;"></i>
-                        <span>Paiement sécurisé</span>
+                <!-- Séparateur -->
+                <div style="width: 1px; height: 30px; background: #cbd5e1;"></div>
+                
+                <!-- Note -->
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-users" style="color: #3b82f6; font-size: 18px;"></i>
+                    <span style="font-weight: 600; color: #0f172a;">4.9/5</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Steps Section -->
+    <section class="process-steps" style="background: white; padding: 80px 0;">
+        <div class="container">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 60px; flex-wrap: wrap;">
+                <!-- Étape 1 -->
+                <div style="text-align: center; flex: 1; min-width: 200px;">
+                    <div style="width: 80px; height: 80px; background: #f1f5f9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 2px solid #e2e8f0;">
+                        <i class="fas fa-user" style="font-size: 32px; color: #64748b;"></i>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px;">
-                        <i class="fas fa-handshake" style="color: #4ade80;"></i>
-                        <span>Satisfaction garantie</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px;">
-                        <i class="fas fa-clock" style="color: #4ade80;"></i>
-                        <span>Livraison 7 jours</span>
-                    </div>
+                    <h3 style="font-size: 18px; font-weight: 600; color: #0f172a; margin-bottom: 8px;">Je remplis un brief (5 min)</h3>
                 </div>
                 
-                <div style="margin-top: 24px; padding: 16px; background: rgba(255, 107, 53, 0.1); border-radius: 12px; border: 1px solid rgba(255, 107, 53, 0.3);">
-                    <p style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 8px;">
-                        <i class="fas fa-fire" style="color: #ff6b35;"></i> Offre limitée - Plus que 3 créneaux disponibles
-                    </p>
-                    <div style="font-size: 14px; font-weight: 600; color: #ff6b35;">
-                        Fin de l'offre dans : <span id="countdown" style="color: #dc2626;">--</span>
+                <!-- Étape 2 -->
+                <div style="text-align: center; flex: 1; min-width: 200px;">
+                    <div style="width: 80px; height: 80px; background: #f1f5f9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 2px solid #e2e8f0;">
+                        <i class="fas fa-user" style="font-size: 32px; color: #64748b;"></i>
                     </div>
+                    <h3 style="font-size: 18px; font-weight: 600; color: #0f172a; margin-bottom: 8px;">On crée le site (7 jours)</h3>
+                </div>
+                
+                <!-- Étape 3 -->
+                <div style="text-align: center; flex: 1; min-width: 200px;">
+                    <div style="width: 80px; height: 80px; background: #f1f5f9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 2px solid #e2e8f0; position: relative;">
+                        <i class="fas fa-user" style="font-size: 32px; color: #64748b;"></i>
+                        <i class="fas fa-pencil-alt" style="position: absolute; bottom: 5px; right: 5px; font-size: 16px; color: #3b82f6; background: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;"></i>
+                    </div>
+                    <h3 style="font-size: 18px; font-weight: 600; color: #0f172a; margin-bottom: 8px;">Vous êtes en ligne</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Types Section -->
+    <section class="website-types" style="background: #f8fafc; padding: 80px 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto;">
+                <!-- Restaurant -->
+                <div style="background: white; padding: 30px 20px; border-radius: 12px; text-align: center; border: 2px solid #e2e8f0; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.borderColor='#3b82f6'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)'">
+                    <h3 style="font-size: 18px; font-weight: 600; color: #0f172a; margin: 0;">Restaurant</h3>
+                </div>
+                
+                <!-- Coach -->
+                <div style="background: white; padding: 30px 20px; border-radius: 12px; text-align: center; border: 2px solid #e2e8f0; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.borderColor='#3b82f6'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)'">
+                    <h3 style="font-size: 18px; font-weight: 600; color: #0f172a; margin: 0;">Coach</h3>
+                </div>
+                
+                <!-- Boutique -->
+                <div style="background: white; padding: 30px 20px; border-radius: 12px; text-align: center; border: 2px solid #e2e8f0; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.borderColor='#3b82f6'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)'">
+                    <h3 style="font-size: 18px; font-weight: 600; color: #0f172a; margin: 0;">Boutique</h3>
+                </div>
+                
+                <!-- Photographe -->
+                <div style="background: white; padding: 30px 20px; border-radius: 12px; text-align: center; border: 2px solid #e2e8f0; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.borderColor='#3b82f6'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)'">
+                    <h3 style="font-size: 18px; font-weight: 600; color: #0f172a; margin: 0;">Photographe</h3>
+                </div>
+                
+                <!-- Placeholder 1 -->
+                <div style="background: #f1f5f9; padding: 30px 20px; border-radius: 12px; text-align: center; border: 2px dashed #cbd5e1;">
+                    <div style="width: 40px; height: 40px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 10px;"></div>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">Autre</p>
+                </div>
+                
+                <!-- Placeholder 2 -->
+                <div style="background: #f1f5f9; padding: 30px 20px; border-radius: 12px; text-align: center; border: 2px dashed #cbd5e1;">
+                    <div style="width: 40px; height: 40px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 10px;"></div>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">Autre</p>
                 </div>
             </div>
         </div>
