@@ -710,43 +710,145 @@
             font-size: 16px;
         }
 
-        /* FAQ Section */
+        /* FAQ Section - Accordion */
         .faq {
             padding: 120px 0;
             background: #f8fafc;
         }
 
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-            margin-top: 64px;
+        .faq-accordion {
+            max-width: 800px;
+            margin: 64px auto 0;
         }
 
         .faq-item {
             background: #ffffff;
-            padding: 40px;
             border-radius: 16px;
             border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .faq-item:hover {
             border-color: #cbd5e1;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
         }
 
-        .faq-item h3 {
+        .faq-item.active {
+            border-color: #ff6b35;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.15);
+        }
+
+        .faq-question {
+            padding: 24px 32px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: #f8fafc;
+        }
+
+        .faq-item.active .faq-question {
+            background: #fff7ed;
+            border-bottom: 1px solid #fed7aa;
+        }
+
+        .faq-question h3 {
             color: #0f172a;
             font-weight: 700;
-            margin-bottom: 16px;
             font-size: 18px;
+            margin: 0;
+            flex: 1;
+            padding-right: 16px;
         }
 
-        .faq-item p {
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ff6b35;
+            color: white;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            background: #e55a2b;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #ffffff;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-answer p {
             color: #64748b;
             line-height: 1.6;
             font-size: 16px;
+            margin: 0;
+            padding: 0 32px 24px 32px;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .faq-accordion {
+                margin: 48px 0 0;
+            }
+            
+            .faq-question {
+                padding: 20px 24px;
+            }
+            
+            .faq-question h3 {
+                font-size: 16px;
+                padding-right: 12px;
+            }
+            
+            .faq-icon {
+                width: 20px;
+                height: 20px;
+                font-size: 12px;
+            }
+            
+            .faq-answer p {
+                padding: 0 24px 20px 24px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-question {
+                padding: 16px 20px;
+            }
+            
+            .faq-question h3 {
+                font-size: 15px;
+                padding-right: 8px;
+            }
+            
+            .faq-answer p {
+                padding: 0 20px 16px 20px;
+                font-size: 14px;
+            }
         }
 
         /* CTA Section */
@@ -1029,8 +1131,7 @@
             }
 
             .features-grid,
-            .testimonials-grid,
-            .faq-grid {
+            .testimonials-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
@@ -1223,8 +1324,7 @@
             }
 
             .features-grid,
-            .testimonials-grid,
-            .faq-grid {
+            .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -2285,55 +2385,105 @@
         <div class="container">
             <h2 class="section-title">Questions fréquentes</h2>
             <p class="section-subtitle">Toutes les réponses à vos questions</p>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>Qu'est-ce qui est inclus exactement ?</h3>
-                    <p>Création complète de votre site web professionnel, design responsive, optimisation SEO, certificat SSL, et mise en ligne. Aucun frais caché.</p>
+            <div class="faq-accordion">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <h3>Qu'est-ce qui est inclus exactement ?</h3>
+                        <div class="faq-icon">×</div>
+                    </div>
+                    <div class="faq-answer" style="max-height: 200px;">
+                        <p>Création complète de votre site web professionnel, design responsive, optimisation SEO, certificat SSL, et mise en ligne. Aucun frais caché.</p>
+                    </div>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Puis-je modifier mon site moi-même ?</h3>
-                    <p>Oui ! Nous vous formons à l'utilisation de votre interface d'administration. Vous pouvez modifier textes, images et contenus facilement.</p>
+                    <div class="faq-question">
+                        <h3>Puis-je modifier mon site moi-même ?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui ! Nous vous formons à l'utilisation de votre interface d'administration. Vous pouvez modifier textes, images et contenus facilement.</p>
+                    </div>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Quelle est la garantie ?</h3>
-                    <p>Garantie satisfaction 30 jours. Si vous n'êtes pas satisfait, nous vous remboursons intégralement.</p>
+                    <div class="faq-question">
+                        <h3>Quelle est la garantie ?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Garantie satisfaction 30 jours. Si vous n'êtes pas satisfait, nous vous remboursons intégralement.</p>
+                    </div>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Combien de pages sont incluses ?</h3>
-                    <p>Jusqu'à 5 pages incluses (Accueil, À propos, Services, Portfolio, Contact). Pages supplémentaires : 50€ HT par page.</p>
+                    <div class="faq-question">
+                        <h3>Combien de pages sont incluses ?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Jusqu'à 5 pages incluses (Accueil, À propos, Services, Portfolio, Contact). Pages supplémentaires : 50€ HT par page.</p>
+                    </div>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Le référencement Google est-il inclus ?</h3>
-                    <p>Oui ! Optimisation SEO de base incluse : meta tags, structure HTML, vitesse de chargement, et configuration Google Analytics.</p>
+                    <div class="faq-question">
+                        <h3>Le référencement Google est-il inclus ?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui ! Optimisation SEO de base incluse : meta tags, structure HTML, vitesse de chargement, et configuration Google Analytics.</p>
+                    </div>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Puis-je résilier l'abonnement mensuel ?</h3>
-                    <p>Oui, vous pouvez résilier à tout moment avec un préavis de 30 jours. Vos données vous sont remises.</p>
+                    <div class="faq-question">
+                        <h3>Puis-je résilier l'abonnement mensuel ?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, vous pouvez résilier à tout moment avec un préavis de 30 jours. Vos données vous sont remises.</p>
+                    </div>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Fournissez-vous le nom de domaine ?</h3>
-                    <p>Le nom de domaine n'est pas inclus dans l'offre. Nous vous aidons à le choisir et le configurer (environ 15€/an).</p>
+                    <div class="faq-question">
+                        <h3>Fournissez-vous le nom de domaine ?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Le nom de domaine n'est pas inclus dans l'offre. Nous vous aidons à le choisir et le configurer (environ 15€/an).</p>
+                    </div>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Puis-je avoir une boutique en ligne ?</h3>
-                    <p>Oui ! E-commerce disponible en option : +299€ HT pour la création + 19€ HT/mois pour l'hébergement.</p>
+                    <div class="faq-question">
+                        <h3>Puis-je avoir une boutique en ligne ?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui ! E-commerce disponible en option : +299€ HT pour la création + 19€ HT/mois pour l'hébergement.</p>
+                    </div>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Le site sera-t-il rapide ?</h3>
-                    <p>Absolument ! Optimisation vitesse incluse : images compressées, code minifié, CDN, et hébergement haute performance.</p>
+                    <div class="faq-question">
+                        <h3>Le site sera-t-il rapide ?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolument ! Optimisation vitesse incluse : images compressées, code minifié, CDN, et hébergement haute performance.</p>
+                    </div>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Offrez-vous une formation ?</h3>
-                    <p>Oui ! Formation gratuite de 1h incluse pour vous apprendre à gérer votre site. Support par email et téléphone.</p>
+                    <div class="faq-question">
+                        <h3>Offrez-vous une formation ?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui ! Formation gratuite de 1h incluse pour vous apprendre à gérer votre site. Support par email et téléphone.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3210,6 +3360,70 @@
         // Create mobile CTA on load and resize
         createMobileCTA();
         window.addEventListener('resize', createMobileCTA);
+
+        // FAQ Accordion JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-icon');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            const otherAnswer = otherItem.querySelector('.faq-answer');
+                            const otherIcon = otherItem.querySelector('.faq-icon');
+                            otherAnswer.style.maxHeight = '0';
+                            otherIcon.textContent = '+';
+                            otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    // Toggle current item
+                    if (isActive) {
+                        item.classList.remove('active');
+                        answer.style.maxHeight = '0';
+                        icon.textContent = '+';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.textContent = '×';
+                        icon.style.transform = 'rotate(45deg)';
+                    }
+                });
+                
+                // Handle keyboard navigation
+                question.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        question.click();
+                    }
+                });
+                
+                // Set ARIA attributes for accessibility
+                question.setAttribute('role', 'button');
+                question.setAttribute('tabindex', '0');
+                const isInitiallyActive = item.classList.contains('active');
+                question.setAttribute('aria-expanded', isInitiallyActive.toString());
+                answer.setAttribute('aria-hidden', (!isInitiallyActive).toString());
+                
+                // Update ARIA attributes when toggled
+                const observer = new MutationObserver(() => {
+                    const isActive = item.classList.contains('active');
+                    question.setAttribute('aria-expanded', isActive.toString());
+                    answer.setAttribute('aria-hidden', (!isActive).toString());
+                });
+                
+                observer.observe(item, { attributes: true, attributeFilter: ['class'] });
+            });
+        });
 
         // Scroll animations
         function initScrollAnimations() {
