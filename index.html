@@ -797,6 +797,115 @@
             color: #ffffff;
         }
 
+        /* Carousel Styles */
+        .portfolio-carousel-container, .comparison-carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-carousel, .comparison-carousel {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-slide {
+            flex: 0 0 auto;
+            min-width: 350px;
+        }
+
+        .comparison-slide {
+            flex: 0 0 auto;
+            min-width: 100%;
+        }
+
+        .carousel-btn, .comparison-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ff6b35;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover, .comparison-btn:hover {
+            background: #e55a2b;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev, .comparison-prev {
+            left: -60px;
+        }
+
+        .carousel-next, .comparison-next {
+            right: -60px;
+        }
+
+        .pagination-dot, .comparison-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background: #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pagination-dot.active, .comparison-dot.active {
+            background: #ff6b35;
+        }
+
+        /* Additional responsive styles */
+        @media (max-width: 1200px) {
+            .carousel-prev, .comparison-prev {
+                left: -50px;
+            }
+            .carousel-next, .comparison-next {
+                right: -50px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .carousel-prev, .comparison-prev {
+                left: -40px;
+            }
+            .carousel-next, .comparison-next {
+                right: -40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-slide {
+                min-width: 280px !important;
+            }
+            
+            .carousel-prev, .comparison-prev {
+                left: -35px;
+            }
+            .carousel-next, .comparison-next {
+                right: -35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-btn, .comparison-btn {
+                display: none !important;
+            }
+            
+            .portfolio-slide {
+                min-width: 250px !important;
+            }
+        }
+
         /* Mobile-first responsive design */
         @media (max-width: 375px) {
             .container {
@@ -862,6 +971,101 @@
                 gap: 24px;
             }
 
+            /* Process section responsive */
+            .etapes-container {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+            }
+
+            .etape-card {
+                padding: 32px 20px !important;
+            }
+
+            /* No hassle section responsive */
+            .two-columns {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+            }
+
+            .avoid-list, .solution-box {
+                padding: 32px 20px !important;
+            }
+
+            /* Comparison carousel responsive */
+            .comparison-slide div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+
+            .comparison-slide div[style*="padding: 40px"] {
+                padding: 24px 16px !important;
+            }
+
+            .comparison-slide h3[style*="font-size: 28px"] {
+                font-size: 24px !important;
+            }
+
+            /* Mobile-specific optimizations */
+            .hero h1 {
+                font-size: 32px !important;
+                line-height: 1.2 !important;
+            }
+
+            .hero .subtitle {
+                font-size: 16px !important;
+            }
+
+            .section-title {
+                font-size: 28px !important;
+            }
+
+            .section-subtitle {
+                font-size: 16px !important;
+            }
+
+            /* Mobile CTA improvements */
+            .cta-button {
+                min-height: 44px;
+                padding: 14px 28px;
+                font-size: 16px;
+            }
+
+            /* Mobile portfolio slides */
+            .portfolio-slide {
+                min-width: 250px !important;
+            }
+
+            .site-preview {
+                height: 150px !important;
+            }
+
+            .site-info {
+                padding: 16px !important;
+            }
+
+            .features-tags {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+            }
+
+            /* Mobile comparison slides */
+            .comparison-slide div[style*="padding: 40px"] {
+                padding: 20px 12px !important;
+            }
+
+            .comparison-slide h3[style*="font-size: 28px"] {
+                font-size: 20px !important;
+                margin-bottom: 20px !important;
+            }
+
+            .comparison-slide div[style*="font-size: 24px"] {
+                font-size: 18px !important;
+            }
+
+            .comparison-slide div[style*="font-size: 18px"] {
+                font-size: 14px !important;
+            }
+
             .trust-item {
                 padding: 24px 16px;
             }
@@ -899,6 +1103,32 @@
         @media (max-width: 768px) {
             .container {
                 padding: 0 16px;
+            }
+
+            /* Carousel responsive adjustments */
+            .portfolio-slide {
+                min-width: 280px;
+            }
+
+            .carousel-btn, .comparison-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+
+            .carousel-prev, .comparison-prev {
+                left: -50px;
+            }
+
+            .carousel-next, .comparison-next {
+                right: -50px;
+            }
+
+            /* Hide navigation buttons on very small screens */
+            @media (max-width: 480px) {
+                .carousel-btn, .comparison-btn {
+                    display: none;
+                }
             }
 
             .hero {
@@ -1171,16 +1401,16 @@
             <p class="section-subtitle">Des sites pros créés en 7 jours, pour tous types de métiers</p>
             
             <!-- Portfolio Carousel -->
-            <div class="portfolio-carousel-container" style="margin-top: 64px; position: relative;">
+            <div class="portfolio-carousel-container" style="margin-top: 64px;">
                 <!-- Navigation buttons -->
-                <button class="carousel-btn carousel-prev" id="portfolioPrev" style="position: absolute; left: -60px; top: 50%; transform: translateY(-50%); background: #ff6b35; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all 0.3s ease;">
+                <button class="carousel-btn carousel-prev" id="portfolioPrev">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="carousel-btn carousel-next" id="portfolioNext" style="position: absolute; right: -60px; top: 50%; transform: translateY(-50%); background: #ff6b35; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all 0.3s ease;">
+                <button class="carousel-btn carousel-next" id="portfolioNext">
                     <i class="fas fa-chevron-right"></i>
                 </button>
                 
-                <div class="portfolio-carousel" id="portfolioCarousel" style="display: flex; overflow: hidden; gap: 24px; padding: 20px 0; scroll-behavior: smooth;">
+                <div class="portfolio-carousel" id="portfolioCarousel" style="gap: 24px; padding: 20px 0;">
                     
                     <!-- Slide 1: Restaurant -->
                     <div class="portfolio-slide" style="min-width: 350px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
@@ -1299,12 +1529,12 @@
                 
                 <!-- Pagination dots -->
                 <div class="carousel-pagination" style="display: flex; justify-content: center; gap: 8px; margin-top: 32px;">
-                    <button class="pagination-dot active" data-slide="0" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #ff6b35; cursor: pointer; transition: all 0.3s ease;"></button>
-                    <button class="pagination-dot" data-slide="1" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
-                    <button class="pagination-dot" data-slide="2" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
-                    <button class="pagination-dot" data-slide="3" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
-                    <button class="pagination-dot" data-slide="4" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
-                    <button class="pagination-dot" data-slide="5" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="pagination-dot active" data-slide="0"></button>
+                    <button class="pagination-dot" data-slide="1"></button>
+                    <button class="pagination-dot" data-slide="2"></button>
+                    <button class="pagination-dot" data-slide="3"></button>
+                    <button class="pagination-dot" data-slide="4"></button>
+                    <button class="pagination-dot" data-slide="5"></button>
                 </div>
             </div>
         </div>
@@ -1317,16 +1547,16 @@
             <p class="section-subtitle">Même qualité professionnelle, sans la complexité ni le prix excessif</p>
             
             <!-- Comparison Carousel -->
-            <div class="comparison-carousel-container" style="margin-top: 64px; position: relative;">
+            <div class="comparison-carousel-container" style="margin-top: 64px;">
                 <!-- Navigation buttons -->
-                <button class="comparison-btn comparison-prev" id="comparisonPrev" style="position: absolute; left: -60px; top: 50%; transform: translateY(-50%); background: #ff6b35; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all 0.3s ease;">
+                <button class="comparison-btn comparison-prev" id="comparisonPrev">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="comparison-btn comparison-next" id="comparisonNext" style="position: absolute; right: -60px; top: 50%; transform: translateY(-50%); background: #ff6b35; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: all 0.3s ease;">
+                <button class="comparison-btn comparison-next" id="comparisonNext">
                     <i class="fas fa-chevron-right"></i>
                 </button>
                 
-                <div class="comparison-carousel" id="comparisonCarousel" style="display: flex; overflow: hidden; gap: 24px; padding: 20px 0; scroll-behavior: smooth;">
+                <div class="comparison-carousel" id="comparisonCarousel" style="gap: 24px; padding: 20px 0;">
                     
                     <!-- Slide 1: TEMPS DE CRÉATION -->
                     <div class="comparison-slide" style="min-width: 100%; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease;">
@@ -1512,12 +1742,12 @@
                 
                 <!-- Pagination dots -->
                 <div class="comparison-pagination" style="display: flex; justify-content: center; gap: 8px; margin-top: 32px;">
-                    <button class="comparison-dot active" data-slide="0" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #ff6b35; cursor: pointer; transition: all 0.3s ease;"></button>
-                    <button class="comparison-dot" data-slide="1" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
-                    <button class="comparison-dot" data-slide="2" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
-                    <button class="comparison-dot" data-slide="3" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
-                    <button class="comparison-dot" data-slide="4" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
-                    <button class="comparison-dot" data-slide="5" style="width: 12px; height: 12px; border-radius: 50%; border: none; background: #e2e8f0; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button class="comparison-dot active" data-slide="0"></button>
+                    <button class="comparison-dot" data-slide="1"></button>
+                    <button class="comparison-dot" data-slide="2"></button>
+                    <button class="comparison-dot" data-slide="3"></button>
+                    <button class="comparison-dot" data-slide="4"></button>
+                    <button class="comparison-dot" data-slide="5"></button>
                 </div>
             </div>
         </div>
@@ -2409,11 +2639,27 @@
             const dots = document.querySelectorAll('.pagination-dot');
             const slides = document.querySelectorAll('.portfolio-slide');
             
+            if (!carousel || !slides.length) return;
+            
             let currentSlide = 0;
             const totalSlides = slides.length;
-            const slideWidth = 350 + 24; // slide width + gap
+            let slideWidth = 350 + 24; // Default slide width + gap
+            let isAnimating = false;
+            
+            // Calculate slide width based on screen size
+            function calculateSlideWidth() {
+                if (window.innerWidth <= 768) {
+                    slideWidth = 280 + 24; // Mobile slide width
+                } else {
+                    slideWidth = 350 + 24; // Desktop slide width
+                }
+            }
             
             function updateCarousel() {
+                if (isAnimating) return;
+                isAnimating = true;
+                
+                calculateSlideWidth();
                 const translateX = -currentSlide * slideWidth;
                 carousel.style.transform = `translateX(${translateX}px)`;
                 
@@ -2421,32 +2667,39 @@
                 dots.forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentSlide);
                 });
+                
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 300);
             }
             
             function nextSlide() {
+                if (isAnimating) return;
                 currentSlide = (currentSlide + 1) % totalSlides;
                 updateCarousel();
             }
             
             function prevSlide() {
+                if (isAnimating) return;
                 currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
                 updateCarousel();
             }
             
             function goToSlide(slideIndex) {
+                if (isAnimating || slideIndex === currentSlide) return;
                 currentSlide = slideIndex;
                 updateCarousel();
             }
             
             // Event listeners
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
             
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => goToSlide(index));
             });
             
-            // Auto-play (optional)
+            // Auto-play
             let autoPlayInterval;
             function startAutoPlay() {
                 autoPlayInterval = setInterval(nextSlide, 5000);
@@ -2466,12 +2719,22 @@
             // Touch/swipe support for mobile
             let startX = 0;
             let endX = 0;
+            let isDragging = false;
             
             carousel.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
-            });
+                isDragging = true;
+                stopAutoPlay();
+            }, { passive: true });
+            
+            carousel.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+            }, { passive: false });
             
             carousel.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
                 endX = e.changedTouches[0].clientX;
                 const diff = startX - endX;
                 
@@ -2482,7 +2745,16 @@
                         prevSlide();
                     }
                 }
+                startAutoPlay();
+            }, { passive: true });
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                updateCarousel();
             });
+            
+            // Initialize
+            updateCarousel();
         });
 
         // Comparison Carousel JavaScript
@@ -2493,60 +2765,106 @@
             const comparisonDots = document.querySelectorAll('.comparison-dot');
             const comparisonSlides = document.querySelectorAll('.comparison-slide');
             
-            if (comparisonCarousel && comparisonPrev && comparisonNext) {
-                let currentSlide = 0;
-                const totalSlides = comparisonSlides.length;
+            if (!comparisonCarousel || !comparisonSlides.length) return;
+            
+            let currentSlide = 0;
+            const totalSlides = comparisonSlides.length;
+            let isAnimating = false;
+            
+            function updateComparisonCarousel() {
+                if (isAnimating) return;
+                isAnimating = true;
                 
-                function updateComparisonCarousel() {
-                    const translateX = -currentSlide * 100;
-                    comparisonCarousel.style.transform = `translateX(${translateX}%)`;
-                    
-                    // Update pagination dots
-                    comparisonDots.forEach((dot, index) => {
-                        dot.classList.toggle('active', index === currentSlide);
-                    });
-                }
+                const translateX = -currentSlide * 100;
+                comparisonCarousel.style.transform = `translateX(${translateX}%)`;
                 
-                function nextComparisonSlide() {
-                    currentSlide = (currentSlide + 1) % totalSlides;
-                    updateComparisonCarousel();
-                }
-                
-                function prevComparisonSlide() {
-                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                    updateComparisonCarousel();
-                }
-                
-                function goToComparisonSlide(slideIndex) {
-                    currentSlide = slideIndex;
-                    updateComparisonCarousel();
-                }
-                
-                // Event listeners
-                comparisonNext.addEventListener('click', nextComparisonSlide);
-                comparisonPrev.addEventListener('click', prevComparisonSlide);
-                
+                // Update pagination dots
                 comparisonDots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => goToComparisonSlide(index));
+                    dot.classList.toggle('active', index === currentSlide);
                 });
                 
-                // Auto-play (slower for comparison)
-                let comparisonAutoPlayInterval;
-                function startComparisonAutoPlay() {
-                    comparisonAutoPlayInterval = setInterval(nextComparisonSlide, 6000);
-                }
-                
-                function stopComparisonAutoPlay() {
-                    clearInterval(comparisonAutoPlayInterval);
-                }
-                
-                // Start auto-play
-                startComparisonAutoPlay();
-                
-                // Pause on hover
-                comparisonCarousel.addEventListener('mouseenter', stopComparisonAutoPlay);
-                comparisonCarousel.addEventListener('mouseleave', startComparisonAutoPlay);
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 300);
             }
+            
+            function nextComparisonSlide() {
+                if (isAnimating) return;
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateComparisonCarousel();
+            }
+            
+            function prevComparisonSlide() {
+                if (isAnimating) return;
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateComparisonCarousel();
+            }
+            
+            function goToComparisonSlide(slideIndex) {
+                if (isAnimating || slideIndex === currentSlide) return;
+                currentSlide = slideIndex;
+                updateComparisonCarousel();
+            }
+            
+            // Event listeners
+            if (comparisonNext) comparisonNext.addEventListener('click', nextComparisonSlide);
+            if (comparisonPrev) comparisonPrev.addEventListener('click', prevComparisonSlide);
+            
+            comparisonDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => goToComparisonSlide(index));
+            });
+            
+            // Auto-play (slower for comparison)
+            let comparisonAutoPlayInterval;
+            function startComparisonAutoPlay() {
+                comparisonAutoPlayInterval = setInterval(nextComparisonSlide, 6000);
+            }
+            
+            function stopComparisonAutoPlay() {
+                clearInterval(comparisonAutoPlayInterval);
+            }
+            
+            // Start auto-play
+            startComparisonAutoPlay();
+            
+            // Pause on hover
+            comparisonCarousel.addEventListener('mouseenter', stopComparisonAutoPlay);
+            comparisonCarousel.addEventListener('mouseleave', startComparisonAutoPlay);
+            
+            // Touch/swipe support for mobile
+            let startX = 0;
+            let endX = 0;
+            let isDragging = false;
+            
+            comparisonCarousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+                stopComparisonAutoPlay();
+            }, { passive: true });
+            
+            comparisonCarousel.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+            }, { passive: false });
+            
+            comparisonCarousel.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > 50) { // Minimum swipe distance
+                    if (diff > 0) {
+                        nextComparisonSlide();
+                    } else {
+                        prevComparisonSlide();
+                    }
+                }
+                startComparisonAutoPlay();
+            }, { passive: true });
+            
+            // Initialize
+            updateComparisonCarousel();
         });
     </script>
 
