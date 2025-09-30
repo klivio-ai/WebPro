@@ -165,6 +165,11 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -180,6 +185,8 @@
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 24px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .container-narrow {
@@ -421,6 +428,7 @@
             margin-bottom: 16px;
             color: #0f172a;
             letter-spacing: -0.02em;
+            width: 100%;
         }
 
         .section-subtitle {
@@ -431,6 +439,7 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            width: 100%;
         }
 
         .features-grid {
@@ -801,21 +810,27 @@
         .portfolio-carousel-container, .comparison-carousel-container {
             position: relative;
             overflow: hidden;
+            margin: 0 auto;
+            max-width: 100%;
         }
 
         .portfolio-carousel, .comparison-carousel {
             display: flex;
             transition: transform 0.3s ease;
+            width: 100%;
+            overflow: hidden;
         }
 
         .portfolio-slide {
             flex: 0 0 auto;
             min-width: 350px;
+            max-width: 100%;
         }
 
         .comparison-slide {
             flex: 0 0 auto;
             min-width: 100%;
+            max-width: 100%;
         }
 
         .carousel-btn, .comparison-btn {
@@ -835,19 +850,21 @@
             justify-content: center;
             font-size: 18px;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .carousel-btn:hover, .comparison-btn:hover {
             background: #e55a2b;
             transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .carousel-prev, .comparison-prev {
-            left: -60px;
+            left: 20px;
         }
 
         .carousel-next, .comparison-next {
-            right: -60px;
+            right: 20px;
         }
 
         .pagination-dot, .comparison-dot {
@@ -867,19 +884,19 @@
         /* Additional responsive styles */
         @media (max-width: 1200px) {
             .carousel-prev, .comparison-prev {
-                left: -50px;
+                left: 15px;
             }
             .carousel-next, .comparison-next {
-                right: -50px;
+                right: 15px;
             }
         }
 
         @media (max-width: 992px) {
             .carousel-prev, .comparison-prev {
-                left: -40px;
+                left: 10px;
             }
             .carousel-next, .comparison-next {
-                right: -40px;
+                right: 10px;
             }
         }
 
@@ -889,10 +906,16 @@
             }
             
             .carousel-prev, .comparison-prev {
-                left: -35px;
+                left: 8px;
             }
             .carousel-next, .comparison-next {
-                right: -35px;
+                right: 8px;
+            }
+            
+            .carousel-btn, .comparison-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
             }
         }
 
@@ -975,20 +998,26 @@
             .etapes-container {
                 grid-template-columns: 1fr !important;
                 gap: 32px !important;
+                padding: 0 16px !important;
             }
 
             .etape-card {
                 padding: 32px 20px !important;
+                margin: 0 auto !important;
+                max-width: 100% !important;
             }
 
             /* No hassle section responsive */
             .two-columns {
                 grid-template-columns: 1fr !important;
                 gap: 32px !important;
+                padding: 0 16px !important;
             }
 
             .avoid-list, .solution-box {
                 padding: 32px 20px !important;
+                margin: 0 auto !important;
+                max-width: 100% !important;
             }
 
             /* Comparison carousel responsive */
@@ -1105,31 +1134,7 @@
                 padding: 0 16px;
             }
 
-            /* Carousel responsive adjustments */
-            .portfolio-slide {
-                min-width: 280px;
-            }
-
-            .carousel-btn, .comparison-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 14px;
-            }
-
-            .carousel-prev, .comparison-prev {
-                left: -50px;
-            }
-
-            .carousel-next, .comparison-next {
-                right: -50px;
-            }
-
-            /* Hide navigation buttons on very small screens */
-            @media (max-width: 480px) {
-                .carousel-btn, .comparison-btn {
-                    display: none;
-                }
-            }
+            /* Carousel responsive adjustments - handled in main responsive section */
 
             .hero {
                 padding: 120px 0 80px;
