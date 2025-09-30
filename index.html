@@ -260,7 +260,7 @@
             flex-direction: column;
         }
 
-        /* Motif géométrique vert tech moderne */
+        /* Motif géométrique simplifié avec rectangles animés */
         .hero::before {
             content: '';
             position: absolute;
@@ -269,20 +269,17 @@
             right: 0;
             bottom: 0;
             background-image: 
-                /* Rectangles verticaux */
-                linear-gradient(90deg, var(--hero-green-dark) 0%, var(--hero-green-dark) 8px, transparent 8px, transparent 12px),
-                linear-gradient(90deg, var(--hero-green-medium) 0%, var(--hero-green-medium) 6px, transparent 6px, transparent 10px),
-                linear-gradient(90deg, var(--hero-green-light) 0%, var(--hero-green-light) 4px, transparent 4px, transparent 8px),
-                /* Carrés de différentes tailles */
-                linear-gradient(45deg, var(--hero-green-dark) 0%, var(--hero-green-dark) 20px, transparent 20px, transparent 40px),
-                linear-gradient(45deg, var(--hero-green-medium) 0%, var(--hero-green-medium) 15px, transparent 15px, transparent 30px),
-                linear-gradient(45deg, var(--hero-green-light) 0%, var(--hero-green-light) 10px, transparent 10px, transparent 20px);
-            background-size: 120px 80px, 100px 60px, 80px 40px, 60px 60px, 45px 45px, 30px 30px;
-            background-position: 0 0, 20px 20px, 40px 40px, 60px 10px, 80px 30px, 100px 50px;
-            opacity: 0.4;
+                /* Rectangles verticaux de différentes tailles */
+                linear-gradient(90deg, var(--hero-green-dark) 0%, var(--hero-green-dark) 12px, transparent 12px, transparent 20px),
+                linear-gradient(90deg, var(--hero-green-medium) 0%, var(--hero-green-medium) 8px, transparent 8px, transparent 16px),
+                linear-gradient(90deg, var(--hero-green-light) 0%, var(--hero-green-light) 6px, transparent 6px, transparent 12px);
+            background-size: 150px 100px, 120px 80px, 100px 60px;
+            background-position: 0 0, 50px 30px, 100px 60px;
+            opacity: 0.3;
+            animation: floatRectangles 20s ease-in-out infinite;
         }
 
-        /* Éléments géométriques supplémentaires pour plus de profondeur */
+        /* Rectangles supplémentaires avec mouvement différent */
         .hero::after {
             content: '';
             position: absolute;
@@ -291,15 +288,30 @@
             right: 0;
             bottom: 0;
             background-image: 
-                /* Rectangles verticaux supplémentaires avec opacités différentes */
-                linear-gradient(90deg, var(--hero-green-accent) 0%, var(--hero-green-accent) 3px, transparent 3px, transparent 6px),
-                linear-gradient(90deg, var(--hero-green-dark) 0%, var(--hero-green-dark) 5px, transparent 5px, transparent 10px),
-                /* Carrés supplémentaires */
-                linear-gradient(45deg, var(--hero-green-medium) 0%, var(--hero-green-medium) 8px, transparent 8px, transparent 16px),
-                linear-gradient(45deg, var(--hero-green-light) 0%, var(--hero-green-light) 12px, transparent 12px, transparent 24px);
-            background-size: 90px 70px, 70px 50px, 50px 50px, 35px 35px;
-            background-position: 30px 10px, 50px 30px, 70px 5px, 90px 25px;
+                /* Rectangles horizontaux */
+                linear-gradient(0deg, var(--hero-green-accent) 0%, var(--hero-green-accent) 8px, transparent 8px, transparent 16px),
+                linear-gradient(0deg, var(--hero-green-dark) 0%, var(--hero-green-dark) 6px, transparent 6px, transparent 12px),
+                linear-gradient(0deg, var(--hero-green-light) 0%, var(--hero-green-light) 4px, transparent 4px, transparent 8px);
+            background-size: 200px 80px, 150px 60px, 100px 40px;
+            background-position: 80px 20px, 150px 50px, 220px 80px;
             opacity: 0.2;
+            animation: floatRectangles 25s ease-in-out infinite reverse;
+        }
+
+        /* Animation des rectangles */
+        @keyframes floatRectangles {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+            }
+            25% {
+                transform: translateY(-10px) translateX(5px);
+            }
+            50% {
+                transform: translateY(-5px) translateX(-3px);
+            }
+            75% {
+                transform: translateY(-15px) translateX(8px);
+            }
         }
 
         /* Header dans la section Hero */
@@ -362,23 +374,23 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
+            font-size: clamp(4rem, 10vw, 7rem);
             font-weight: 300;
-            line-height: 1.2;
+            line-height: 1.1;
             color: var(--hero-white);
             margin-bottom: 2rem;
-            font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-            letter-spacing: -0.01em;
+            font-family: 'Nimbus Sans L', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+            letter-spacing: -0.02em;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .hero-subtitle {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
             font-weight: 300;
-            line-height: 1.5;
+            line-height: 1.4;
             color: var(--hero-white);
             margin-bottom: 0;
-            font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+            font-family: 'Nimbus Sans L', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
             max-width: 540px;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             opacity: 0.95;
@@ -409,12 +421,12 @@
             }
             
             .hero h1 {
-                font-size: clamp(2.5rem, 10vw, 4rem);
+                font-size: clamp(3rem, 12vw, 5rem);
                 font-weight: 300;
             }
             
             .hero-subtitle {
-                font-size: clamp(1.125rem, 4vw, 1.5rem);
+                font-size: clamp(1.25rem, 5vw, 1.75rem);
                 font-weight: 300;
             }
         }
@@ -422,17 +434,31 @@
         /* Optimisation pour très petits écrans */
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: clamp(2rem, 12vw, 3rem);
-                line-height: 1.3;
+                font-size: clamp(2.5rem, 15vw, 3.5rem);
+                line-height: 1.2;
             }
             
             .hero-subtitle {
-                font-size: clamp(1rem, 5vw, 1.25rem);
-                line-height: 1.4;
+                font-size: clamp(1.125rem, 6vw, 1.5rem);
+                line-height: 1.3;
             }
             
             .hero-container {
                 padding: 0 1rem;
+            }
+            
+            /* Réduire les animations sur mobile pour les performances */
+            .hero::before,
+            .hero::after {
+                animation-duration: 30s;
+            }
+        }
+
+        /* Optimisation des performances pour les animations */
+        @media (prefers-reduced-motion: reduce) {
+            .hero::before,
+            .hero::after {
+                animation: none;
             }
         }
 
